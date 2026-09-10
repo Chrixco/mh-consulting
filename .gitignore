@@ -1,0 +1,6 @@
+# Quellmaterial, gehört nicht auf den Server
+Background/
+
+# macOS
+.DS_Store
+**/.DS_Store
