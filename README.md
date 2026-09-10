@@ -434,39 +434,30 @@ Zwei Diagramme tragen je ein Argument:
    Der Ring behauptet deshalb gar nicht erst, alle Schnittmengen zu zeigen
    — er zeigt Nachbarschaft und eine gemeinsame Mitte.
 
-Die drei Kreise stehen in einem **Split-Komplementär-Schema** auf der
-Markenfarbe (`--venn-1` bis `--venn-3` in `style.css`). Die Markenfarbe
-behält den mittleren Kreis; die beiden anderen liegen beidseits ihrer
-Komplementärfarbe:
+Das **Hero-Diagramm** ist inzwischen eine von der Auftraggeberin
+gestaltete Bilddatei (`assets/img/venn-arbeit.png`) und kein Inline-SVG
+mehr. Drei abgerundete Quadrate in der Formensprache der Bildmarke, mit
+einer gemeinsamen Mitte, in der „wir" steht.
 
-| Token | Wert | Farbton | Ableitung |
-|---|---|---|---|
-| `--venn-1` | `#BF6F08` | 34° | Komplementär +30° — warm, hellster Kreis |
-| `--venn-2` | `#00666D` | 184° | die Markenfarbe selbst |
-| `--venn-3` | `#702948` | 334° | Komplementär −30° — rosé, dunkelster Kreis |
+**Was das kostet:** Der Text im Bild wird **nicht übersetzt** — auf `/en/`
+und `/es/` stehen die deutschen Beschriftungen. Der Alternativtext
+(`venn1.desc`) wird übersetzt und trägt die Aussage vollständig, das hilft
+aber nur Screenreadern und Suchmaschinen. Wer das beheben will, exportiert
+die Grafik dreimal; der Generator kann dann je Sprache die passende Datei
+einsetzen.
 
-Die Komplementärfarbe zu 184° liegt bei 4°. Genau dort säße ein Rot, das
-neben der Marke schreit; die beiden Kreise weichen deshalb um ±30° aus.
-Das ist die übliche Split-Komplementär-Konstruktion: maximaler Abstand zur
-Grundfarbe, ohne die Härte der reinen Komplementärfarbe.
+Neu erzeugen nach einer Änderung der Quelldatei:
 
-Wichtig: Die drei unterscheiden sich **nicht nur im Farbton, sondern auch in
-der Helligkeit** (Luminanz 0,225 / 0,106 / 0,055; Grauwerte 130 / 92 / 66).
-Nur so bleiben sie für farbenblinde Leser und im Schwarzweißdruck
-auseinanderzuhalten — der Farbton allein trägt die Aussage nie. Wer die
-Farben ändert, muss diesen Helligkeitsabstand erhalten: unter etwa 20
-Grauwert-Stufen fallen zwei Kreise im Druck zusammen. (Das frühere Set kam
-zwischen Kreis 2 und 3 nur auf 13 Stufen; das neue auf 26.)
+```bash
+cd assets/img && python3 -c "
+from PIL import Image
+im = Image.open('Unsere Arbeit@300x.png').convert('RGBA')
+im = im.crop(im.getbbox()); im.thumbnail((1200,1200), Image.LANCZOS)
+im.save('venn-arbeit.png', optimize=True)"
+```
 
-Überblendet wird **nicht**: Die Überlappungen dunkeln allein durch
-gestapelte Transparenz (30 %) nach. Eine Menge liest sich hell, zwei
-mittel, die gemeinsame Mitte am dunkelsten — das ist die Aussage.
-
-Kontrast der Beschriftungen auf den gerenderten Flächen: 9,5–11,5:1 für die
-Lappen, 3,6:1 für die Mitte. Der Mittel-Text steht deshalb fett auf 20 px
-und erfüllt damit die Schwelle für große Schrift (3:1). Wird er kleiner
-oder dünner gesetzt, reicht Dunkelblau dort nicht mehr — dann `--ink`
-verwenden (4,9:1).
+Die Farbtoken `--venn-1` bis `--venn-3` gelten nur noch für den Fall, dass
+wieder ein SVG-Diagramm eingesetzt wird.
 
 ### Der Sechser-Ring (Leistungen)
 
@@ -476,27 +467,30 @@ Uhrzeigersinn in der Reihenfolge der sechs Karten. Aus `148 − 88 = 60`
 ergibt sich das freie Mittelfeld; dort steht `venn2.core1` / `core2`.
 
 Eigene Farbtoken (`--venn6-1` bis `--venn6-6`), **nicht** die des
-Hero-Diagramms — drei Komplementärpaare, sechs Farbtöne im 60°-Abstand ab
-der Markenfarbe:
+Hero-Diagramms. Es ist eine **analoge Harmonie** um die Markenfarbe:
+sechs Farbtöne im Abstand von 15°, von Grün über die Marke bis Blau,
+dazu eine gleichmäßige Helligkeitsrampe. Der Ring liest sich dadurch als
+ein Verlauf und nicht als sechs Einzelfarben.
 
 | Token | Wert | Farbton | Feld |
 |---|---|---|---|
-| `--venn6-1` | `#00666D` | 184° | Grundwasser — die Markenfarbe |
-| `--venn6-2` | `#534CBD` | 244° | Klima |
-| `--venn6-3` | `#A50B9B` | 304° | Analysen |
-| `--venn6-4` | `#B12319` | 4° | Projekte — die Komplementärfarbe |
-| `--venn6-5` | `#5B5F1F` | 64° | Bildung |
-| `--venn6-6` | `#096B10` | 124° | International |
+| `--venn6-1` | `#07872F` | 139° | Grundwasser — hellster |
+| `--venn6-2` | `#2B7A57` | 154° | Klima |
+| `--venn6-3` | `#207061` | 169° | Analysen |
+| `--venn6-4` | `#00666D` | 184° | Projekte — **die Markenfarbe** |
+| `--venn6-5` | `#035880` | 199° | Bildung |
+| `--venn6-6` | `#0B4898` | 214° | International — dunkelster |
 
-**Anders als beim Hero-Diagramm sind alle sechs gleich hell** (Y 0,106,
-Grauwert 92). Das ist Absicht: Die sechs Felder sind gleichrangig, keines
-soll optisch schwerer wiegen. Der Preis ist, dass die Kreise im
-Graustufendruck farblich zusammenfallen — tragbar, weil jeder Kreis seine
-eigene Beschriftung enthält und über seine **Position** identifizierbar
-bleibt. Beim Drei-Mengen-Venn ist das anders: Dort muss man Regionen
-zurückverfolgen, deshalb dort die gestufte Helligkeit.
+**Bewusster Tausch:** Vorher standen hier sechs Töne im 60°-Abstand (drei
+Komplementärpaare). Die waren maximal unterscheidbar, aber laut — Magenta
+und Rot direkt neben der Marke. Analoge Töne gehören sichtbar zusammen.
+Der Preis: Die Grauwerte liegen enger beieinander (Abstand 8 statt 20+),
+im Schwarzweißdruck sind die Nachbarn also kaum zu trennen. Vertretbar,
+weil jeder Kreis seine eigene Beschriftung trägt und über seine
+**Position** erkennbar bleibt — anders als beim Drei-Mengen-Venn, wo man
+Regionen zurückverfolgen muss.
 
-Kontraste mit `--ink`: 9,5–10,4:1 auf den einzelnen Lappen, 6,3–7,0:1 in
+Kontraste mit `--ink`: 9,2–10,4:1 auf den einzelnen Lappen, 6,4–7,8:1 in
 den Überlappungen der Nachbarn.
 
 Die Beschriftungen sind **einzelne Wörter** (`venn2.a` bis `venn2.f`) und

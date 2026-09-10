@@ -21,19 +21,24 @@
   --venn-2:     #00666D;   /* the brand itself */
   --venn-3:     #702948;   /* hue 334° — rosé, darkest  */
 
-  /* Leistungs-Diagramm: sechs Felder als Ring. Drei Komplementärpaare —
-     sechs Farbtöne im Abstand von 60°, ausgehend von der Markenfarbe.
-     Anders als beim Drei-Mengen-Venn sind alle sechs auf DIESELBE
-     Leuchtdichte gebracht (Y 0,106, Grauwert 92): Die Felder sind
-     gleichrangig, keines soll schwerer wiegen. Die Zuordnung trägt
-     deshalb die Beschriftung in jedem Kreis, nicht die Farbe — im
-     Graustufendruck bleiben die Kreise über ihre Position lesbar. */
-  --venn6-1:    #00666D;   /* 184° — Grundwasser (die Markenfarbe) */
-  --venn6-2:    #534CBD;   /* 244° — Klima */
-  --venn6-3:    #A50B9B;   /* 304° — Analysen */
-  --venn6-4:    #B12319;   /*   4° — Projekte (die Komplementärfarbe) */
-  --venn6-5:    #5B5F1F;   /*  64° — Bildung */
-  --venn6-6:    #096B10;   /* 124° — International */
+  /* Leistungs-Diagramm: sechs Felder als Ring.
+     ANALOGE Harmonie um die Markenfarbe — sechs Farbtöne im Abstand von
+     15°, von 139° (Grün) über 184° (die Marke selbst) bis 214° (Blau).
+     Dazu eine gleichmäßige Helligkeitsrampe: Der Ring liest sich als
+     ein Verlauf, nicht als sechs Einzelfarben.
+
+     Bewusster Tausch gegenüber vorher: Das frühere Schema (sechs Töne
+     im 60°-Abstand) war maximal unterscheidbar, aber laut — Magenta und
+     Rot neben der Marke. Analoge Töne sind ruhig und gehören sichtbar
+     zusammen; der Preis ist, dass die Grauwerte enger beieinander
+     liegen (Abstand 8 statt 20+). Vertretbar, weil jeder Kreis seine
+     eigene Beschriftung trägt und über die Position erkennbar bleibt. */
+  --venn6-1:    #07872F;   /* 139° — Grundwasser, hellster */
+  --venn6-2:    #2B7A57;   /* 154° — Klima */
+  --venn6-3:    #207061;   /* 169° — Analysen */
+  --venn6-4:    #00666D;   /* 184° — Projekte, die Markenfarbe */
+  --venn6-5:    #035880;   /* 199° — Bildung */
+  --venn6-6:    #0B4898;   /* 214° — International, dunkelster */
   --ink:        #17211D;   /* headings and body */
   --muted:      #5A6A64;   /* secondary text — 5.4:1 on --paper */
   --paper:      #F7F9F8;
@@ -381,6 +386,7 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   padding:0 0 1.4rem;
 }
 .venn svg{ display:block; width:100%; height:auto; overflow:visible; }
+.venn__img{ display:block; width:100%; height:auto; }
 
 .venn__c{ fill-opacity:.30; stroke-width:1.25; stroke-opacity:.5; }
 .venn__c--1{ fill:var(--venn-1); stroke:var(--venn-1); }
