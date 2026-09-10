@@ -280,8 +280,12 @@
     if (typeof write.showModal === 'function') write.showModal();
     else write.setAttribute('open', '');
 
-    // Land where there is something to do: after the prefill, or at the top.
-    if (prefilled) {
+    // Dort landen, wo es etwas zu tun gibt: beim Zeitfenster, wenn der Weg
+    // über „Zeit vorschlagen" kam, sonst hinter dem Einstiegssatz oder am
+    // Anfang des Formulars.
+    if (opts.focus === 'slot' && wf.slot) {
+      wf.slot.focus();
+    } else if (prefilled) {
       wf.message.focus();
       wf.message.setSelectionRange(wf.message.value.length, wf.message.value.length);
     } else {
@@ -349,6 +353,18 @@
         openTalk(el);
       });
     });
+
+    /* „Zeit vorschlagen" führt in dasselbe Schreibfenster, setzt den Fokus
+       aber auf die Zeitfenster-Auswahl statt auf das Namensfeld — der Knopf
+       verspricht eine Terminwahl, also fängt sie dort an. */
+    var talkBook = document.getElementById('talk-book');
+    if (talkBook) {
+      talkBook.addEventListener('click', function () {
+        var back = talkReturn;
+        closeTalk();
+        openWrite({ returnTo: back, focus: 'slot' });
+      });
+    }
 
     talkCta.addEventListener('click', function () {
       var back = talkReturn;      // hand the original trigger along
@@ -541,6 +557,7 @@
       org:     formEl.querySelector('[name="org"]'),
       email:   formEl.querySelector('[name="email"]'),
       topic:   formEl.querySelector('[name="topic"]'),
+      slot:    formEl.querySelector('[name="slot"]'),
       message: formEl.querySelector('[name="message"]'),
       privacy: formEl.querySelector('[name="privacy"]')
     };
@@ -575,14 +592,20 @@
 
       var topicLabel = f.topic.options[f.topic.selectedIndex].textContent;
       var subject = '[' + topicLabel + '] ' + f.name.value.trim();
-      var body = [
+      // Das Zeitfenster steht nur in der Mail, wenn eines gewählt wurde —
+      // „keine Präferenz" ist keine Information und verlängert sie nur.
+      var zeilen = [
         t('frm.name')  + ': ' + f.name.value.trim(),
         t('frm.org')   + ': ' + (f.org.value.trim() || '—'),
         t('frm.mail')  + ': ' + f.email.value.trim(),
-        t('frm.topic') + ': ' + topicLabel,
-        '',
-        f.message.value.trim()
-      ].join('\n');
+        t('frm.topic') + ': ' + topicLabel
+      ];
+      if (f.slot && f.slot.value) {
+        zeilen.push(t('frm.slot') + ' ' +
+                    f.slot.options[f.slot.selectedIndex].textContent);
+      }
+      zeilen.push('', f.message.value.trim());
+      var body = zeilen.join('\n');
 
       setNote(noteEl, t('ui.ok'), 'ok');
       window.location.href = 'mailto:' + MAILTO +

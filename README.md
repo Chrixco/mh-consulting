@@ -862,16 +862,39 @@ Gespeichert wird genau ein Wert: `hc.consent` = `granted` | `denied`. Ohne
 ihn müsste bei jedem Aufruf neu gefragt werden; er ist damit nach
 § 25 Abs. 2 Nr. 2 TDDDG einwilligungsfrei.
 
-### Terminbuchung
+### Terminwahl über die eigene Mail
 
-Der Knopf im Erstgespräch-Fenster ist ein **ausgehender Link**, keine
-Einbettung. Das ist der Grund, warum dafür keine Einwilligung nötig ist:
-Es werden erst Daten übertragen, wenn jemand dem Link folgt. Eingebettet
-wäre Cal.com ein Drittanbieter im Seitenkontext — dann bräuchte es das
-Banner auch dafür.
+Der Knopf im Erstgesprächs-Fenster heißt **„Zeit vorschlagen"** und öffnet
+das Schreibfenster, mit dem Fokus direkt auf der Zeitfenster-Auswahl. Der
+Vorschlag geht als Zeile in die Mail ein — aber nur, wenn eine Option
+gewählt wurde; „keine Präferenz" ist keine Information.
 
-Der kostenlose Einzelplatz-Tarif reicht für ein Erstgespräch; die
-Buchungsseite trägt dann Cal.com-Branding und liegt unter `cal.com/…`.
+**Warum nicht „Termin auswählen":** Ohne Kalenderanbindung kennt die Seite
+die freien Zeiten nicht. Ein Knopf, der einen verbindlichen Termin
+verspricht und dann ein Formular öffnet, wäre eine Lüge an der auffälligsten
+Stelle der Seite. „Vorschlagen" beschreibt, was tatsächlich passiert:
+Die Besucherin schlägt vor, bestätigt wird per Antwort.
+
+Vorher stand hier ein Platzhalter-Link auf `cal.com/xxxx/erstgespraech` —
+der **live auf eine 404-Seite führte**.
+
+Felder: `slot` in beiden Formularen, Texte unter `frm.slot` und
+`frm.s0`–`frm.s4`. Wer eine Option ergänzt, ergänzt sie in **beiden**
+`<select>` und in allen drei Sprachpaketen; `fieldsOf()` in `main.js` muss
+das Feld kennen, sonst greift die Fokussteuerung nicht.
+
+### Wenn es echte Verfügbarkeit sein soll
+
+Dann braucht es einen Buchungsdienst — statisches Hosting steht dem nicht
+im Weg, die Synchronisation läuft beim Anbieter. Cal.com verbindet sich
+per **CalDAV** auch mit einem IONOS-Kalender, also mit demselben Konto wie
+das Postfach; Google Calendar und Outlook gehen ebenfalls.
+
+Zwei Bedingungen: der Knopf bleibt ein **ausgehender Link** (eingebettet
+wäre der Dienst ein Drittanbieter im Seitenkontext und bräuchte die
+Einwilligung), und es braucht einen Auftragsverarbeitungsvertrag, weil dort
+Namen und E-Mail-Adressen von Interessenten anfallen. Abschnitt 3 der
+Datenschutzerklärung ist dafür bereits vorbereitet.
 
 ---
 

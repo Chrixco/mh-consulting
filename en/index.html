@@ -87,8 +87,24 @@
   },
   "knowsLanguage": ["de", "en", "es"],
   "areaServed": [
+    {"@type": "City", "name": "Rosenheim"},
+    {"@type": "AdministrativeArea", "name": "Oberbayern"},
+    {"@type": "State", "name": "Bayern"},
     {"@type": "Country", "name": "Deutschland"},
     {"@type": "Place", "name": "Lateinamerika"}
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Kundenkontakt",
+    "telephone": "+49 160 96672854",
+    "email": "huber@mh-consulting-wasser.de",
+    "availableLanguage": ["de", "en", "es"]
+  },
+  "knowsAbout": [
+    "Grundwasserschutz", "Wasserschutzgebiete", "Trinkwasserversorgung",
+    "Klimaanpassung", "Regenwassermanagement", "Wasserwiederverwendung",
+    "Machbarkeitsbewertung", "Fachkonzepte", "GIS-Analysen",
+    "Umweltbildung", "Technologietransfer", "Entwicklungszusammenarbeit"
   ],
   "telephone": "+49 160 96672854",
   "address": {
@@ -168,7 +184,7 @@
   <section class="hero">
     <div class="hero__text">
       <p class="eyebrow" data-i18n-html="hero.eyebrow">Water engineering · Bavaria · <span class="eyebrow__intl">working internationally</span></span></p>
-      <h1 data-i18n-html="hero.h1">Using water<br>sustainably</h1>
+      <h1 data-i18n-html="hero.h1">Using water <br>sustainably</h1>
       <p class="standfirst" data-i18n="hero.lede">Consulting for municipalities, water utilities, companies and project partners — from groundwater protection and climate adaptation through analyses and project support to education and international water consulting.</p>
       <div class="actions">
         <a class="btn btn--solid" href="#kontakt" data-opens-write data-i18n="hero.cta1">Discuss a project</a>
@@ -514,6 +530,16 @@
           </select>
         </div>
         <div class="field field--wide">
+          <label for="f-slot" data-i18n="frm.slot">When suits you?</label>
+          <select id="f-slot" name="slot">
+            <option value="" data-i18n="frm.s0" selected>No preference — suggest something</option>
+            <option value="vormittags" data-i18n="frm.s1">Morning (9–12)</option>
+            <option value="mittags" data-i18n="frm.s2">Midday (12–14)</option>
+            <option value="nachmittags" data-i18n="frm.s3">Afternoon (14–17)</option>
+            <option value="spaet" data-i18n="frm.s4">Late afternoon (17–19)</option>
+          </select>
+        </div>
+        <div class="field field--wide">
           <label for="f-msg" data-i18n="frm.msg">What is it about?</label>
           <textarea id="f-msg" name="message" rows="5" required></textarea>
         </div>
@@ -591,6 +617,16 @@
           <option value="sonstiges" data-i18n="frm.o7">Something else</option>
         </select>
       </div>
+        <div class="field field--wide">
+          <label for="w-slot" data-i18n="frm.slot">When suits you?</label>
+          <select id="w-slot" name="slot">
+            <option value="" data-i18n="frm.s0" selected>No preference — suggest something</option>
+            <option value="vormittags" data-i18n="frm.s1">Morning (9–12)</option>
+            <option value="mittags" data-i18n="frm.s2">Midday (12–14)</option>
+            <option value="nachmittags" data-i18n="frm.s3">Afternoon (14–17)</option>
+            <option value="spaet" data-i18n="frm.s4">Late afternoon (17–19)</option>
+          </select>
+        </div>
       <div class="field field--wide">
         <label for="w-msg" data-i18n="frm.msg">What is it about?</label>
         <textarea id="w-msg" name="message" rows="5" required></textarea>
@@ -632,13 +668,16 @@
     </div>
 
     <div class="modal__foot">
-      <!-- PLATZHALTER: echten Cal.com-Link eintragen, sobald das Konto steht.
-           Bewusst ein ausgehender Link und keine Einbettung — eingebettet
-           wäre Cal.com ein Drittanbieter im Seitenkontext und bräuchte eine
-           Einwilligung. Verlinken braucht keine. -->
-      <a class="btn btn--solid" id="talk-book"
-         href="https://cal.com/xxxx/erstgespraech"
-         rel="noopener" target="_blank" data-i18n="talk.book">Pick a time</a>
+      <!-- Terminwahl über die eigene Mail statt über einen Buchungsdienst:
+           Der Knopf öffnet das Schreibfenster und springt auf das Feld mit
+           den Zeitfenstern. Der Vorschlag geht in die Nachricht ein.
+
+           Bewusst „Zeit vorschlagen" und nicht „Termin auswählen": Ohne
+           Kalenderanbindung kennen wir die freien Zeiten nicht, ein
+           verbindlicher Termin wäre also ein Versprechen, das die Seite
+           nicht halten kann. Wer echte Verfügbarkeit will, braucht einen
+           Buchungsdienst — siehe README. -->
+      <button class="btn btn--solid" id="talk-book" type="button" data-i18n="talk.book">Propose a time</button>
       <button class="btn" id="talk-cta" type="button" data-i18n="talk.cta">Write instead</button>
       <p class="modal__hint">
         <span data-i18n="talk.alt">Or directly:</span>
