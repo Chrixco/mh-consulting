@@ -883,6 +883,31 @@ Felder: `slot` in beiden Formularen, Texte unter `frm.slot` und
 `<select>` und in allen drei Sprachpaketen; `fieldsOf()` in `main.js` muss
 das Feld kennen, sonst greift die Fokussteuerung nicht.
 
+### Auftragsverarbeitung — die Übersicht in Abschnitt 5
+
+Die Datenschutzerklärung führt alle Stellen, die Daten in unserem Auftrag
+verarbeiten, in **einer Tabelle**: Dienst, Zweck, Zeitpunkt, Sitz und
+Status des Vertrags nach Art. 28 DSGVO. Vorher standen diese Angaben an
+vier Stellen in vier Formulierungen; eine davon behauptete sogar, ein
+Vertrag bestehe bereits.
+
+Vier Zeilen, alle mit offenem Vertrag:
+
+| Dienst | Wofür | Wann | Sitz |
+|---|---|---|---|
+| GitHub, Inc. | Auslieferung der Website | bei jedem Aufruf | USA |
+| *(E-Mail-Anbieter)* | Postfach | wenn jemand schreibt | offen |
+| Google Ireland Ltd. | Reichweitenmessung | **nur mit Einwilligung** | IE / USA |
+| Cal.com, Inc. | Terminbuchung | **nur beim Klick auf den Link** | USA |
+
+Bei den drei US-Diensten kommt zum Vertrag die Grundlage der
+Drittlandübermittlung — Standardvertragsklauseln oder Zertifizierung nach
+dem EU-US Data Privacy Framework.
+
+**Die Spalte „Auftragsverarbeitung" ist die Startbedingung.** Solange dort
+„zu bestätigen" steht, ist die Verarbeitung angreifbar. Sie ist bewusst
+sichtbar markiert, damit sie nicht vergessen wird.
+
 ### Wenn es echte Verfügbarkeit sein soll
 
 Dann braucht es einen Buchungsdienst — statisches Hosting steht dem nicht

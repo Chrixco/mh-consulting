@@ -501,7 +501,15 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
    4,5:1 aus WCAG AA. Wer hier später Lesbarkeit nachrüsten will, hat drei
    Hebel: dunklere Farbtoken, höhere Deckkraft, oder Schrift in --ink. */
 .venn--work .venn__c{ fill-opacity:.5; stroke:none; }
-.venn--work .venn__labels text{ font-size:60px; fill:var(--white); }
+/* Beschriftungen der Lappen in --ink, NICHT in Weiß. Gemessen auf den
+   Flächen bei 50 % Deckkraft:
+     Behörde       Weiß 1,76:1  gegen --ink 9,36:1
+     Betrieb       Weiß 2,42:1  gegen --ink 6,82:1
+     International Weiß 3,23:1  gegen --ink 5,11:1
+   Bei 60 px gilt die Schwelle für große Schrift (3:1) — zwei der drei
+   fielen mit Weiß durch. Die Mitte ist der umgekehrte Fall: Der dunkle
+   Chip trägt Weiß mit 11,75:1, --ink käme dort auf 1,41:1. */
+.venn--work .venn__labels text{ font-size:60px; fill:var(--ink); }
 .venn--work .venn__core text{ font-size:100px; fill:var(--white); letter-spacing:-.02em; }
 
 .venn__chip{
@@ -1112,6 +1120,16 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .legal{ max-width:min(70ch,100%); margin-inline:auto; padding:clamp(3.5rem,8vw,6rem) var(--pad) 5rem; }
 .legal h1{ font-size:clamp(2.2rem,1.5rem + 2.4vw,3rem); margin-bottom:1.8rem; }
 .legal h2{ font-size:1.2rem; margin:3rem 0 .9rem; }
+/* Übersicht der Auftragsverarbeiter. Schmale Spalten mit langen Namen —
+   deshalb darf die Tabelle waagerecht scrollen statt die Seite zu sprengen. */
+.legal .proc{ overflow-x:auto; margin:1.2rem 0 .8rem; }
+.legal .proc table{ border-collapse:collapse; width:100%; min-width:34rem; }
+.legal .proc th, .legal .proc td{
+  text-align:left; vertical-align:top; padding:.55rem .8rem .55rem 0;
+  border-bottom:1px solid var(--line); font-size:.88rem; line-height:1.5;
+}
+.legal .proc th{ font-family:var(--sans); font-weight:500; font-size:.8rem; color:var(--muted); }
+
 .legal h3{ font-size:.7rem; font-weight:500; letter-spacing:0;
            color:var(--navy); margin:2rem 0 .5rem; }
 .legal p, .legal li{ font-size:.97rem; color:var(--muted); }

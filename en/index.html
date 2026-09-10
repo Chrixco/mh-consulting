@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="meta.title">MH Consulting — Water &amp; Environmental Engineering</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="MH Consulting advises municipalities, water utilities and companies on water: groundwater protection, climate adaptation, analyses, projects, training.">
-<meta name="robots" content="noindex,nofollow"><!-- ENTFERNEN VOR DEM ECHTEN START -->
+<meta name="description" data-i18n-attr="content:meta.desc" content="Magdalena Huber, MH Consulting Rosenheim: water and environmental engineering — groundwater protection, water supply, climate adaptation, analyses, training.">
 <!-- Sicherheitsvorgaben als Meta-Angabe. GitHub Pages erlaubt keine
      eigenen HTTP-Kopfzeilen, deshalb hier — wirkt für alles, was das
      Dokument selbst nachlädt.
@@ -49,7 +48,7 @@
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:url" content="https://mh-consulting-wasser.de/en/">
 <meta property="og:title" data-i18n-attr="content:meta.title" content="MH Consulting — Water &amp; Environmental Engineering">
-<meta property="og:description" data-i18n-attr="content:meta.desc" content="MH Consulting advises municipalities, water utilities and companies on water: groundwater protection, climate adaptation, analyses, projects, training.">
+<meta property="og:description" data-i18n-attr="content:meta.desc" content="Magdalena Huber, MH Consulting Rosenheim: water and environmental engineering — groundwater protection, water supply, climate adaptation, analyses, training.">
 <meta property="og:image" content="https://mh-consulting-wasser.de/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -71,62 +70,212 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://mh-consulting-wasser.de/#organisation",
-  "name": "MH Consulting",
-  "description": "Beratung rund um die Ressource Wasser: Grundwasserschutz und Wasserversorgung, Klimaanpassung, Analysen und Fachkonzepte, Projektbegleitung, Bildung sowie internationale Wasserberatung.",
-  "url": "https://mh-consulting-wasser.de/",
-  "email": "huber@mh-consulting-wasser.de",
-  "image": "https://mh-consulting-wasser.de/assets/img/og.jpg",
-  "logo": "https://mh-consulting-wasser.de/assets/img/logo.png",
-  "founder": {
-    "@type": "Person",
-    "name": "Magdalena Huber",
-    "jobTitle": "M.Sc. Umweltingenieurwesen",
-    "sameAs": ["https://www.linkedin.com/in/magdalenahuber/"]
-  },
-  "knowsLanguage": ["de", "en", "es"],
-  "areaServed": [
-    {"@type": "City", "name": "Rosenheim"},
-    {"@type": "AdministrativeArea", "name": "Oberbayern"},
-    {"@type": "State", "name": "Bayern"},
-    {"@type": "Country", "name": "Deutschland"},
-    {"@type": "Place", "name": "Lateinamerika"}
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "Kundenkontakt",
-    "telephone": "+49 160 96672854",
-    "email": "huber@mh-consulting-wasser.de",
-    "availableLanguage": ["de", "en", "es"]
-  },
-  "knowsAbout": [
-    "Grundwasserschutz", "Wasserschutzgebiete", "Trinkwasserversorgung",
-    "Klimaanpassung", "Regenwassermanagement", "Wasserwiederverwendung",
-    "Machbarkeitsbewertung", "Fachkonzepte", "GIS-Analysen",
-    "Umweltbildung", "Technologietransfer", "Entwicklungszusammenarbeit"
-  ],
-  "telephone": "+49 160 96672854",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Illerstraße 24a",
-    "postalCode": "83022",
-    "addressLocality": "Rosenheim",
-    "addressRegion": "Bayern",
-    "addressCountry": "DE"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Leistungen",
-    "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Grundwasserschutz & Wasserversorgung"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Klimaanpassung & nachhaltiges Wassermanagement"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Analysen, Fachkonzepte & technische Bewertung"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Projektbegleitung, Beratung & Wissenstransfer"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bildung, Workshops & Wissenstransfer"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Internationale Wasserberatung & Technologietransfer"}}
-    ]
-  }
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://mh-consulting-wasser.de/#organisation",
+      "name": "MH Consulting",
+      "description": "Beratung rund um die Ressource Wasser: Grundwasserschutz und Wasserversorgung, Klimaanpassung, Analysen und Fachkonzepte, Projektbegleitung, Bildung sowie internationale Wasserberatung.",
+      "url": "https://mh-consulting-wasser.de/",
+      "email": "huber@mh-consulting-wasser.de",
+      "image": "https://mh-consulting-wasser.de/assets/img/og.jpg",
+      "logo": "https://mh-consulting-wasser.de/assets/img/logo.png",
+      "founder": {
+        "@id": "https://mh-consulting-wasser.de/#magdalena-huber"
+      },
+      "knowsLanguage": [
+        "de",
+        "en",
+        "es"
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Rosenheim"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Oberbayern"
+        },
+        {
+          "@type": "State",
+          "name": "Bayern"
+        },
+        {
+          "@type": "Country",
+          "name": "Deutschland"
+        },
+        {
+          "@type": "Place",
+          "name": "Lateinamerika"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Kundenkontakt",
+        "telephone": "+49 160 96672854",
+        "email": "huber@mh-consulting-wasser.de",
+        "availableLanguage": [
+          "de",
+          "en",
+          "es"
+        ]
+      },
+      "knowsAbout": [
+        "Grundwasserschutz",
+        "Wasserschutzgebiete",
+        "Trinkwasserversorgung",
+        "Hydrologische Auswertung",
+        "Wasserrechtliche Verfahren",
+        "Gutachten und Stellungnahmen",
+        "Klimaanpassung",
+        "Regenwassermanagement",
+        "Wasserwiederverwendung",
+        "Renaturierung",
+        "Netzanalyse",
+        "Wasserverluste",
+        "Monitoring",
+        "Machbarkeitsbewertung",
+        "Fachkonzepte",
+        "GIS-Analysen",
+        "Fördermittelberatung",
+        "Förderanträge",
+        "Umweltbildung",
+        "Technologietransfer",
+        "Entwicklungszusammenarbeit",
+        "WASH"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.8561,
+        "longitude": 12.1289
+      },
+      "telephone": "+49 160 96672854",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Illerstraße 24a",
+        "postalCode": "83022",
+        "addressLocality": "Rosenheim",
+        "addressRegion": "Bayern",
+        "addressCountry": "DE"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Grundwasserschutz & Wasserversorgung"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Klimaanpassung & nachhaltiges Wassermanagement"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Analysen, Fachkonzepte & technische Bewertung"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Projektbegleitung, Beratung & Wissenstransfer"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bildung, Workshops & Wissenstransfer"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Internationale Wasserberatung & Technologietransfer"
+            }
+          }
+        ]
+      },
+      "employee": {
+        "@id": "https://mh-consulting-wasser.de/#magdalena-huber"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mh-consulting-wasser.de/#magdalena-huber",
+      "name": "Magdalena Huber",
+      "givenName": "Magdalena",
+      "familyName": "Huber",
+      "jobTitle": "M.Sc. Umweltingenieurwesen",
+      "description": "Magdalena Huber ist Umweltingenieurin und Inhaberin von MH Consulting in Rosenheim. Sie berät Kommunen, Zweckverbände und Wasserversorger zu Grundwasserschutz, Wasserversorgung, Klimaanpassung und internationaler Wasserberatung.",
+      "image": "https://mh-consulting-wasser.de/assets/img/portrait.jpg",
+      "url": "https://mh-consulting-wasser.de/#profil",
+      "worksFor": {
+        "@id": "https://mh-consulting-wasser.de/#organisation"
+      },
+      "knowsLanguage": [
+        "de",
+        "en",
+        "es"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Illerstraße 24a",
+        "postalCode": "83022",
+        "addressLocality": "Rosenheim",
+        "addressRegion": "Bayern",
+        "addressCountry": "DE"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Chalmers University of Technology, Göteborg"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Technische Universität Braunschweig"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/magdalenahuber/"
+      ],
+      "knowsAbout": [
+        "Grundwasserschutz",
+        "Wasserschutzgebiete",
+        "Trinkwasserversorgung",
+        "Hydrologische Auswertung",
+        "Wasserrechtliche Verfahren",
+        "Gutachten und Stellungnahmen",
+        "Klimaanpassung",
+        "Regenwassermanagement",
+        "Wasserwiederverwendung",
+        "Renaturierung",
+        "Netzanalyse",
+        "Wasserverluste",
+        "Monitoring",
+        "Machbarkeitsbewertung",
+        "Fachkonzepte",
+        "GIS-Analysen",
+        "Fördermittelberatung",
+        "Förderanträge",
+        "Umweltbildung",
+        "Technologietransfer",
+        "Entwicklungszusammenarbeit",
+        "WASH"
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -185,7 +334,7 @@
     <div class="hero__text">
       <p class="eyebrow" data-i18n-html="hero.eyebrow">Water engineering · Bavaria · <span class="eyebrow__intl">working internationally</span></span></p>
       <h1 data-i18n-html="hero.h1">Using water <br>sustainably</h1>
-      <p class="standfirst" data-i18n="hero.lede">Consulting for municipalities, water utilities, companies and project partners — from groundwater protection and climate adaptation through analyses and project support to education and international water consulting.</p>
+      <p class="standfirst" data-i18n="hero.lede">Consulting for municipalities, special-purpose water associations, utilities, companies and project partners — from groundwater protection and climate adaptation through analyses and project support to education and international water consulting.</p>
       <div class="actions">
         <a class="btn btn--solid" href="#kontakt" data-opens-write data-i18n="hero.cta1">Discuss a project</a>
         <a class="btn btn--ghost" href="#leistungen" data-i18n="hero.cta2">See services</a>
@@ -290,7 +439,7 @@
       <li class="card">
         <span class="card__tick" aria-hidden="true"></span>
         <h3 data-i18n="svc.1t">Groundwater protection &amp; water supply</h3>
-        <p data-i18n="svc.1d">A secure water supply begins with protecting the resource. I provide support on water management questions, from the initial survey through to the technical assessment.</p>
+        <p data-i18n="svc.1d">A secure water supply begins with protecting the resource. I provide support on water management questions, from hydrological assessment through technical evaluation to support in water-law permitting procedures — including expert reports and statements for the approval process.</p>
         <ul class="tags">
           <li data-i18n="svc.1a">Groundwater protection</li><li data-i18n="svc.1b">Water protection zones</li><li data-i18n="svc.1c">Drinking water supply</li>
         </ul>
@@ -301,7 +450,7 @@
       <li class="card">
         <span class="card__tick" aria-hidden="true"></span>
         <h3 data-i18n="svc.2t">Climate adaptation &amp; sustainable water management</h3>
-        <p data-i18n="svc.2d">Dry periods, heavy rainfall and rising pressure on use call for a new way of dealing with water. Together we develop measures that use water more efficiently and make systems more resilient.</p>
+        <p data-i18n="svc.2d">Dry periods, heavy rainfall and rising pressure on use call for a new way of dealing with water. Together we develop measures that use water more efficiently and make systems more resilient — from rainwater management to river restoration.</p>
         <ul class="tags">
           <li data-i18n="svc.2a">Water saving</li><li data-i18n="svc.2b">Rainwater management</li><li data-i18n="svc.2c">Water reuse</li>
         </ul>
@@ -312,7 +461,7 @@
       <li class="card">
         <span class="card__tick" aria-hidden="true"></span>
         <h3 data-i18n="svc.3t">Analyses, technical concepts &amp; assessment</h3>
-        <p data-i18n="svc.3d">Not every technically possible solution makes sense in the long run. MH Consulting helps to compare different options in a structured way and to arrive at well-founded decisions.</p>
+        <p data-i18n="svc.3d">Not every technically possible solution makes sense in the long run. MH Consulting helps to compare different options in a structured way and to arrive at well-founded decisions — from network analysis and the assessment of water losses to setting up reliable monitoring.</p>
         <ul class="tags">
           <li data-i18n="svc.3a">Feasibility assessment</li><li data-i18n="svc.3b">Technical concepts</li><li data-i18n="svc.3c">GIS analyses</li>
         </ul>
@@ -323,7 +472,7 @@
       <li class="card">
         <span class="card__tick" aria-hidden="true"></span>
         <h3 data-i18n="svc.4t">Project support, consulting &amp; knowledge transfer</h3>
-        <p data-i18n="svc.4d">Getting from a good idea to implementation means bringing many parties together. I support projects technically, organisationally and at the interfaces between engineering, administration and operations.</p>
+        <p data-i18n="svc.4d">Getting from a good idea to implementation means bringing many parties together. I support projects technically, organisationally and at the interfaces between engineering, administration and operations — including identifying suitable funding programmes and preparing funding applications.</p>
         <ul class="tags">
           <li data-i18n="svc.4a">Project management</li><li data-i18n="svc.4b">Coordination</li><li data-i18n="svc.4c">Documentation</li>
         </ul>
@@ -345,7 +494,7 @@
       <li class="card">
         <span class="card__tick" aria-hidden="true"></span>
         <h3 data-i18n="svc.6t">International water consulting &amp; technology transfer</h3>
-        <p data-i18n="svc.6d">Water management solutions cannot be transferred one to one from one country to another. What matters is whether a technology actually works under the given local conditions and can be operated in the long term.</p>
+        <p data-i18n="svc.6d">Water management solutions cannot be transferred one to one from one country to another. What matters is whether a technology actually works under the given local conditions and can be operated in the long term — for example in WASH projects in development cooperation.</p>
         <ul class="tags">
           <li data-i18n="svc.6a">Development cooperation</li><li data-i18n="svc.6b">Technology transfer</li><li data-i18n="svc.6c">Latin America</li>
         </ul>
@@ -357,7 +506,10 @@
   </section>
 
   <!-- ── PROJEKTE ───────────────────────────────────────── -->
-  <section id="projekte" class="band band--dark">
+  <!-- data-nosnippet: solange hier Platzhalter stehen, darf Google den
+     Abschnitt nicht als Suchergebnis-Textausschnitt verwenden.
+     ENTFERNEN, sobald echte Referenzen eingetragen sind. -->
+  <section id="projekte" class="band band--dark" data-nosnippet>
     <div class="band__head band__head--center">
       <h2 data-i18n="prj.h2">Selected references</h2>
       <p class="band__lede" data-i18n="prj.lede">[PLACEHOLDER — add an introductory line once real references are confirmed.]</p>
