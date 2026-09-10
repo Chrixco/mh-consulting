@@ -170,7 +170,7 @@ de: {
   "talk.soft":"Kein Angebot, keine Verpflichtung, keine Nachfass-E-Mails. Wenn wir nicht die Richtigen sind, sagen wir das — und nennen, wen wir kennen.",
   "ctc.h2":"Erzählen Sie uns von Ihrem Vorhaben.",
   "ctc.lede":"Ein Erstgespräch von 30 Minuten ist kostenfrei. Danach wissen Sie, ob sich ein Auftrag lohnt — und wir auch.",
-  "ctc.mail":"E-Mail","ctc.phone":"Telefon","ctc.addr":"Büro",
+  "ctc.mail":"E-Mail","ctc.phone":"Telefon","ctc.addr":"Büro","ctc.profile":"Profil",
   "ph.mail":"consulting_mhuber@gmx.net","ph.phone":"[TELEFON EINTRAGEN]",
   "ph.addr":"[STRASSE NR.]<br>[PLZ] Rosenheim<br>Deutschland",
 
@@ -362,7 +362,7 @@ en: {
   "talk.soft":"No quote, no obligation, no follow-up emails. If we are not the right people for it, we will say so — and point you to someone we know.",
   "ctc.h2":"Tell us about your project.",
   "ctc.lede":"A first 30-minute conversation costs nothing. After it you'll know whether an assignment makes sense — and so will we.",
-  "ctc.mail":"Email","ctc.phone":"Phone","ctc.addr":"Office",
+  "ctc.mail":"Email","ctc.phone":"Phone","ctc.addr":"Office","ctc.profile":"Profile",
   "ph.mail":"consulting_mhuber@gmx.net","ph.phone":"[ADD PHONE NUMBER]",
   "ph.addr":"[STREET NO.]<br>[POSTCODE] Rosenheim<br>Germany",
 
@@ -554,7 +554,7 @@ es: {
   "talk.soft":"Sin cotización, sin compromiso, sin correos de seguimiento. Si no somos los indicados, se lo diremos — y le sugeriremos a quién conocemos.",
   "ctc.h2":"Cuéntenos su proyecto.",
   "ctc.lede":"Una primera conversación de 30 minutos no cuesta nada. Después sabrá si el encargo tiene sentido — y nosotros también.",
-  "ctc.mail":"Correo","ctc.phone":"Teléfono","ctc.addr":"Oficina",
+  "ctc.mail":"Correo","ctc.phone":"Teléfono","ctc.addr":"Oficina","ctc.profile":"Perfil",
   "ph.mail":"consulting_mhuber@gmx.net","ph.phone":"[AÑADIR TELÉFONO]",
   "ph.addr":"[CALLE N.º]<br>[CP] Rosenheim<br>Alemania",
 

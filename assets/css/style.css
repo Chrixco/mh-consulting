@@ -115,7 +115,7 @@ h3{ font-size:var(--t-h3); letter-spacing:-.02em; line-height:1.2; }
    Alles, was man anklickt, tippt oder als Wegweiser liest, trägt die
    Grotesk. Ohne diese Regel erbt jedes `font-family:inherit` die
    Serife und die Oberfläche franst aus. */
-.nav a, .btn, .cta-mini, .lang button, .burger,
+.nav a, .btn, .cta-mini, .lang a, .burger,
 .wordmark__name, .foot a, .foot__nav a,
 .field input, .field select, .field textarea,
 .form__note, .skiplink{
@@ -297,14 +297,15 @@ a{ color:inherit; }
 .masthead__tools{ display:flex; align-items:center; gap:1rem; }
 
 .lang{ display:flex; gap:.15rem; }
-.lang button{
-  appearance:none; border:0; background:none; cursor:pointer;
+.lang a{
+  display:inline-flex; align-items:center; justify-content:center;
+  text-decoration:none;
   font-size:var(--t-xs); font-weight:500; letter-spacing:.02em;
   padding:.5rem .6rem; min-height:2rem; color:var(--muted); border-radius:var(--r-xs);
   transition:color .2s var(--ease), background .2s var(--ease);
 }
-.lang button[aria-pressed="true"]{ color:var(--on-dark); background:var(--navy); }
-.lang button:hover:not([aria-pressed="true"]){ color:var(--ink); background:var(--brand-soft); }
+.lang a[aria-current="true"]{ color:var(--on-dark); background:var(--navy); }
+.lang a:hover:not([aria-current="true"]){ color:var(--ink); background:var(--brand-soft); }
 
 .cta-mini{
   display:none;
@@ -907,7 +908,7 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   .wordmark__name{ font-size:1rem; }
   .wordmark__rule{ display:none; }
   .lang{ gap:0; }
-  .lang button{ padding:.5rem .4rem; }
+  .lang a{ padding:.5rem .4rem; }
   .burger{ width:2.2rem; height:2.2rem; }
   .case{ padding:1.4rem 0; }
   .card{ padding:1.75rem 1.25rem; }

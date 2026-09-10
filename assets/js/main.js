@@ -6,8 +6,11 @@
 
   var DICT   = window.I18N || {};
   var LANGS  = ['de', 'en', 'es'];
-  var STORE  = 'hc.lang';
-  var current = 'de';
+  /* Die Sprache steht in <html lang> und wird nicht mehr im Browser
+     gemerkt: Jede Sprache hat eine eigene URL (/, /en/, /es/). Das ist
+     teilbar, indexierbar — und die Seite legt nichts mehr auf dem Gerät ab. */
+  var current = (document.documentElement.lang || 'de').slice(0, 2).toLowerCase();
+  if (LANGS.indexOf(current) === -1) current = 'de';
 
   /* ── i18n ─────────────────────────────────────────────── */
   function t(key) {
@@ -42,28 +45,12 @@
 
     document.title = t('meta.title');
     if (typeof openService !== 'undefined' && openService) fillModal(openService);
-    document.querySelectorAll('.lang button').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
-    });
-
-    try { localStorage.setItem(STORE, lang); } catch (e) {}
   }
 
-  function initialLang() {
-    var url = new URLSearchParams(location.search).get('lang');
-    if (url && LANGS.indexOf(url) > -1) return url;
-    try {
-      var saved = localStorage.getItem(STORE);
-      if (saved && LANGS.indexOf(saved) > -1) return saved;
-    } catch (e) {}
-    var nav = (navigator.language || 'de').slice(0, 2).toLowerCase();
-    return LANGS.indexOf(nav) > -1 ? nav : 'de';
-  }
-
-  document.querySelectorAll('.lang button').forEach(function (b) {
-    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
-  });
-  applyLang(initialLang());
+  /* Der Text steht bereits in der richtigen Sprache im HTML. Der Lauf hier
+     ist nur die Rückfallebene, falls eine Seite ohne gebackenen Text
+     ausgeliefert wird — und er setzt die übersetzten Attribute. */
+  applyLang(current);
 
   /* ── Mobile navigation ────────────────────────────────── */
   var burger = document.getElementById('burger');

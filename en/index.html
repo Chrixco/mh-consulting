@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">MH Consulting — Water &amp; Environmental Engineering</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="MH Consulting advises municipalities, water utilities and companies on water: groundwater protection, climate adaptation, analyses, projects, training.">
+<meta name="theme-color" content="#00666D">
+
+<!-- PLATZHALTER-DOMAIN: überall https://www.mh-consulting.de ersetzen,
+     sobald die echte Domain feststeht. Siehe README, Abschnitt „Domain". -->
+<link rel="canonical" href="https://www.mh-consulting.de/en/">
+<link rel="alternate" hreflang="de" href="https://www.mh-consulting.de/">
+<link rel="alternate" hreflang="en" href="https://www.mh-consulting.de/en/">
+<link rel="alternate" hreflang="es" href="https://www.mh-consulting.de/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.mh-consulting.de/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MH Consulting">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:url" content="https://www.mh-consulting.de/en/">
+<meta property="og:title" data-i18n-attr="content:meta.title" content="MH Consulting — Water &amp; Environmental Engineering">
+<meta property="og:description" data-i18n-attr="content:meta.desc" content="MH Consulting advises municipalities, water utilities and companies on water: groundwater protection, climate adaptation, analyses, projects, training.">
+<meta property="og:image" content="https://www.mh-consulting.de/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MH Consulting — Wasser nachhaltig nutzen">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- PLATZHALTER: Bestätigungs-Token der Google Search Console eintragen
+     und dann diese Zeile aktivieren.
+<meta name="google-site-verification" content="TOKEN-HIER-EINSETZEN"> -->
+<link rel="preload" href="../assets/fonts/archivo-700-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif-4-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2300666D'/%3E%3Cpath d='M4 22h24M4 16h6M4 10h6M16 10h12M16 16h12' stroke='%230E1512' stroke-width='2'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.mh-consulting.de/#organisation",
+  "name": "MH Consulting",
+  "description": "Beratung rund um die Ressource Wasser: Grundwasserschutz und Wasserversorgung, Klimaanpassung, Analysen und Fachkonzepte, Projektbegleitung, Bildung sowie internationale Wasserberatung.",
+  "url": "https://www.mh-consulting.de/",
+  "email": "consulting_mhuber@gmx.net",
+  "image": "https://www.mh-consulting.de/assets/img/og.jpg",
+  "founder": {
+    "@type": "Person",
+    "name": "Magdalena Huber",
+    "jobTitle": "M.Sc. Umweltingenieurwesen",
+    "sameAs": ["https://www.linkedin.com/in/magdalenahuber/"]
+  },
+  "knowsLanguage": ["de", "en", "es"],
+  "areaServed": [
+    {"@type": "Country", "name": "Deutschland"},
+    {"@type": "Place", "name": "Lateinamerika"}
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rosenheim",
+    "addressCountry": "DE"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Leistungen",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Grundwasserschutz & Wasserversorgung"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Klimaanpassung & nachhaltiges Wassermanagement"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Analysen, Fachkonzepte & technische Bewertung"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Projektbegleitung, Beratung & Wissenstransfer"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bildung, Workshops & Wissenstransfer"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Internationale Wasserberatung & Technologietransfer"}}
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skiplink" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+<!-- Signature: Pegel (gauge staff) — scroll position as water level -->
+<div class="gauge" aria-hidden="true">
+  <span class="gauge__unit">m</span>
+  <div class="gauge__staff"><span class="gauge__level"></span></div>
+  <ol class="gauge__marks">
+    <li data-mark="0,00"></li><li data-mark="1,00"></li><li data-mark="2,00"></li>
+    <li data-mark="3,00"></li><li data-mark="4,00"></li>
+  </ol>
+</div>
+
+<div id="top"></div>
+
+<header class="masthead">
+  <a class="wordmark" href="#top">
+    <span class="wordmark__name">MH Consulting</span>
+    <span class="wordmark__rule" aria-hidden="true"></span>
+    <span class="wordmark__sub" data-i18n="brand.claim">Simply water.</span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
+    <a href="#leistungen" data-i18n="nav.services">Services</a>
+    <a href="#projekte" data-i18n="nav.projects">Projects</a>
+    <a href="#profil" data-i18n="nav.about">Profile</a>
+    <a href="#kontakt" data-i18n="nav.contact">Contact</a>
+  </nav>
+
+  <div class="masthead__tools">
+    <a class="cta-mini" href="#kontakt" data-opens-talk data-i18n="cta.mini">First call</a>
+    <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+      <a href="/" hreflang="de">DE</a>
+      <a href="/en/" hreflang="en" aria-current="true">EN</a>
+      <a href="/es/" hreflang="es">ES</a>
+    </div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu" data-i18n-attr="aria-label:nav.menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── HERO ───────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__text">
+      <p class="eyebrow" data-i18n-html="hero.eyebrow">Water engineering · Bavaria · <span class="eyebrow__intl">working internationally</span></span></p>
+      <h1 data-i18n-html="hero.h1">Using water<br>sustainably</h1>
+      <p class="standfirst" data-i18n="hero.lede">Consulting for municipalities, water utilities, companies and project partners — from groundwater protection and climate adaptation through analyses and project support to education and international water consulting.</p>
+      <div class="actions">
+        <a class="btn btn--solid" href="#kontakt" data-opens-write data-i18n="hero.cta1">Discuss a project</a>
+        <a class="btn btn--ghost" href="#leistungen" data-i18n="hero.cta2">See services</a>
+      </div>
+    </div>
+
+    <figure class="venn">
+      <svg viewBox="64 50 392 377" role="img" aria-labelledby="v1t v1d">
+        <title id="v1t" data-i18n="venn1.title">Authority · Operations · International cooperation</title>
+        <desc id="v1d" data-i18n="venn1.desc">Venn diagram of three sets — public authority, utility operations and international cooperation. The shared intersection is marked as the working field.</desc>
+        <g class="venn__sets">
+          <circle class="venn__c venn__c--1" cx="204" cy="190" r="130"/>
+          <circle class="venn__c venn__c--2" cx="316" cy="190" r="130"/>
+          <circle class="venn__c venn__c--3" cx="260" cy="287" r="130"/>
+        </g>
+        <g class="venn__labels">
+          <text x="136" y="168" data-i18n="venn1.a">Authority</text>
+          <text x="384" y="168" data-i18n="venn1.b">Utility</text>
+          <text x="260" y="370" data-i18n="venn1.c">International</text>
+        </g>
+        <g class="venn__core">
+          <text x="260" y="216" data-i18n="venn1.core1">OUR</text>
+          <text x="260" y="242" data-i18n="venn1.core2">WORK</text>
+        </g>
+      </svg>
+      <figcaption data-i18n="venn1.cap">Permitting practice, operational reality and international project work — we work where all three overlap.</figcaption>
+    </figure>
+
+  </section>
+
+  <!-- ── LEISTUNGEN ─────────────────────────────────────── -->
+  <section id="leistungen" class="band">
+    <div class="band__split">
+      <div class="band__head">
+        <h2 data-i18n="svc.h2">Six fields, one resource</h2>
+        <p class="band__lede" data-i18n="svc.lede">MH Consulting supports municipalities, water utilities, companies and project partners in developing sustainable, climate-adapted and practicable solutions relating to water as a resource.</p>
+      </div>
+
+      <figure class="venn venn--sm venn--ring">
+      <svg viewBox="54 34 452 492" role="img" aria-labelledby="v2t v2d">
+        <title id="v2t" data-i18n="venn2.title">Six fields of work around the resource water</title>
+        <desc id="v2d" data-i18n="venn2.desc">Six overlapping circles in a ring — groundwater protection, climate adaptation, analyses, project support, education and international consulting. At the centre sits the shared resource, water.</desc>
+        <g class="venn__sets">
+          <circle class="venn__c venn__c--r1" cx="280" cy="132" r="88"/>
+          <circle class="venn__c venn__c--r2" cx="408" cy="206" r="88"/>
+          <circle class="venn__c venn__c--r3" cx="408" cy="354" r="88"/>
+          <circle class="venn__c venn__c--r4" cx="280" cy="428" r="88"/>
+          <circle class="venn__c venn__c--r5" cx="152" cy="354" r="88"/>
+          <circle class="venn__c venn__c--r6" cx="152" cy="206" r="88"/>
+        </g>
+        <g class="venn__labels">
+          <text x="280" y="139" data-i18n="venn2.a">Groundwater</text>
+          <text x="408" y="213" data-i18n="venn2.b">Climate</text>
+          <text x="408" y="361" data-i18n="venn2.c">Analyses</text>
+          <text x="280" y="435" data-i18n="venn2.d">Projects</text>
+          <text x="152" y="361" data-i18n="venn2.e">Education</text>
+          <text x="152" y="213" data-i18n="venn2.f">International</text>
+        </g>
+        <g class="venn__core">
+          <text x="280" y="272" data-i18n="venn2.core1">RESOURCE</text>
+          <text x="280" y="298" data-i18n="venn2.core2">WATER</text>
+        </g>
+      </svg>
+        <figcaption data-i18n="venn2.cap">Six fields of work that overlap one another — and all of them lead back to the same resource. Start in one and you usually move the neighbouring ones too.</figcaption>
+      </figure>
+    </div>
+
+    <ul class="cards">
+      <li class="card">
+        <span class="card__tick" aria-hidden="true"></span>
+        <h3 data-i18n="svc.1t">Groundwater protection &amp; water supply</h3>
+        <p data-i18n="svc.1d">A secure water supply begins with protecting the resource. I provide support on water management questions, from the initial survey through to the technical assessment.</p>
+        <ul class="tags">
+          <li data-i18n="svc.1a">Groundwater protection</li><li data-i18n="svc.1b">Water protection zones</li><li data-i18n="svc.1c">Drinking water supply</li>
+        </ul>
+        <button class="card__more" type="button" data-service="1" data-topic="grundwasser">
+          <span data-i18n="svc.more">See details</span>
+        </button>
+      </li>
+      <li class="card">
+        <span class="card__tick" aria-hidden="true"></span>
+        <h3 data-i18n="svc.2t">Climate adaptation &amp; sustainable water management</h3>
+        <p data-i18n="svc.2d">Dry periods, heavy rainfall and rising pressure on use call for a new way of dealing with water. Together we develop measures that use water more efficiently and make systems more resilient.</p>
+        <ul class="tags">
+          <li data-i18n="svc.2a">Water saving</li><li data-i18n="svc.2b">Rainwater management</li><li data-i18n="svc.2c">Water reuse</li>
+        </ul>
+        <button class="card__more" type="button" data-service="2" data-topic="klima">
+          <span data-i18n="svc.more">See details</span>
+        </button>
+      </li>
+      <li class="card">
+        <span class="card__tick" aria-hidden="true"></span>
+        <h3 data-i18n="svc.3t">Analyses, technical concepts &amp; assessment</h3>
+        <p data-i18n="svc.3d">Not every technically possible solution makes sense in the long run. MH Consulting helps to compare different options in a structured way and to arrive at well-founded decisions.</p>
+        <ul class="tags">
+          <li data-i18n="svc.3a">Feasibility assessment</li><li data-i18n="svc.3b">Technical concepts</li><li data-i18n="svc.3c">GIS analyses</li>
+        </ul>
+        <button class="card__more" type="button" data-service="3" data-topic="analysen">
+          <span data-i18n="svc.more">See details</span>
+        </button>
+      </li>
+      <li class="card">
+        <span class="card__tick" aria-hidden="true"></span>
+        <h3 data-i18n="svc.4t">Project support, consulting &amp; knowledge transfer</h3>
+        <p data-i18n="svc.4d">Getting from a good idea to implementation means bringing many parties together. I support projects technically, organisationally and at the interfaces between engineering, administration and operations.</p>
+        <ul class="tags">
+          <li data-i18n="svc.4a">Project management</li><li data-i18n="svc.4b">Coordination</li><li data-i18n="svc.4c">Documentation</li>
+        </ul>
+        <button class="card__more" type="button" data-service="4" data-topic="projekt">
+          <span data-i18n="svc.more">See details</span>
+        </button>
+      </li>
+      <li class="card">
+        <span class="card__tick" aria-hidden="true"></span>
+        <h3 data-i18n="svc.5t">Education, workshops &amp; knowledge transfer</h3>
+        <p data-i18n="svc.5d">Knowledge creates the basis for lasting change. That is why MH Consulting conveys water management and climate topics in a practical, understandable and audience-appropriate way – from the specialist workshop to environmental education.</p>
+        <ul class="tags">
+          <li data-i18n="svc.5a">Specialist training</li><li data-i18n="svc.5b">Continuing education</li><li data-i18n="svc.5c">Environmental education</li>
+        </ul>
+        <button class="card__more" type="button" data-service="5" data-topic="bildung">
+          <span data-i18n="svc.more">See details</span>
+        </button>
+      </li>
+      <li class="card">
+        <span class="card__tick" aria-hidden="true"></span>
+        <h3 data-i18n="svc.6t">International water consulting &amp; technology transfer</h3>
+        <p data-i18n="svc.6d">Water management solutions cannot be transferred one to one from one country to another. What matters is whether a technology actually works under the given local conditions and can be operated in the long term.</p>
+        <ul class="tags">
+          <li data-i18n="svc.6a">Development cooperation</li><li data-i18n="svc.6b">Technology transfer</li><li data-i18n="svc.6c">Latin America</li>
+        </ul>
+        <button class="card__more" type="button" data-service="6" data-topic="international">
+          <span data-i18n="svc.more">See details</span>
+        </button>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── PROJEKTE ───────────────────────────────────────── -->
+  <section id="projekte" class="band band--dark">
+    <div class="band__head band__head--center">
+      <h2 data-i18n="prj.h2">Selected references</h2>
+      <p class="band__lede" data-i18n="prj.lede">[PLACEHOLDER — add an introductory line once real references are confirmed.]</p>
+    </div>
+
+    <ol class="cases">
+      <li class="case">
+        <div class="case__meta">
+          <span class="case__year" data-i18n="prj.year">[Period]</span>
+          <span class="case__place" data-i18n="prj.1p">[City, country]</span>
+        </div>
+        <div class="case__body">
+          <h3 data-i18n="prj.1t">[Reference 1 — e.g. groundwater protection or water supply]</h3>
+          <p data-i18n="prj.1d">[Two or three sentences: starting point, task, outcome. What was the question, what was done, what came of it?]</p>
+        </div>
+        <dl class="case__figs">
+          <div><dt data-i18n="prj.1k1">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+          <div><dt data-i18n="prj.1k2">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+        </dl>
+      </li>
+
+      <li class="case">
+        <div class="case__meta">
+          <span class="case__year" data-i18n="prj.year">[Period]</span>
+          <span class="case__place" data-i18n="prj.2p">[City, country]</span>
+        </div>
+        <div class="case__body">
+          <h3 data-i18n="prj.2t">[Reference 2 — e.g. climate adaptation or sustainable water management]</h3>
+          <p data-i18n="prj.2d">[Two or three sentences: starting point, task, outcome.]</p>
+        </div>
+        <dl class="case__figs">
+          <div><dt data-i18n="prj.2k1">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+          <div><dt data-i18n="prj.2k2">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+        </dl>
+      </li>
+
+      <li class="case">
+        <div class="case__meta">
+          <span class="case__year" data-i18n="prj.year">[Period]</span>
+          <span class="case__place" data-i18n="prj.3p">[City, country]</span>
+        </div>
+        <div class="case__body">
+          <h3 data-i18n="prj.3t">[Reference 3 — e.g. analysis, technical concept or project support]</h3>
+          <p data-i18n="prj.3d">[Two or three sentences: starting point, task, outcome.]</p>
+        </div>
+        <dl class="case__figs">
+          <div><dt data-i18n="prj.3k1">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+          <div><dt data-i18n="prj.3k2">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+        </dl>
+      </li>
+
+      <li class="case">
+        <div class="case__meta">
+          <span class="case__year" data-i18n="prj.year">[Period]</span>
+          <span class="case__place" data-i18n="prj.4p">[City, country]</span>
+        </div>
+        <div class="case__body">
+          <h3 data-i18n="prj.4t">[Reference 4 — e.g. education or international water consulting]</h3>
+          <p data-i18n="prj.4d">[Two or three sentences: starting point, task, outcome.]</p>
+        </div>
+        <dl class="case__figs">
+          <div><dt data-i18n="prj.4k1">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+          <div><dt data-i18n="prj.4k2">[Figure]</dt><dd data-i18n="prj.val">[Value]</dd></div>
+        </dl>
+      </li>
+    </ol>
+
+    <p class="disclaimer" data-i18n="prj.note">[PLACEHOLDER — these are empty templates, not real projects. Replace with actual references and obtain client clearance before publishing. If the section is not needed, it can be removed along with its navigation entry.]</p>
+  </section>
+
+  <!-- ── CALL TO ACTION ─────────────────────────────────── -->
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="cta__inner">
+      <h2 id="cta-h" data-i18n="cta.h2">One conversation settles more than three emails.</h2>
+      <p class="cta__lede" data-i18n="cta.lede">Thirty minutes, free and without obligation. You describe the project; we say plainly whether and how we can help — and roughly what it would cost.</p>
+      <div class="cta__actions">
+        <a class="btn btn--solid" href="#kontakt" data-opens-talk data-i18n="cta.btn">Arrange a first call</a>
+        <p class="cta__alt">
+          <span data-i18n="cta.alt">Rather write directly?</span>
+          <a href="mailto:consulting_mhuber@gmx.net" data-i18n="ph.mail">consulting_mhuber@gmx.net</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROFIL / TEAM ──────────────────────────────────── -->
+  <section id="profil" class="band">
+    <div class="band__head">
+      <h2 data-i18n="abt.h2">Who works here</h2>
+    </div>
+
+    <div class="profile">
+      <figure class="profile__portrait">
+        <img class="portrait" src="../assets/img/portrait.jpg" width="490" height="764" alt="Portrait photo of Magdalena Huber wearing a hard hat at a water facility" data-i18n-attr="alt:abt.photoAlt" loading="lazy" decoding="async">
+        <figcaption>
+          <b data-i18n="abt.name">Magdalena Huber</b>
+          <span data-i18n="abt.role">M.Sc. Environmental Engineering · Principal</span>
+        </figcaption>
+      </figure>
+
+      <div class="profile__text">
+        <p class="lead" data-i18n="abt.p1">After ten years spent between a public authority, a municipal utility and international cooperation, one principle holds here: a concept is only worth the data underneath it — and the people who will run it afterwards.</p>
+        <p data-i18n="abt.p2">Her route ran from environmental engineering in Braunschweig through a master's in infrastructure and environmental engineering at Chalmers in Gothenburg to three years of technical advice in Peru — and from there back to Bavaria, into the daily operation of a municipal water supply and the permitting practice of a water management authority. That combination of regulatory practice, operational reality and international project work shapes every assignment.</p>
+
+        <h3 class="subhead" data-i18n="abt.exp">Track record</h3>
+        <ol class="track">
+          <li><span class="track__yr" data-i18n="abt.t1y">since 2023</span><b data-i18n="abt.t1t">Rosenheim Water Management Authority</b><em data-i18n="abt.t1d">Environmental engineering — rivers, permitting, flood protection</em></li>
+          <li><span class="track__yr">2022 – 2023</span><b data-i18n="abt.t2t">Stadtwerke Böhmetal GmbH</b><em data-i18n="abt.t2d">Operations engineering — supply networks and plant</em></li>
+          <li><span class="track__yr">2019 – 2022</span><b data-i18n="abt.t3t">GIZ GmbH, Peru</b><em data-i18n="abt.t3d">Junior Advisor — water, sanitation, programme advice</em></li>
+          <li><span class="track__yr">2018 – 2019</span><b data-i18n="abt.t4t">GIZ GmbH, Eschborn</b><em data-i18n="abt.t4d">SuSanA Secretariat — research, project database, proposals</em></li>
+          <li><span class="track__yr">2016</span><b data-i18n="abt.t5t">UMS AG, Munich</b><em data-i18n="abt.t5d">Instrumentation — automatic soil identification device</em></li>
+        </ol>
+
+        <h3 class="subhead" data-i18n="abt.edu">Education</h3>
+        <ol class="track">
+          <li><span class="track__yr">2016 – 2018</span><b data-i18n="abt.e1t">Chalmers University of Technology, Gothenburg</b><em data-i18n="abt.e1d">M.Sc. Infrastructure and Environmental Engineering</em></li>
+          <li><span class="track__yr">2014 – 2015</span><b data-i18n="abt.e2t">University of Gothenburg</b><em data-i18n="abt.e2d">Exchange studies — environmental sciences and English</em></li>
+          <li><span class="track__yr">2012 – 2016</span><b data-i18n="abt.e3t">TU Braunschweig</b><em data-i18n="abt.e3d">B.Sc. Environmental Engineering</em></li>
+        </ol>
+
+        <h3 class="subhead" data-i18n="abt.lang">Languages</h3>
+        <ul class="langs">
+          <li><b>Deutsch</b><span data-i18n="abt.l1">Native</span></li>
+          <li><b>English</b><span data-i18n="abt.l2">C1 — full professional</span></li>
+          <li><b>Español</b><span data-i18n="abt.l3">C1 — full professional</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KONTAKT ────────────────────────────────────────── -->
+  <section id="kontakt" class="band band--contact">
+    <div class="contact">
+      <div class="contact__pitch">
+        <h2 data-i18n="ctc.h2">Tell us about your project.</h2>
+        <p class="band__lede" data-i18n="ctc.lede">A first 30-minute conversation costs nothing. After it you'll know whether an assignment makes sense — and so will we.</p>
+
+        <dl class="contact__list">
+          <div><dt data-i18n="ctc.mail">Email</dt><dd><a href="mailto:consulting_mhuber@gmx.net" data-i18n="ph.mail">consulting_mhuber@gmx.net</a></dd></div>
+          <div><dt data-i18n="ctc.phone">Phone</dt><dd><a href="tel:+49000000000" data-i18n="ph.phone">[ADD PHONE NUMBER]</a></dd></div>
+          <div><dt data-i18n="ctc.addr">Office</dt><dd data-i18n-html="ph.addr">[STREET NO.]<br>[POSTCODE] Rosenheim<br>Germany</dd></div>
+          <div><dt data-i18n="ctc.profile">Profile</dt><dd><a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank">LinkedIn</a></dd></div>
+        </dl>
+      </div>
+
+      <form class="form" id="form" novalidate>
+        <div class="field">
+          <label for="f-name" data-i18n="frm.name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-org" data-i18n="frm.org">Organisation</label>
+          <input id="f-org" name="org" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="f-mail" data-i18n="frm.mail">Email</label>
+          <input id="f-mail" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-topic" data-i18n="frm.topic">Topic</label>
+          <select id="f-topic" name="topic">
+            <option value="erstgespraech" data-i18n="frm.o0" selected>First call</option>
+            <option value="grundwasser" data-i18n="frm.o1">Groundwater protection &amp; water supply</option>
+            <option value="klima" data-i18n="frm.o2">Climate adaptation &amp; sustainable water management</option>
+            <option value="analysen" data-i18n="frm.o3">Analyses, technical concepts &amp; assessment</option>
+            <option value="projekt" data-i18n="frm.o4">Project support, consulting &amp; knowledge transfer</option>
+            <option value="bildung" data-i18n="frm.o5">Education, workshops &amp; knowledge transfer</option>
+            <option value="international" data-i18n="frm.o6">International water consulting &amp; technology transfer</option>
+            <option value="sonstiges" data-i18n="frm.o7">Something else</option>
+          </select>
+        </div>
+        <div class="field field--wide">
+          <label for="f-msg" data-i18n="frm.msg">What is it about?</label>
+          <textarea id="f-msg" name="message" rows="5" required></textarea>
+        </div>
+        <div class="field field--wide check">
+          <input id="f-privacy" name="privacy" type="checkbox" required>
+          <label for="f-privacy" data-i18n-html="frm.privacy">I have read the <a href="../datenschutz.html">privacy notice</a> and agree to my details being processed.</a> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.</label>
+        </div>
+        <div class="field field--wide">
+          <button class="btn btn--solid" type="submit" data-i18n="frm.send">Send enquiry</button>
+          <p class="form__note" role="status" id="form-note"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__brand">
+    <span class="wordmark__name">MH Consulting</span>
+    <span data-i18n="brand.claim">Simply water.</span>
+  </div>
+  <nav class="foot__nav" aria-label="Legal" data-i18n-attr="aria-label:foot.legal">
+    <a href="../impressum.html" data-i18n="foot.imprint">Imprint</a>
+    <a href="../datenschutz.html" data-i18n="foot.privacy">Privacy</a>
+    <a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank">LinkedIn</a>
+  </nav>
+  <p class="foot__note" data-i18n="foot.note">© 2026 MH Consulting. No trackers, no cookies, no third-party services.</p>
+</footer>
+
+<dialog class="modal modal--write" id="write-modal" aria-labelledby="write-title">
+  <article class="modal__box">
+    <button class="modal__close" id="write-close" type="button" aria-label="Close" data-i18n-attr="aria-label:dlg.close">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
+
+    <h2 id="write-title" data-i18n="write.h2">Tell us briefly what it is about.</h2>
+    <p class="modal__lede" data-i18n="write.lede">On send, your own email client opens with the message ready. You can still change anything there before it goes out.</p>
+
+    <div class="talk__langs talk__langs--compact">
+      <ul class="talk__flags">
+        <li>Deutsch</li><li>English</li><li>Español</li>
+      </ul>
+      <p data-i18n="write.langNote">Write in German, English or Spanish — whichever you prefer.</p>
+    </div>
+
+    <form class="form" id="write-form" novalidate>
+      <div class="field">
+        <label for="w-name" data-i18n="frm.name">Name</label>
+        <input id="w-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="w-org" data-i18n="frm.org">Organisation</label>
+        <input id="w-org" name="org" type="text" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="w-mail" data-i18n="frm.mail">Email</label>
+        <input id="w-mail" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="w-topic" data-i18n="frm.topic">Topic</label>
+        <select id="w-topic" name="topic">
+          <option value="erstgespraech" data-i18n="frm.o0" selected>First call</option>
+          <option value="grundwasser" data-i18n="frm.o1">Groundwater protection &amp; water supply</option>
+          <option value="klima" data-i18n="frm.o2">Climate adaptation &amp; sustainable water management</option>
+          <option value="analysen" data-i18n="frm.o3">Analyses, technical concepts &amp; assessment</option>
+          <option value="projekt" data-i18n="frm.o4">Project support, consulting &amp; knowledge transfer</option>
+          <option value="bildung" data-i18n="frm.o5">Education, workshops &amp; knowledge transfer</option>
+          <option value="international" data-i18n="frm.o6">International water consulting &amp; technology transfer</option>
+          <option value="sonstiges" data-i18n="frm.o7">Something else</option>
+        </select>
+      </div>
+      <div class="field field--wide">
+        <label for="w-msg" data-i18n="frm.msg">What is it about?</label>
+        <textarea id="w-msg" name="message" rows="5" required></textarea>
+      </div>
+      <div class="field field--wide check">
+        <input id="w-privacy" name="privacy" type="checkbox" required>
+        <label for="w-privacy" data-i18n-html="frm.privacy">I have read the <a href="../datenschutz.html">privacy notice</a> and agree to my details being processed.</a> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.</label>
+      </div>
+      <div class="field field--wide">
+        <button class="btn btn--solid" type="submit" data-i18n="frm.send">Send enquiry</button>
+        <p class="form__note" role="status" id="write-note"></p>
+      </div>
+    </form>
+  </article>
+</dialog>
+
+<dialog class="modal modal--talk" id="talk-modal" aria-labelledby="talk-title">
+  <article class="modal__box">
+    <button class="modal__close" id="talk-close" type="button" aria-label="Close" data-i18n-attr="aria-label:dlg.close">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
+
+    <h2 id="talk-title" data-i18n="talk.h2">A conversation, not a sales call.</h2>
+    <p class="modal__lede" data-i18n="talk.lede">Thirty minutes by phone or video. You describe your project, we listen and ask questions. Afterwards you will know more than before — whether we end up working together or not.</p>
+
+    <h3 class="subhead" data-i18n="talk.whatH">What happens in it</h3>
+    <ul class="modal__list">
+      <li data-i18n="talk.w1">You describe the project, as far as you know it today.</li>
+      <li data-i18n="talk.w2">We say what it involves technically and where the pitfalls sit.</li>
+      <li data-i18n="talk.w3">If it fits, we sketch the next steps and a cost range.</li>
+    </ul>
+
+    <div class="talk__langs">
+      <p class="talk__langs-label" data-i18n="talk.langLabel">Language</p>
+      <ul class="talk__flags">
+        <li>Deutsch</li><li>English</li><li>Español</li>
+      </ul>
+      <p data-i18n="talk.langNote">Write or talk in German, English or Spanish — whichever comes easiest to you.</p>
+    </div>
+
+    <div class="modal__foot">
+      <button class="btn btn--solid" id="talk-cta" type="button" data-i18n="talk.cta">Write a message</button>
+      <p class="modal__hint">
+        <span data-i18n="talk.alt">Or directly:</span>
+        <a href="mailto:consulting_mhuber@gmx.net" data-i18n="ph.mail">consulting_mhuber@gmx.net</a>
+      </p>
+      <p class="talk__soft" data-i18n="talk.soft">No quote, no obligation, no follow-up emails. If we are not the right people for it, we will say so — and point you to someone we know.</p>
+    </div>
+  </article>
+</dialog>
+
+<dialog class="modal" id="svc-modal" aria-labelledby="modal-title">
+  <article class="modal__box">
+    <button class="modal__close" id="modal-close" type="button" aria-label="Close" data-i18n-attr="aria-label:dlg.close">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
+
+    <h2 id="modal-title"></h2>
+    <p class="modal__lede" id="modal-lede"></p>
+
+    <h3 class="subhead" id="modal-deliver"></h3>
+    <ul class="modal__list" id="modal-list"></ul>
+
+    <div class="modal__foot">
+      <button class="btn btn--solid" id="modal-cta" type="button"></button>
+      <p class="modal__hint" id="modal-hint"></p>
+    </div>
+  </article>
+</dialog>
+
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

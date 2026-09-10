@@ -1,0 +1,9 @@
+# MH Consulting
+# PLATZHALTER-DOMAIN — bei Domainwechsel die Sitemap-Zeile mitziehen.
+User-agent: *
+Allow: /
+
+# Quellmaterial und Rechtstexte gehören nicht in den Index
+Disallow: /Background/
+
+Sitemap: https://www.mh-consulting.de/sitemap.xml

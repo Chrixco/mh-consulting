@@ -652,6 +652,79 @@ ist eine Einwilligung vor dem Laden nötig.
 
 ---
 
+## Domain und Sprach-URLs
+
+### Die Platzhalter-Domain
+
+Überall steht **`https://www.mh-consulting.de`** als Platzhalter. Sobald die
+echte Domain feststeht, an genau diesen Stellen ersetzen:
+
+```bash
+grep -rln "www.mh-consulting.de" --include="*.html" --include="*.xml" \
+  --include="*.txt" --include="*.js" . \
+  | xargs sed -i '' 's|www\.mh-consulting\.de|ECHTE-DOMAIN\.de|g'
+node tools/build-langs.js      # Sprachseiten neu erzeugen
+```
+
+Betroffen sind `index.html` (canonical, hreflang, og:url, JSON-LD),
+`sitemap.xml`, `robots.txt` und `tools/build-langs.js`.
+
+**Die Datei `CNAME` ist bewusst noch nicht angelegt.** GitHub Pages liefert
+die Seite nur noch unter der dort eingetragenen Domain aus — steht die DNS
+nicht, ist die Seite gar nicht erreichbar. Also erst DNS setzen, dann
+`CNAME` mit der Domain anlegen.
+
+`.nojekyll` liegt bereits im Wurzelverzeichnis: Ohne die Datei ignoriert
+GitHub Pages Ordner, deren Name mit einem Unterstrich beginnt.
+
+### Warum es /en/ und /es/ als eigene Seiten gibt
+
+Vorher wurden die Übersetzungen erst im Browser eingesetzt. Eine
+Suchmaschine sieht kein JavaScript-Ergebnis, sondern das ausgelieferte
+HTML — sie hat also **nur die deutsche Fassung** gesehen. Englisch und
+Spanisch waren nicht auffindbar, obwohl das Leistungsangebot ausdrücklich
+mit Arbeit in Lateinamerika und drei Arbeitssprachen wirbt.
+
+Jetzt hat jede Sprache eine eigene Adresse mit fest eingebautem Text:
+
+| URL | Sprache | Datei |
+|---|---|---|
+| `/` | Deutsch | `index.html` — **die Quelle** |
+| `/en/` | Englisch | erzeugt |
+| `/es/` | Spanisch | erzeugt |
+
+**`index.html` und `assets/js/i18n.js` bleiben die einzige Quelle.** Nach
+jeder Text- oder Struktur­änderung neu erzeugen:
+
+```bash
+node tools/build-langs.js
+```
+
+Das Skript meldet fehlende Übersetzungsschlüssel und bricht dann ab — eine
+halb übersetzte Seite entsteht so nicht. Es braucht nur Node, keine
+Abhängigkeiten.
+
+Die Sprachwahl in der Kopfzeile besteht jetzt aus **echten Links**, nicht
+mehr aus Schaltflächen. Folgen: Jede Sprache ist teilbar und verlinkbar,
+funktioniert ohne JavaScript — und die Seite muss sich die Sprachwahl
+nicht mehr merken. Deshalb steht in der Datenschutzerklärung jetzt, dass
+auf dem Gerät **nichts** gespeichert wird.
+
+### Was für Suchmaschinen sonst noch da ist
+
+* `sitemap.xml` mit `hreflang`-Verweisen zwischen allen drei Fassungen
+* `robots.txt` mit Verweis auf die Sitemap
+* `<link rel="canonical">` und `hreflang`-Alternativen in jeder Fassung
+* **JSON-LD** (`ProfessionalService`) mit Leistungskatalog, Arbeitssprachen,
+  Einzugsgebiet und LinkedIn-Profil
+* Open-Graph- und Twitter-Karte samt Vorschaubild `assets/img/og.jpg`
+  (1200 × 630) — ohne das Bild erscheint beim Teilen eine leere Karte
+* `404.html`
+* **Platzhalter für die Google Search Console:** auskommentiertes
+  `google-site-verification`-Meta im `<head>` von `index.html`
+
+---
+
 ## Veröffentlichen
 
 Der Ordner ist direkt hochladbar — kein Build.

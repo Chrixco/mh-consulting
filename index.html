@@ -5,15 +5,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="meta.title">MH Consulting — Ingenieurbüro für Wasser & Umwelt</title>
 <meta name="description" data-i18n-attr="content:meta.desc" content="MH Consulting berät Kommunen, Wasserversorger und Unternehmen rund um die Ressource Wasser: Grundwasserschutz, Klimaanpassung, Analysen, Projekte, Bildung.">
-<meta name="theme-color" content="#549B8C">
+<meta name="theme-color" content="#00666D">
+
+<!-- PLATZHALTER-DOMAIN: überall https://www.mh-consulting.de ersetzen,
+     sobald die echte Domain feststeht. Siehe README, Abschnitt „Domain". -->
+<link rel="canonical" href="https://www.mh-consulting.de/">
+<link rel="alternate" hreflang="de" href="https://www.mh-consulting.de/">
+<link rel="alternate" hreflang="en" href="https://www.mh-consulting.de/en/">
+<link rel="alternate" hreflang="es" href="https://www.mh-consulting.de/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.mh-consulting.de/">
+
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="MH Consulting">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:url" content="https://www.mh-consulting.de/">
 <meta property="og:title" data-i18n-attr="content:meta.title" content="MH Consulting — Ingenieurbüro für Wasser & Umwelt">
 <meta property="og:description" data-i18n-attr="content:meta.desc" content="MH Consulting berät Kommunen, Wasserversorger und Unternehmen rund um die Ressource Wasser.">
+<meta property="og:image" content="https://www.mh-consulting.de/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MH Consulting — Wasser nachhaltig nutzen">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- PLATZHALTER: Bestätigungs-Token der Google Search Console eintragen
+     und dann diese Zeile aktivieren.
+<meta name="google-site-verification" content="TOKEN-HIER-EINSETZEN"> -->
 <link rel="preload" href="assets/fonts/archivo-700-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/source-serif-4-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23549B8C'/%3E%3Cpath d='M4 22h24M4 16h6M4 10h6M16 10h12M16 16h12' stroke='%230E1512' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2300666D'/%3E%3Cpath d='M4 22h24M4 16h6M4 10h6M16 10h12M16 16h12' stroke='%230E1512' stroke-width='2'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.mh-consulting.de/#organisation",
+  "name": "MH Consulting",
+  "description": "Beratung rund um die Ressource Wasser: Grundwasserschutz und Wasserversorgung, Klimaanpassung, Analysen und Fachkonzepte, Projektbegleitung, Bildung sowie internationale Wasserberatung.",
+  "url": "https://www.mh-consulting.de/",
+  "email": "consulting_mhuber@gmx.net",
+  "image": "https://www.mh-consulting.de/assets/img/og.jpg",
+  "founder": {
+    "@type": "Person",
+    "name": "Magdalena Huber",
+    "jobTitle": "M.Sc. Umweltingenieurwesen",
+    "sameAs": ["https://www.linkedin.com/in/magdalenahuber/"]
+  },
+  "knowsLanguage": ["de", "en", "es"],
+  "areaServed": [
+    {"@type": "Country", "name": "Deutschland"},
+    {"@type": "Place", "name": "Lateinamerika"}
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rosenheim",
+    "addressCountry": "DE"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Leistungen",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Grundwasserschutz & Wasserversorgung"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Klimaanpassung & nachhaltiges Wassermanagement"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Analysen, Fachkonzepte & technische Bewertung"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Projektbegleitung, Beratung & Wissenstransfer"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bildung, Workshops & Wissenstransfer"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Internationale Wasserberatung & Technologietransfer"}}
+    ]
+  }
+}
+</script>
 </head>
 <body>
 
@@ -48,9 +112,9 @@
   <div class="masthead__tools">
     <a class="cta-mini" href="#kontakt" data-opens-talk data-i18n="cta.mini">Erstgespräch</a>
     <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:nav.lang">
-      <button type="button" data-lang="de" aria-pressed="true">DE</button>
-      <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      <a href="/" hreflang="de" aria-current="true">DE</a>
+      <a href="/en/" hreflang="en">EN</a>
+      <a href="/es/" hreflang="es">ES</a>
     </div>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menü" data-i18n-attr="aria-label:nav.menu">
       <span></span><span></span>
@@ -348,6 +412,7 @@
           <div><dt data-i18n="ctc.mail">E-Mail</dt><dd><a href="mailto:consulting_mhuber@gmx.net" data-i18n="ph.mail">consulting_mhuber@gmx.net</a></dd></div>
           <div><dt data-i18n="ctc.phone">Telefon</dt><dd><a href="tel:+49000000000" data-i18n="ph.phone">[TELEFON EINTRAGEN]</a></dd></div>
           <div><dt data-i18n="ctc.addr">Büro</dt><dd data-i18n-html="ph.addr">[STRASSE NR.]<br>[PLZ] Rosenheim<br>Deutschland</dd></div>
+          <div><dt data-i18n="ctc.profile">Profil</dt><dd><a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank">LinkedIn</a></dd></div>
         </dl>
       </div>
 
@@ -402,6 +467,7 @@
   <nav class="foot__nav" aria-label="Rechtliches" data-i18n-attr="aria-label:foot.legal">
     <a href="impressum.html" data-i18n="foot.imprint">Impressum</a>
     <a href="datenschutz.html" data-i18n="foot.privacy">Datenschutz</a>
+    <a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank">LinkedIn</a>
   </nav>
   <p class="foot__note" data-i18n="foot.note">© 2026 MH Consulting. Keine Tracker, keine Cookies, keine externen Dienste.</p>
 </footer>
