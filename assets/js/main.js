@@ -533,7 +533,7 @@
      No backend: the message is composed into a mailto: so it leaves
      from the sender's own mail client. See README.md to swap in a
      real endpoint. */
-  var MAILTO = 'consulting_mhuber@gmx.net';
+  var MAILTO = 'huber@mh-consulting-wasser.de';
 
   function fieldsOf(formEl) {
     return {

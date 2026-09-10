@@ -692,7 +692,7 @@ fertige E-Mail in ihrem Programm noch abschicken.
 Empfängeradresse setzen in `assets/js/main.js`:
 
 ```js
-var MAILTO = 'consulting_mhuber@gmx.net';
+var MAILTO = 'huber@mh-consulting-wasser.de';
 ```
 
 Die Adresse steht an **neun** Stellen und ist überall eingetragen: drei
@@ -701,7 +701,7 @@ Die Adresse steht an **neun** Stellen und ist überall eingetragen: drei
 Datenschutzerklärung. Bei einem Wechsel alle neun mitziehen:
 
 ```bash
-grep -rn "consulting_mhuber@gmx.net" index.html impressum.html \
+grep -rn "huber@mh-consulting-wasser.de" index.html impressum.html \
   datenschutz.html assets/js/
 ```
 
@@ -726,15 +726,20 @@ Was das praktisch heißt:
   der richtige Hebel der Spam-Filter des E-Mail-Anbieters, nicht ein
   Formulardienst.
 
-### Zu klären: Auftragsverarbeitung für das Postfach
+### Postfach auf der eigenen Domain
 
-Die Anfragen landen in einem GMX-Postfach (1&1 Mail & Media GmbH). Für die
-kostenfreien GMX-Produkte gibt es in der Regel **keinen
-Auftragsverarbeitungsvertrag** nach Art. 28 DSGVO. Wer damit geschäftliche
-Korrespondenz mit personenbezogenen Daten von Auftraggebern führt, sollte
-das prüfen und gegebenenfalls auf ein Geschäftskundenprodukt mit AVV oder
-ein Postfach auf eigener Domain wechseln. Beim Wechsel ändern sich die neun
-oben genannten Stellen und Abschnitt 4 der Datenschutzerklärung.
+Anfragen laufen an `huber@mh-consulting-wasser.de`. Die frühere
+GMX-Adresse ist überall ersetzt.
+
+**Noch einzutragen:** Betreiber und Anschrift des Postfachs in Abschnitt 4
+der Datenschutzerklärung (steht dort als Platzhalter) — und der
+Auftragsverarbeitungsvertrag nach Art. 28 DSGVO mit diesem Anbieter. Der
+Satz in der Erklärung sagt bereits, dass er besteht; er muss also
+tatsächlich vorliegen.
+
+**DNS-Hinweis:** Die MX-Einträge des Postfachs und die vier A-Records für
+GitHub Pages stehen nebeneinander und stören sich nicht. Wer die DNS-Liste
+aufräumt, darf keine der beiden Gruppen löschen.
 
 ---
 
@@ -983,7 +988,7 @@ findet genau die Fälle, die man beim Durchscrollen übersieht.
 
 * **38 px Überlauf bei 320 px.** Die Kontaktliste hatte eine feste
   6,5rem-Spalte, daneben zwang die unumbrechbare Adresse
-  `consulting_mhuber@gmx.net` eine 218-px-Spalte — zusammen 338 px in
+  `huber@mh-consulting-wasser.de` eine 218-px-Spalte — zusammen 338 px in
   einem 320-px-Fenster. Jetzt `minmax(0,1fr)`, `overflow-wrap:anywhere`
   und unter 520 px gestapelt.
 * **Schrift unter 11 px** bei den Kontakt-Labels und in der Fußzeile:

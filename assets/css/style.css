@@ -296,16 +296,18 @@ a{ color:inherit; }
            padding:.55rem 0; }   /* auf 44 px Tap-Höhe gebracht */
 
 /* Die Bildmarke ist ein Quadrat — feste Höhe, damit die Kopfzeile beim
-   Laden nicht springt. */
+   Laden nicht springt. Die minimale Fassung trägt nur „MH" und die
+   Tropfen; sie bleibt deshalb auch bei 34 px klar lesbar. */
 .wordmark__mark{ width:2.15rem; height:2.15rem; flex:none; border-radius:5px; }
 @media (max-width:380px){ .wordmark__mark{ width:1.9rem; height:1.9rem; } }
 
-/* 4,5rem: groß genug, dass „consulting" und „Einfach Wasser" lesbar
-   bleiben (unter ~64 px werden sie zu Grafik), klein genug, dass die
-   Fußzeile nicht zur Bildfläche wird. */
+/* Die frühere Marke brauchte 4,5rem, damit „consulting" und „Einfach
+   Wasser" darin lesbar blieben. Die minimale Fassung trägt keine
+   Schrift mehr, also darf das Zeichen zurücktreten: 3rem reicht als
+   Absender, ohne dass die Fußzeile zur Bildfläche wird. */
 .foot__mark{
-  width:4.5rem; height:4.5rem; flex:none; border-radius:9px;
-  margin-bottom:.8rem;
+  width:3rem; height:3rem; flex:none; border-radius:7px;
+  margin-bottom:.7rem;
 }
 .wordmark__name{
   font-weight:700; font-size:1.12rem; letter-spacing:-.035em; color:var(--ink);
@@ -472,8 +474,23 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
    Schnittmengen sind nicht gezeichnet — sie entstehen von selbst aus
    der Überlagerung. Genau das ist der Grund für das Inline-SVG: In der
    Bilddatei waren sie eingebacken, hier folgen sie den Farbtoken. */
+/* Nicht größer als der Textblock daneben: Der Hero-Text misst 490 × 568 px,
+   das Seitenverhältnis des SVG ist 700:890. 27,5rem Breite ergeben rund
+   440 × 560 px — das Diagramm bleibt damit in beiden Maßen innerhalb des
+   Textblocks und nimmt ihm nicht den Rang ab. Gleiche Schreibweise wie bei
+   `.venn--sm` und `.venn--ring`. */
+.venn--work{ max-width:27.5rem; justify-self:center; width:100%; }
+
+/* Halbdeckende Flächen nach Vorgabe der Auftraggeberin: 50 % Transparenz,
+   die Schnittmengen entstehen allein aus der Überlagerung.
+
+   Achtung beim Ändern: Die Beschriftungen stehen in Weiß, ebenfalls nach
+   Vorgabe. Gemessen gegen die halbdeckenden Flächen ergibt das 1,8:1
+   (Behörde), 2,4:1 (Betrieb) und 3,3:1 (International) — unterhalb der
+   4,5:1 aus WCAG AA. Wer hier später Lesbarkeit nachrüsten will, hat drei
+   Hebel: dunklere Farbtoken, höhere Deckkraft, oder Schrift in --ink. */
 .venn--work .venn__c{ fill-opacity:.5; stroke:none; }
-.venn--work .venn__labels text{ font-size:60px; }
+.venn--work .venn__labels text{ font-size:60px; fill:var(--white); }
 .venn--work .venn__core text{ font-size:100px; fill:var(--white); letter-spacing:-.02em; }
 
 .venn__chip{
