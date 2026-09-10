@@ -652,6 +652,72 @@ ist eine Einwilligung vor dem Laden nötig.
 
 ---
 
+## Wo die Seite liegt
+
+**Live:** <https://chrixco.github.io/mh-consulting/>
+**Repository:** <https://github.com/Chrixco/mh-consulting> (öffentlich, Branch `main`)
+
+GitHub Pages liefert direkt aus `main`, Wurzelverzeichnis. Jeder `git push`
+ist eine Veröffentlichung — es gibt keine Vorschau-Stufe.
+
+Weil `Chrixco.github.io` schon vergeben ist, läuft die Seite als
+**Projektseite** unter einem Unterpfad. Deshalb sind alle internen Verweise
+relativ (`./`, `en/`, `../assets/`) und nicht wurzel-absolut — sonst bricht
+alles, was nicht im Domain-Wurzelverzeichnis liegt. Beim Umzug auf die echte
+Domain funktioniert das unverändert weiter.
+
+---
+
+## ⚠️ Vor dem echten Start abarbeiten
+
+Die Seite steht bewusst auf **`noindex,nofollow`**, solange Platzhalter
+drinstehen. Ohne das würde Google „[TELEFON EINTRAGEN]" und die leeren
+Referenz-Vorlagen indexieren.
+
+| # | Zu tun | Wo |
+|---|---|---|
+| 1 | `noindex`-Zeile löschen | `index.html`, danach `node tools/build-langs.js` |
+| 2 | Telefon, Straße, PLZ eintragen | `i18n.js` → `ph.*`, beide Rechtstexte |
+| 3 | Echte Referenzen statt Vorlagen | `i18n.js` → `prj.*`, danach `prj.note` löschen |
+| 4 | Impressum vervollständigen | Umsatzsteuer, Berufsbezeichnung, Kammer, Haftpflicht |
+| 5 | Aufsichtsbehörde eintragen | `datenschutz.html` |
+| 6 | **Google-Mess-ID** eintragen | `assets/js/consent.js` → `G-XXXXXXXXXX` |
+| 7 | **AVV mit Google** abschließen | sonst ist die Messung nicht zulässig |
+| 8 | **Cal.com-Link** eintragen | `index.html` → `id="talk-book"` |
+| 9 | **AVV mit Cal.com** abschließen | plus Anbieter in `datenschutz.html` benennen |
+| 10 | Echte Domain setzen | siehe unten, danach `CNAME` anlegen |
+| 11 | Search Console verifizieren | Meta im `<head>` ist auskommentiert vorbereitet |
+
+**Zu 6:** Solange `G-XXXXXXXXXX` drinsteht, lädt Google Analytics
+**gar nicht** — auch nach Zustimmung nicht. Das ist Absicht: Ein Banner,
+das Zustimmung einsammelt und dann nichts lädt, ist harmloser als eines,
+das versehentlich vor Vertragsschluss misst.
+
+### Wie die Einwilligung funktioniert
+
+`assets/js/consent.js` fragt beim ersten Besuch. Erst nach Klick auf
+„Einverstanden" wird das Google-Skript nachgeladen — vorher steht kein
+`gtag`-Schnipsel im HTML. Ablehnen ist gleich groß und gleich erreichbar
+(alles andere wäre unwirksam), und der Fußzeilen-Link *Messung-Einstellung*
+(`data-consent-reset`) öffnet die Frage jederzeit erneut.
+
+Gespeichert wird genau ein Wert: `hc.consent` = `granted` | `denied`. Ohne
+ihn müsste bei jedem Aufruf neu gefragt werden; er ist damit nach
+§ 25 Abs. 2 Nr. 2 TDDDG einwilligungsfrei.
+
+### Terminbuchung
+
+Der Knopf im Erstgespräch-Fenster ist ein **ausgehender Link**, keine
+Einbettung. Das ist der Grund, warum dafür keine Einwilligung nötig ist:
+Es werden erst Daten übertragen, wenn jemand dem Link folgt. Eingebettet
+wäre Cal.com ein Drittanbieter im Seitenkontext — dann bräuchte es das
+Banner auch dafür.
+
+Der kostenlose Einzelplatz-Tarif reicht für ein Erstgespräch; die
+Buchungsseite trägt dann Cal.com-Branding und liegt unter `cal.com/…`.
+
+---
+
 ## Domain und Sprach-URLs
 
 ### Die Platzhalter-Domain
