@@ -501,6 +501,39 @@ steht als `.venn--ring .venn__c` — höhere Spezifität als die
 Kontraste mit `--ink`: 9,2–10,4:1 auf den einzelnen Lappen, 6,4–7,8:1 in
 den Überlappungen der Nachbarn.
 
+### Der Ring ist ein Bedienelement
+
+Zeigen auf einen Kreis hebt das Feld hervor (Füllung 0,10 → 0,62, Kontur
+2 → 3 px), blendet die übrigen fünf zurück, schreibt Titel und Kurztext
+des Leistungsfelds in die Bildunterschrift und markiert die zugehörige
+Karte weiter unten. Ein Klick öffnet dasselbe Detailfenster wie die Karte.
+Umgekehrt hebt das Berühren oder Fokussieren einer Karte ihr Feld im Ring
+hervor.
+
+Damit ist der Ring keine Zierde mehr, sondern erschließt die sechs Karten.
+Das ist der Grund, warum die Bewegung hier gerechtfertigt ist: Sie zeigt,
+was sich geändert hat.
+
+**Zwei Umsetzungsdetails, die man leicht falsch macht:**
+
+* Geändert wird `fill-opacity`, **nicht** `opacity`. Letzteres gehört der
+  Einblend-Animation (`pop`/`fade`) — beides gleichzeitig zu benutzen führt
+  zu Kämpfen zwischen Animation und Übergang.
+* Die Tastatur wird **nicht** dupliziert. Die sechs Karten sind bereits
+  Schaltflächen und damit der barrierefreie Weg; sechs zusätzliche
+  Tabstopps auf dieselben Ziele würden die Bedienung verschlechtern. Das
+  SVG bleibt `role="img"`, der Ring ist eine Abkürzung für die Maus. Der
+  Fokus einer Karte spiegelt sich aber im Ring — das ist echte Orientierung.
+
+`prefers-reduced-motion` schaltet die Übergänge ab; die Hervorhebung
+bleibt, weil sie Zustand ist und nicht Dekoration.
+
+**Prüfhinweis:** In einer nicht sichtbaren Registerkarte pausiert Chrome
+CSS-Übergänge (`visibilityState: "hidden"`, `currentTime` bleibt 0). Wer
+die Werte automatisiert misst, bekommt dann immer den Startwert und hält
+die Regel fälschlich für wirkungslos. Zum Messen `transition:none`
+setzen — oder das Fenster in den Vordergrund holen.
+
 Die Beschriftungen sind **einzelne Wörter** (`venn2.a` bis `venn2.f`) und
 müssen in ihren Kreis passen — bei 22 px (Mobil-Schriftgröße) liegt die
 Grenze bei etwa 13 Zeichen. Geprüft wird das im Browser mit:

@@ -409,6 +409,39 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   stroke-opacity:1;
 }
 
+/* ── Der Ring als Bedienelement ────────────────────────────
+   Beim Zeigen tritt ein Feld hervor und die übrigen treten zurück.
+   Das ist keine Zierde: Der Ring erschließt die sechs Karten und die
+   Bildunterschrift wird zur Anzeige. Deshalb wird die Deckkraft der
+   FÜLLUNG geändert (`fill-opacity`) und nicht `opacity` — letzteres
+   gehört der Einblend-Animation und würde mit ihr kollidieren. */
+.venn--ring .venn__c{
+  cursor:pointer;
+  transition:fill-opacity .28s var(--ease), stroke-width .28s var(--ease);
+}
+.venn--ring .venn__labels text{ transition:fill-opacity .28s var(--ease); }
+
+.venn--ring.is-probing .venn__c{ fill-opacity:.10; }
+.venn--ring.is-probing .venn__c.is-active{ fill-opacity:.62; stroke-width:3; }
+.venn--ring.is-probing .venn__labels text{ fill-opacity:.30; }
+.venn--ring.is-probing .venn__labels text.is-active{ fill-opacity:1; }
+.venn--ring.is-probing .venn__core text{ fill-opacity:.25; }
+
+/* Die Bildunterschrift trägt im Ruhezustand den Satz zum Diagramm und
+   beim Zeigen die Angaben zum Feld. Die feste Mindesthöhe verhindert,
+   dass der Text darunter springt. */
+.venn--ring figcaption{ min-height:8.5em; }
+.venn__read b{ display:block; font-family:var(--sans); font-weight:700;
+                font-size:var(--t-sm); color:var(--ink); margin-bottom:.3rem; }
+
+/* Die zugehörige Karte weiter unten quittiert mit. */
+.card.is-linked{ background:var(--white); box-shadow:inset 3px 0 0 var(--brand-deep); }
+
+@media (prefers-reduced-motion:reduce){
+  .venn--ring .venn__c,
+  .venn--ring .venn__labels text{ transition:none; }
+}
+
 .venn__labels text{
   font-family:var(--sans); font-size:19px; font-weight:500;
   fill:var(--ink); text-anchor:middle; letter-spacing:-.01em;

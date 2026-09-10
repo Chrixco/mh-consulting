@@ -442,6 +442,70 @@
     });
   }
 
+  /* ── Der Ring als Legende der sechs Leistungsfelder ───────
+     Zeigen auf einen Kreis hebt das Feld hervor, blendet die übrigen
+     zurück, schreibt Titel und Kurztext in die Bildunterschrift und
+     markiert die zugehörige Karte weiter unten. Ein Klick öffnet
+     dasselbe Detailfenster wie die Karte.
+
+     Tastatur bewusst NICHT dupliziert: Die sechs Karten sind bereits
+     Schaltflächen und damit der barrierefreie Weg. Sechs zusätzliche
+     Tabstopps auf denselben Zielen würden die Bedienung verschlechtern,
+     nicht verbessern — das SVG bleibt deshalb `role="img"`. Der Ring ist
+     eine Abkürzung für die Maus, kein zweiter Pfad. */
+  var ring = document.querySelector('.venn--ring');
+  if (ring) {
+    var ringCap = ring.querySelector('figcaption');
+    var capDefault = ringCap ? ringCap.innerHTML : '';
+
+    function mark(n) {
+      ring.classList.toggle('is-probing', !!n);
+      ring.querySelectorAll('[data-service]').forEach(function (el) {
+        el.classList.toggle('is-active', el.dataset.service === n);
+      });
+      document.querySelectorAll('.card').forEach(function (card) {
+        var b = card.querySelector('.card__more');
+        card.classList.toggle('is-linked', !!n && b && b.dataset.service === n);
+      });
+      if (!ringCap) return;
+      if (!n) { ringCap.innerHTML = capDefault; return; }
+      ringCap.textContent = '';
+      var wrap = document.createElement('span');
+      wrap.className = 'venn__read';
+      var b = document.createElement('b');
+      b.textContent = t('svc.' + n + 't');
+      wrap.appendChild(b);
+      wrap.appendChild(document.createTextNode(t('svc.' + n + 'd')));
+      ringCap.appendChild(wrap);
+    }
+
+    ring.querySelectorAll('.venn__c[data-service]').forEach(function (c) {
+      c.addEventListener('mouseenter', function () { mark(c.dataset.service); });
+      c.addEventListener('click', function () {
+        var btn = document.querySelector('.card__more[data-service="' + c.dataset.service + '"]');
+        if (btn) btn.click();
+      });
+    });
+    ring.addEventListener('mouseleave', function () { mark(null); });
+
+    /* Der Weg zurück: Wer eine Karte anfasst, sieht ihr Feld im Ring.
+       Auch bei Tastaturfokus — dort ist es eine echte Orientierungshilfe. */
+    document.querySelectorAll('.card').forEach(function (card) {
+      var btn = card.querySelector('.card__more');
+      if (!btn) return;
+      var n = btn.dataset.service;
+      function on()  { ring.querySelectorAll('.venn__c[data-service="' + n + '"], .venn__labels [data-service="' + n + '"]')
+                           .forEach(function (el) { el.classList.add('is-active'); });
+                       ring.classList.add('is-probing'); }
+      function off() { ring.classList.remove('is-probing');
+                       ring.querySelectorAll('.is-active').forEach(function (el) { el.classList.remove('is-active'); }); }
+      card.addEventListener('mouseenter', on);
+      card.addEventListener('mouseleave', off);
+      btn.addEventListener('focus', on);
+      btn.addEventListener('blur', off);
+    });
+  }
+
   /* ── Enquiry forms ────────────────────────────────────────
      Two forms share one implementation: the one on the page and the
      one inside the write dialog. Fields are found by name, so the
