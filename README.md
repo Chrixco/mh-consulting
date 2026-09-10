@@ -464,7 +464,9 @@ wieder ein SVG-Diagramm eingesetzt wird.
 Geometrie in `index.html`, fest im SVG: Mittelpunkt (280, 280), Ringradius
 148, Kreisradius 88, sechs Positionen im 60°-Abstand ab oben, im
 Uhrzeigersinn in der Reihenfolge der sechs Karten. Aus `148 − 88 = 60`
-ergibt sich das freie Mittelfeld; dort steht `venn2.core1` / `core2`.
+ergibt sich das freie Mittelfeld; dort steht ein einziges Wort
+(`venn2.core1` — „Wasser" / „Water" / „Agua"). Der frühere zweizeilige
+Eintrag `venn2.core2` ist entfallen.
 
 Eigene Farbtoken (`--venn6-1` bis `--venn6-6`), **nicht** die des
 Hero-Diagramms. Es ist eine **analoge Harmonie** um die Markenfarbe:
