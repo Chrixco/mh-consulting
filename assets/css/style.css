@@ -411,9 +411,17 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .venn__c--r6{ fill:var(--venn6-6); stroke:var(--venn6-6-li); }
 
 /* Jeder Kreis trägt seine eigene Kontur in einer dunkleren Fassung seiner
-   Füllfarbe (Token `--venn6-N-li`). Hier bleibt nur, was für alle gilt. */
+   Füllfarbe (Token `--venn6-N-li`). Hier bleibt nur, was für alle gilt.
+
+   Die Kontur ist auf 0,25 pt festgelegt — als Haarlinie, wie die übrigen
+   Strukturlinien der Seite (`--line`). `vector-effect:non-scaling-stroke`
+   ist dabei die eigentliche Zusage: Ohne die Angabe rechnet das SVG die
+   Strichstärke in Nutzereinheiten der viewBox und skaliert sie mit dem
+   Bild — die Linie würde auf dem Handy dünner als auf dem Desktop. Mit
+   ihr bleibt 0,25 pt überall 0,25 pt, unabhängig von der Anzeigegröße. */
 .venn--ring .venn__c{
-  stroke-width:2;
+  stroke-width:.25pt;
+  vector-effect:non-scaling-stroke;
   stroke-opacity:1;
 }
 
@@ -430,7 +438,7 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .venn--ring .venn__labels text{ transition:fill-opacity .28s var(--ease); }
 
 .venn--ring.is-probing .venn__c{ fill-opacity:.10; }
-.venn--ring.is-probing .venn__c.is-active{ fill-opacity:.62; stroke-width:3; }
+.venn--ring.is-probing .venn__c.is-active{ fill-opacity:.62; stroke-width:1pt; }
 .venn--ring.is-probing .venn__labels text{ fill-opacity:.30; }
 .venn--ring.is-probing .venn__labels text.is-active{ fill-opacity:1; }
 .venn--ring.is-probing .venn__core text{ fill-opacity:.25; }
