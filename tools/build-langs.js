@@ -68,6 +68,7 @@ function build(lang) {
   // 5. Relative Pfade: die Seite liegt eine Ebene tiefer
   h = h.replace(/(href|src)="assets\//g, '$1="../assets/');
   h = h.replace(/href="(impressum|datenschutz)\.html"/g, 'href="../$1.html"');
+  h = h.replace(/href="site\.webmanifest"/g, 'href="../site.webmanifest"');
 
   // 6. Kanonisch, og:url, Sprachkennung
   h = h.replace(/<link rel="canonical" href="[^"]*">/,

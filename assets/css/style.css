@@ -267,8 +267,21 @@ a{ color:inherit; }
   border-bottom:1px solid var(--line);
 }
 
-.wordmark{ text-decoration:none; display:flex; align-items:baseline; gap:.6rem; flex:none;
+.wordmark{ text-decoration:none; display:flex; align-items:center; gap:.6rem; flex:none;
            padding:.55rem 0; }   /* auf 44 px Tap-Höhe gebracht */
+
+/* Die Bildmarke ist ein Quadrat — feste Höhe, damit die Kopfzeile beim
+   Laden nicht springt. */
+.wordmark__mark{ width:2.15rem; height:2.15rem; flex:none; border-radius:5px; }
+@media (max-width:380px){ .wordmark__mark{ width:1.9rem; height:1.9rem; } }
+
+/* 4,5rem: groß genug, dass „consulting" und „Einfach Wasser" lesbar
+   bleiben (unter ~64 px werden sie zu Grafik), klein genug, dass die
+   Fußzeile nicht zur Bildfläche wird. */
+.foot__mark{
+  width:4.5rem; height:4.5rem; flex:none; border-radius:9px;
+  margin-bottom:.8rem;
+}
 .wordmark__name{
   font-weight:700; font-size:1.12rem; letter-spacing:-.035em; color:var(--ink);
   white-space:nowrap;
@@ -810,9 +823,10 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   border-top:1px solid var(--line);
   padding:2.5rem var(--pad);
   max-width:var(--maxw); margin-inline:auto;
-  display:flex; flex-wrap:wrap; align-items:center; gap:1rem 2.5rem;
+  display:flex; flex-wrap:wrap; align-items:flex-start; gap:1.25rem 2.5rem;
 }
-.foot__brand{ display:flex; align-items:baseline; gap:.7rem; }
+.foot__brand{ display:flex; flex-direction:column; align-items:flex-start; }
+.foot__brand > div{ display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap; }
 .foot__brand span:last-child{ font-size:.82rem; font-weight:500; letter-spacing:-.01em; color:var(--brand-deep); }
 .foot__nav{ display:flex; gap:1.75rem; }
 .foot__nav a{

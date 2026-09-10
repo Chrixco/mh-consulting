@@ -535,6 +535,48 @@ document.querySelectorAll('.venn').forEach((v,vi)=>{
 });
 ```
 
+### Logo
+
+Quelle: `assets/img/Logo Cuadrado@300x.png` (2363 × 2363, freigestellt).
+Daraus erzeugt sind alle Ableitungen — beim Austausch des Logos neu bauen:
+
+```bash
+cd assets/img && python3 - <<'EOF'
+from PIL import Image
+src = Image.open('Logo Cuadrado@300x.png').convert('RGBA')
+src = src.crop(src.getbbox())          # transparenten Rand wegschneiden
+def save(px, name, bg=None):
+    im = src.resize((px, px), Image.LANCZOS)
+    if bg:
+        flat = Image.new('RGBA', (px, px), bg); flat.alpha_composite(im); im = flat
+    im.save(name, optimize=True)
+save(1024, 'logo.png')
+save(180, 'apple-touch-icon.png', (29, 29, 27, 255))   # iOS füllt sonst schwarz
+save(192, 'icon-192.png'); save(512, 'icon-512.png')
+save(32, 'favicon-32.png'); save(16, 'favicon-16.png')
+EOF
+```
+
+**Wo es auftaucht:** Kopfzeile (34 px), Fußzeile (72 px), Favicon,
+Apple-Touch-Icon, Web-Manifest, OG-Vorschaubild, JSON-LD (`logo`).
+
+**Die Größe ist keine Geschmacksfrage.** Das Logo trägt „consulting" und
+„Einfach Wasser" in feiner Kursiver mit. Ab etwa 120 px sind beide lesbar,
+bei 64 px wird es knapp, bei 32–40 px sind sie reine Textur — nur „MH"
+bleibt erkennbar. Deshalb:
+
+* **Kopfzeile 34 px** — dort steht der Name daneben in Schrift, das Zeichen
+  muss ihn nicht wiederholen können.
+* **Fußzeile 72 px** — groß genug, dass die Beschriftung mitspielt.
+* **Favicon 16/32 px** — „MH" reicht, mehr braucht ein Favicon nie.
+
+Wer das Zeichen kleiner als 64 px einsetzt, sollte wissen, dass zwei
+Drittel seines Inhalts dann nicht mehr lesbar sind.
+
+**Farbe:** Das Quadrat ist `#1D1D1B`, die Textfarbe der Seite `--ink`
+(`#17211D`). Praktisch nicht zu unterscheiden, aber nicht identisch — wer
+das Logo je auf `--ink` legt, sollte einen der beiden Werte angleichen.
+
 ### Porträtfoto
 
 `assets/img/portrait.jpg` — 490 × 764 px, aus `CV.png` erzeugt (JPEG, Qualität
