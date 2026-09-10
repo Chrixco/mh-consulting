@@ -5,7 +5,7 @@ window.I18N = {
 
 /* ══════════════════════════════ DEUTSCH ══════════════════════════════ */
 de: {
-  "meta.title":"MH Consulting — Ingenieurbüro für Wasser & Umwelt",
+  "meta.title":"MH Consulting — Ingenieurbüro für Wasser & Umwelt | Rosenheim",
   "meta.desc":"MH Consulting berät Kommunen, Wasserversorger und Unternehmen rund um die Ressource Wasser: Grundwasserschutz, Klimaanpassung, Analysen, Projekte, Bildung.",
 
   "brand.claim":"Einfach Wasser.",
@@ -167,8 +167,8 @@ de: {
   "ctc.h2":"Erzählen Sie uns von Ihrem Vorhaben.",
   "ctc.lede":"Ein Erstgespräch von 30 Minuten ist kostenfrei. Danach wissen Sie, ob sich ein Auftrag lohnt — und wir auch.",
   "ctc.mail":"E-Mail","ctc.phone":"Telefon","ctc.addr":"Büro","ctc.profile":"Profil",
-  "ph.mail":"huber@mh-consulting-wasser.de","ph.phone":"[TELEFON EINTRAGEN]",
-  "ph.addr":"[STRASSE NR.]<br>[PLZ] Rosenheim<br>Deutschland",
+  "ph.mail":"huber@mh-consulting-wasser.de","ph.phone":"+49 160 96672854",
+  "ph.addr":"Illerstraße 24a<br>83022 Rosenheim<br>Deutschland",
 
   "frm.name":"Name","frm.org":"Organisation","frm.mail":"E-Mail","frm.topic":"Thema",
   "frm.o0":"Erstes Gespräch",
@@ -360,8 +360,8 @@ en: {
   "ctc.h2":"Tell us about your project.",
   "ctc.lede":"A first 30-minute conversation costs nothing. After it you'll know whether an assignment makes sense — and so will we.",
   "ctc.mail":"Email","ctc.phone":"Phone","ctc.addr":"Office","ctc.profile":"Profile",
-  "ph.mail":"huber@mh-consulting-wasser.de","ph.phone":"[ADD PHONE NUMBER]",
-  "ph.addr":"[STREET NO.]<br>[POSTCODE] Rosenheim<br>Germany",
+  "ph.mail":"huber@mh-consulting-wasser.de","ph.phone":"+49 160 96672854",
+  "ph.addr":"Illerstraße 24a<br>83022 Rosenheim<br>Germany",
 
   "frm.name":"Name","frm.org":"Organisation","frm.mail":"Email","frm.topic":"Topic",
   "frm.o0":"First call",
@@ -553,8 +553,8 @@ es: {
   "ctc.h2":"Cuéntenos su proyecto.",
   "ctc.lede":"Una primera conversación de 30 minutos no cuesta nada. Después sabrá si el encargo tiene sentido — y nosotros también.",
   "ctc.mail":"Correo","ctc.phone":"Teléfono","ctc.addr":"Oficina","ctc.profile":"Perfil",
-  "ph.mail":"huber@mh-consulting-wasser.de","ph.phone":"[AÑADIR TELÉFONO]",
-  "ph.addr":"[CALLE N.º]<br>[CP] Rosenheim<br>Alemania",
+  "ph.mail":"huber@mh-consulting-wasser.de","ph.phone":"+49 160 96672854",
+  "ph.addr":"Illerstraße 24a<br>83022 Rosenheim<br>Alemania",
 
   "frm.name":"Nombre","frm.org":"Organización","frm.mail":"Correo","frm.topic":"Tema",
   "frm.o0":"Primera consulta",

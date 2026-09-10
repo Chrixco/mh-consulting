@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mh-consulting-wasser.de/</loc>
+    <loc>https://mh-consulting-wasser.de/</loc><lastmod>2026-09-10</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://mh-consulting-wasser.de/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://mh-consulting-wasser.de/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mh-consulting-wasser.de/es/"/>
@@ -12,7 +12,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mh-consulting-wasser.de/en/</loc>
+    <loc>https://mh-consulting-wasser.de/en/</loc><lastmod>2026-09-10</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://mh-consulting-wasser.de/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://mh-consulting-wasser.de/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mh-consulting-wasser.de/es/"/>
@@ -20,7 +20,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mh-consulting-wasser.de/es/</loc>
+    <loc>https://mh-consulting-wasser.de/es/</loc><lastmod>2026-09-10</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://mh-consulting-wasser.de/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://mh-consulting-wasser.de/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mh-consulting-wasser.de/es/"/>

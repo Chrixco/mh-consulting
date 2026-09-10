@@ -635,6 +635,54 @@ Drittel seines Inhalts dann nicht mehr lesbar sind.
 (`#17211D`). Praktisch nicht zu unterscheiden, aber nicht identisch — wer
 das Logo je auf `--ink` legt, sollte einen der beiden Werte angleichen.
 
+### Sicherheitsvorgaben
+
+GitHub Pages erlaubt keine eigenen HTTP-Kopfzeilen, deshalb steht die
+**Content-Security-Policy als Meta-Angabe** im `<head>` von `index.html`.
+Sie ist ungewöhnlich streng, weil die Seite fast nichts von außen holt:
+
+* `default-src 'self'` — Skripte, Stile, Schriften und Bilder nur vom
+  eigenen Server.
+* `script-src` erlaubt zusätzlich `googletagmanager.com`, `connect-src`
+  die Analytics-Endpunkte. **Nur deshalb**, weil die Messung nach
+  Zustimmung nachgeladen wird; ohne diese Einträge würde die eigene
+  Vorgabe sie blockieren.
+* `form-action 'none'` — die Formulare senden nirgendwohin, sie bauen eine
+  `mailto:`-Adresse.
+* `frame-ancestors 'none'` — die Seite lässt sich nicht in fremde Rahmen
+  einbetten (Clickjacking).
+
+Dazu `referrer-policy: strict-origin-when-cross-origin`.
+
+**Wer einen externen Dienst einbaut, muss die Liste erweitern** — sonst
+wird er stillschweigend blockiert. Die Browser-Konsole meldet das mit
+„Refused to load…".
+
+### Schriftschnitte: nur anfordern, was ausgeliefert wird
+
+Vorhanden sind **Archivo 500/700**, **Source Serif 4 400/400 kursiv/600**
+und **IBM Plex Mono 400/500** — mehr nicht.
+
+Fordert das Stylesheet einen anderen Wert an, sucht der Browser still den
+nächstgelegenen aus. Genau so sahen die `<b>` im Profil eine Zeit lang aus
+wie Fließtext: angefordert war 500, vorhanden 400 und 600, gewählt wurde
+400 — die Hervorhebung war unsichtbar.
+
+Zwei Vorkehrungen dagegen:
+
+1. Die `@font-face`-Angaben in `assets/fonts/fonts.css` nennen
+   **Bereiche** statt Einzelwerte, die Zuordnung ist damit festgeschrieben
+   statt geraten.
+2. Im Stylesheet steht ein Kommentar mit den verfügbaren Schnitten.
+
+Prüfen lässt sich das im Browser: alle sichtbaren Elemente durchgehen und
+`getComputedStyle(el).fontWeight` gegen die vorhandenen Dateien halten.
+
+**Die `latin-ext`-Dateien bleiben liegen**, obwohl die Seite derzeit kein
+Zeichen daraus benutzt — gemessen: keine einzige wird geladen. Der
+`unicode-range` verhindert das. Sie kosten also nichts und stehen bereit,
+falls einmal Text mit osteuropäischen Zeichen dazukommt.
+
 ### Porträtfoto
 
 `assets/img/portrait.jpg` — 490 × 764 px, aus `CV.png` erzeugt (JPEG, Qualität
@@ -782,10 +830,10 @@ Referenz-Vorlagen indexieren.
 | # | Zu tun | Wo |
 |---|---|---|
 | 1 | `noindex`-Zeile löschen | `index.html`, danach `node tools/build-langs.js` |
-| 2 | Telefon, Straße, PLZ eintragen | `i18n.js` → `ph.*`, beide Rechtstexte |
+| 2 | ~~Telefon, Straße, PLZ~~ | erledigt |
 | 3 | Echte Referenzen statt Vorlagen | `i18n.js` → `prj.*`, danach `prj.note` löschen |
 | 4 | Impressum vervollständigen | Umsatzsteuer, Berufsbezeichnung, Kammer, Haftpflicht |
-| 5 | Aufsichtsbehörde eintragen | `datenschutz.html` |
+| 5 | ~~Aufsichtsbehörde~~ | erledigt: BayLDA Ansbach (Hausnummer prüfen) |
 | 6 | ~~Google-Mess-ID eintragen~~ | erledigt: `G-0WRHW0K8TY` |
 | 7 | **AVV mit Google** abschließen | sonst ist die Messung nicht zulässig |
 | 8 | **Cal.com-Link** eintragen | `index.html` → `id="talk-book"` |

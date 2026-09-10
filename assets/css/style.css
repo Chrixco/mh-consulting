@@ -158,6 +158,17 @@ h3{ font-size:var(--t-h3); letter-spacing:-.02em; line-height:1.2; }
 /* Der Claim bleibt Prosa: kursive Serife neben der Grotesk-Wortmarke. */
 .wordmark__sub{ font-family:var(--serif); font-style:italic; }
 
+/* ── Welche Schriftschnitte es überhaupt gibt ───────────────
+   Ausgeliefert werden nur:
+     Archivo         500, 700
+     Source Serif 4  400, 400 kursiv, 600
+     IBM Plex Mono   400, 500
+   Wer einen anderen Wert anfordert, bekommt stillschweigend den
+   nächstgelegenen — `font-weight:500` auf einer Serife landet also bei
+   400 und sieht aus wie Fließtext, obwohl „halbfett" gemeint war. Genau
+   das war bei den <b> im Profil passiert. Deshalb: nur die obigen Werte
+   verwenden, oder die passende Datei ergänzen. */
+
 /* Messwerte — und wirklich nur die. */
 .mono, .case__figs dd, .gauge__scale span{
   font-family:var(--mono); font-weight:500;
@@ -315,7 +326,7 @@ a{ color:inherit; }
 }
 .wordmark__rule{ width:1.25rem; height:1px; background:var(--brand); align-self:center; }
 .wordmark__sub{
-  font-size:.82rem; font-weight:500; letter-spacing:-.01em;
+  font-size:.82rem; font-weight:400; letter-spacing:-.01em;
   color:var(--brand-deep);
 }
 
@@ -697,7 +708,7 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   border-radius:var(--r);
 }
 .profile__portrait figcaption{ display:flex; flex-direction:column; gap:.35rem; margin-top:1.3rem; }
-.profile__portrait b{ font-weight:700; font-size:1.05rem; letter-spacing:-.03em; }
+.profile__portrait b{ font-weight:600; font-size:1.05rem; letter-spacing:-.03em; }
 .profile__portrait span{ font-size:.74rem; font-weight:400; color:var(--muted); line-height:1.5; }
 
 .profile__text .lead{
@@ -718,12 +729,12 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   padding:1.15rem 0; border-bottom:1px solid var(--line);
 }
 .track__yr{ grid-row:span 2; font-size:.76rem; color:var(--muted); padding-top:.2rem; }
-.track b{ font-weight:500; font-size:1rem; letter-spacing:-.015em; }
+.track b{ font-weight:600; font-size:1rem; letter-spacing:-.015em; }
 .track em{ font-style:normal; font-size:.88rem; color:var(--muted); }
 
 .langs{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:2.5rem; }
 .langs li{ display:flex; flex-direction:column; gap:.25rem; }
-.langs b{ font-weight:500; font-size:.98rem; }
+.langs b{ font-weight:600; font-size:.98rem; }
 .langs span{ font-size:.7rem; color:var(--muted); letter-spacing:.02em; }
 
 .profile__more{ margin:2.5rem 0 0; font-size:.82rem; }
@@ -951,7 +962,7 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 }
 .foot__brand{ display:flex; flex-direction:column; align-items:flex-start; }
 .foot__brand > div{ display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap; }
-.foot__brand span:last-child{ font-size:.82rem; font-weight:500; letter-spacing:-.01em; color:var(--brand-deep); }
+.foot__brand span:last-child{ font-size:.82rem; font-weight:400; letter-spacing:-.01em; color:var(--brand-deep); }
 .foot__nav{ display:flex; gap:1.75rem; }
 .foot__nav a{
   font-size:var(--t-xs); font-weight:500;

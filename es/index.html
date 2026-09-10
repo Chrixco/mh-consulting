@@ -6,6 +6,32 @@
 <title data-i18n="meta.title">MH Consulting — Ingeniería de agua y medio ambiente</title>
 <meta name="description" data-i18n-attr="content:meta.desc" content="MH Consulting asesora a municipios, empresas de abastecimiento y empresas en torno al recurso agua: aguas subterráneas, clima, análisis, proyectos, formación.">
 <meta name="robots" content="noindex,nofollow"><!-- ENTFERNEN VOR DEM ECHTEN START -->
+<!-- Sicherheitsvorgaben als Meta-Angabe. GitHub Pages erlaubt keine
+     eigenen HTTP-Kopfzeilen, deshalb hier — wirkt für alles, was das
+     Dokument selbst nachlädt.
+
+     Die Liste ist so knapp, weil die Seite fast nichts von außen holt:
+     Skripte, Stile, Schriften und Bilder kommen ausschließlich vom
+     eigenen Server. Die beiden Google-Adressen stehen nur da, weil die
+     Reichweitenmessung nach Zustimmung nachgeladen wird — ohne sie würde
+     die eigene Vorgabe sie blockieren.
+
+     `form-action 'none'`: Die Formulare senden nirgendwohin, sie bauen
+     eine mailto-Adresse. `frame-ancestors 'none'` verhindert, dass die
+     Seite in fremde Rahmen eingebettet wird (Clickjacking). -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  base-uri 'self';
+  object-src 'none';
+  frame-ancestors 'none';
+  form-action 'none';
+  img-src 'self' data:;
+  font-src 'self';
+  style-src 'self';
+  script-src 'self' https://www.googletagmanager.com;
+  connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com;
+  upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#00666D">
 
 <!-- Kanonische Adresse ist die .de-Fassung; mh-consulting-wasser.com
@@ -64,9 +90,13 @@
     {"@type": "Country", "name": "Deutschland"},
     {"@type": "Place", "name": "Lateinamerika"}
   ],
+  "telephone": "+49 160 96672854",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Illerstraße 24a",
+    "postalCode": "83022",
     "addressLocality": "Rosenheim",
+    "addressRegion": "Bayern",
     "addressCountry": "DE"
   },
   "hasOfferCatalog": {
@@ -451,8 +481,8 @@
 
         <dl class="contact__list">
           <div><dt data-i18n="ctc.mail">Correo</dt><dd><a href="mailto:huber@mh-consulting-wasser.de" data-i18n="ph.mail">huber@mh-consulting-wasser.de</a></dd></div>
-          <div><dt data-i18n="ctc.phone">Teléfono</dt><dd><a href="tel:+49000000000" data-i18n="ph.phone">[AÑADIR TELÉFONO]</a></dd></div>
-          <div><dt data-i18n="ctc.addr">Oficina</dt><dd data-i18n-html="ph.addr">[CALLE N.º]<br>[CP] Rosenheim<br>Alemania</dd></div>
+          <div><dt data-i18n="ctc.phone">Teléfono</dt><dd><a href="tel:+4916096672854" data-i18n="ph.phone">+49 160 96672854</a></dd></div>
+          <div><dt data-i18n="ctc.addr">Oficina</dt><dd data-i18n-html="ph.addr">Illerstraße 24a<br>83022 Rosenheim<br>Alemania</dd></div>
           <div><dt data-i18n="ctc.profile">Perfil</dt><dd><a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank">LinkedIn</a></dd></div>
         </dl>
       </div>
