@@ -781,17 +781,21 @@ Referenz-Vorlagen indexieren.
 | 3 | Echte Referenzen statt Vorlagen | `i18n.js` → `prj.*`, danach `prj.note` löschen |
 | 4 | Impressum vervollständigen | Umsatzsteuer, Berufsbezeichnung, Kammer, Haftpflicht |
 | 5 | Aufsichtsbehörde eintragen | `datenschutz.html` |
-| 6 | **Google-Mess-ID** eintragen | `assets/js/consent.js` → `G-XXXXXXXXXX` |
+| 6 | ~~Google-Mess-ID eintragen~~ | erledigt: `G-0WRHW0K8TY` |
 | 7 | **AVV mit Google** abschließen | sonst ist die Messung nicht zulässig |
 | 8 | **Cal.com-Link** eintragen | `index.html` → `id="talk-book"` |
 | 9 | **AVV mit Cal.com** abschließen | plus Anbieter in `datenschutz.html` benennen |
 | 10 | Echte Domain setzen | siehe unten, danach `CNAME` anlegen |
 | 11 | Search Console verifizieren | Meta im `<head>` ist auskommentiert vorbereitet |
 
-**Zu 6:** Solange `G-XXXXXXXXXX` drinsteht, lädt Google Analytics
-**gar nicht** — auch nach Zustimmung nicht. Das ist Absicht: Ein Banner,
-das Zustimmung einsammelt und dann nichts lädt, ist harmloser als eines,
-das versehentlich vor Vertragsschluss misst.
+**Die Mess-ID steht nur in `assets/js/consent.js`, nicht als
+`gtag.js`-Schnipsel im HTML.** Das ist der Kern der Sache: Ein Schnipsel im
+`<head>` würde bei jedem Aufruf laden, unabhängig von der Einwilligung.
+Wer die ID später ändert, ändert sie dort — und nirgends sonst.
+
+Als zweite Sicherung prüft `loadGA()` die ID gegen `/^G-[A-Z0-9]{6,}$/`.
+Ohne gültige ID wird nichts geladen, auch nach Zustimmung nicht; ein halb
+eingerichteter Zustand kann so nicht versehentlich messen.
 
 ### Wie die Einwilligung funktioniert
 

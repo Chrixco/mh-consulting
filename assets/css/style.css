@@ -12,14 +12,23 @@
   --brand-soft: #E8F1EE;   /* quiet surface tint */
   --navy:       #16385A;   /* accent — markers, rules, small emphasis */
 
-  /* Venn sets: split-complementary on --brand (hue 184°). The brand keeps
-     the middle set; the other two sit either side of its complement (4°),
-     at 34° and 334°. Hue alone is never the signal — the lightness is
-     stepped as well, so the sets stay apart in greyscale and for
-     colour-blind readers. Greyscale values 130 / 92 / 66. */
-  --venn-1:     #BF6F08;   /* hue  34° — warm, lightest */
-  --venn-2:     #00666D;   /* the brand itself */
-  --venn-3:     #702948;   /* hue 334° — rosé, darkest  */
+  /* Venn sets: Split-Komplementär auf der Marke (Farbton 184°). Die Marke
+     behält die mittlere Menge, die beiden anderen liegen beiderseits ihrer
+     Komplementärfarbe, bei 34° und 334°.
+
+     Der Farbton allein trägt die Unterscheidung nie — die Helligkeit ist
+     mitgestuft, damit die Mengen auch in Graustufen und für farbfehl-
+     sichtige Leser auseinanderfallen. Grauwerte 140 / 72 / 42, also
+     Abstände von 68 und 30. (Die frühere Fassung stand bei 123 / 72 / 66:
+     Betrieb und International lagen 7 Stufen auseinander und fielen im
+     Schwarzweißdruck zusammen.)
+
+     Die Flächen liegen bei 50 % Deckkraft übereinander. Deshalb stehen die
+     Beschriftungen in --ink und nicht in Weiß: Weiß erreicht auf der
+     halbdeckenden Fläche nur 1,8:1 (Behörde) und 2,4:1 (Betrieb). */
+  --venn-1:     #D67F0E;   /* hue  34° — warm, hellste */
+  --venn-2:     #00666D;   /* die Marke selbst */
+  --venn-3:     #4C182F;   /* hue 334° — rosé, dunkelste */
 
   /* Leistungs-Diagramm: sechs Felder als Ring.
      ANALOGE Harmonie um die Markenfarbe — sechs Farbtöne im Abstand von
@@ -458,6 +467,35 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   .venn--ring .venn__labels text{ transition:none; }
 }
 
+/* ── Das Arbeitsfeld-Diagramm (Hero) ───────────────────────
+   Drei gleich große Felder, halbdeckend übereinandergelegt. Die
+   Schnittmengen sind nicht gezeichnet — sie entstehen von selbst aus
+   der Überlagerung. Genau das ist der Grund für das Inline-SVG: In der
+   Bilddatei waren sie eingebacken, hier folgen sie den Farbtoken. */
+.venn--work .venn__c{ fill-opacity:.5; stroke:none; }
+.venn--work .venn__labels text{ font-size:60px; }
+.venn--work .venn__core text{ font-size:100px; fill:var(--white); letter-spacing:-.02em; }
+
+.venn__chip{
+  fill:var(--ink); fill-opacity:.55;
+  stroke:var(--ink); stroke-width:1.5pt; vector-effect:non-scaling-stroke;
+}
+.venn__drop--fill{ fill:var(--white); }
+.venn__drop--line{
+  fill:none; stroke:var(--brand);
+  stroke-width:1pt; vector-effect:non-scaling-stroke;
+}
+
+/* Die Tropfen und das Mittelfeld kommen nach den drei Flächen — erst
+   steht das Argument, dann die Zuspitzung. */
+.js .venn--work .venn__chip{
+  opacity:0; transform:scale(.86);
+  transform-box:fill-box; transform-origin:center;
+}
+.js .venn--work .venn__drops use{ opacity:0; }
+.js .venn--work.is-in .venn__chip{ animation:pop .7s .41s var(--ease) forwards; }
+.js .venn--work.is-in .venn__drops use{ animation:fade .6s .62s ease forwards; }
+
 .venn__labels text{
   font-family:var(--sans); font-size:19px; font-weight:500;
   fill:var(--ink); text-anchor:middle; letter-spacing:-.01em;
@@ -670,6 +708,10 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .langs li{ display:flex; flex-direction:column; gap:.25rem; }
 .langs b{ font-weight:500; font-size:.98rem; }
 .langs span{ font-size:.7rem; color:var(--muted); letter-spacing:.02em; }
+
+.profile__more{ margin:2.5rem 0 0; font-size:.82rem; }
+.profile__more a{ color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:.15rem; }
+.profile__more a:hover, .profile__more a:focus-visible{ color:var(--navy); border-bottom-color:currentColor; }
 
 /* ── Contact ──────────────────────────────────────────────── */
 .band--contact{ border-top:1px solid var(--line); }
@@ -1024,6 +1066,8 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
   *,*::before,*::after{ animation-duration:.001ms !important; animation-delay:0ms !important; transition-duration:.001ms !important; }
   .js [data-reveal]{ opacity:1; transform:none; }
   .js .venn__c{ opacity:1; transform:none; }
+  .js .venn--work .venn__chip{ opacity:1; transform:none; }
+  .js .venn--work .venn__drops use{ opacity:1; }
   .js .venn__labels text, .js .venn__core text{ opacity:1; }
 }
 

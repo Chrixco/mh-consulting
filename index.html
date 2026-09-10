@@ -146,16 +146,59 @@
       </div>
     </div>
 
-    <figure class="venn">
-      <!-- Die von der Auftraggeberin gestaltete Fassung als Bilddatei.
-           Anders als das frühere Inline-SVG ist der Text hier fest im
-           Bild: Er wird nicht mitübersetzt und skaliert nicht mit der
-           Schriftgröße. Der Alternativtext trägt die Aussage deshalb
-           vollständig und wird übersetzt. -->
-      <img class="venn__img" src="assets/img/venn-arbeit.png"
-           width="2363" height="2363" decoding="async" loading="lazy"
-           alt="Behörde, Betrieb und internationale Projektarbeit als drei überlappende Felder; in der gemeinsamen Mitte steht „wir“."
-           data-i18n-attr="alt:venn1.desc">
+    <figure class="venn venn--work">
+      <!-- Die von der Auftraggeberin gestaltete Fassung, aus der PNG-Vorlage
+           als Inline-SVG nachgebaut (Geometrie 1:1 vermessen: drei gleich
+           große Felder von 385 Einheiten, Radius 36).
+
+           Gegenüber der Bilddatei gewinnt diese Fassung dreierlei: Die
+           Beschriftungen werden mitübersetzt (`venn1.a`–`venn1.c`), sie
+           erben die Hausschrift statt sie einzubacken, und die Felder
+           lassen sich einzeln animieren — die Einblend-Regeln für
+           `.venn__c--1/2/3` liegen im Stylesheet bereits vor.
+
+           Die Schrift steht bewusst in --ink und nicht in Weiß: Bei 50 %
+           Deckkraft der Flächen erreicht Weiß nur 1,8:1 (Behörde) bzw.
+           2,4:1 (Betrieb) und ist damit unlesbar. --ink liegt bei 9,3:1
+           bzw. 6,8:1. -->
+      <svg viewBox="190 55 700 890" role="img" aria-labelledby="v1t v1d">
+        <title id="v1t" data-i18n="venn1.title">Behörde, Betrieb und internationale Projektarbeit</title>
+        <desc id="v1d" data-i18n="venn1.desc">Venn-Diagramm mit drei Mengen — Behörde, Betrieb und internationale Zusammenarbeit. Die gemeinsame Schnittmenge ist als Arbeitsfeld hervorgehoben.</desc>
+
+        <defs>
+          <!-- Ein Tropfen, sechsmal verwendet. Kastenmaß 72 × 104. -->
+          <symbol id="drop" viewBox="0 0 72 104">
+            <path d="M36 4C36 4 70 54 70 66C70 84.8 54.8 100 36 100C17.2 100 2 84.8 2 66C2 54 36 4 36 4Z"/>
+          </symbol>
+        </defs>
+
+        <g class="venn__sets">
+          <rect class="venn__c venn__c--1" x="204" y="66"  width="385" height="385" rx="36"/>
+          <rect class="venn__c venn__c--2" x="500" y="278" width="385" height="385" rx="36"/>
+          <rect class="venn__c venn__c--3" x="333" y="547" width="385" height="385" rx="36"/>
+        </g>
+
+        <!-- Tropfen: die weißen liegen auf den Flächen, die offenen daneben. -->
+        <g class="venn__drops" aria-hidden="true">
+          <use class="venn__drop venn__drop--fill" href="#drop" x="319" y="367" width="28" height="40"/>
+          <use class="venn__drop venn__drop--fill" href="#drop" x="706" y="315" width="28" height="40"/>
+          <use class="venn__drop venn__drop--fill" href="#drop" x="730" y="326" width="79" height="113"/>
+          <use class="venn__drop venn__drop--line" href="#drop" x="608" y="141" width="29" height="42"/>
+          <use class="venn__drop venn__drop--line" href="#drop" x="194" y="608" width="81" height="116"/>
+          <use class="venn__drop venn__drop--line" href="#drop" x="260" y="738" width="29" height="42"/>
+        </g>
+
+        <g class="venn__labels">
+          <text x="396" y="248" data-i18n="venn1.a">Behörde</text>
+          <text x="740" y="572" data-i18n="venn1.b">Betrieb</text>
+          <text x="526" y="750" data-i18n="venn1.c">International</text>
+        </g>
+
+        <g class="venn__core">
+          <rect class="venn__chip" x="377" y="377" width="245" height="245" rx="34"/>
+          <text x="500" y="536" data-i18n="venn1.core">wir</text>
+        </g>
+      </svg>
       <figcaption data-i18n="venn1.cap">Genehmigungspraxis, Betriebsrealität und internationale Projektarbeit — wir arbeiten dort, wo sich alle drei überschneiden.</figcaption>
     </figure>
 
@@ -379,24 +422,22 @@
         <ol class="track">
           <li><span class="track__yr" data-i18n="abt.t1y">seit 2023</span><b data-i18n="abt.t1t">Wasserwirtschaftsamt Rosenheim</b><em data-i18n="abt.t1d">Umweltingenieurwesen — Gewässer, Verfahren, Hochwasserschutz</em></li>
           <li><span class="track__yr">2022 – 2023</span><b data-i18n="abt.t2t">Stadtwerke Böhmetal GmbH</b><em data-i18n="abt.t2d">Betriebsingenieurwesen — Versorgungsnetze und Anlagen</em></li>
-          <li><span class="track__yr">2019 – 2022</span><b data-i18n="abt.t3t">GIZ GmbH, Perú</b><em data-i18n="abt.t3d">Junior Advisor — Wasser, Sanitärversorgung, Programmberatung</em></li>
-          <li><span class="track__yr">2018 – 2019</span><b data-i18n="abt.t4t">GIZ GmbH, Eschborn</b><em data-i18n="abt.t4d">SuSanA-Sekretariat — Recherche, Projektdatenbank, Anträge</em></li>
-          <li><span class="track__yr">2016</span><b data-i18n="abt.t5t">UMS AG, München</b><em data-i18n="abt.t5d">Messtechnik — Entwicklung automatischer Bodenerkennung</em></li>
+          <li><span class="track__yr">2018 – 2022</span><b data-i18n="abt.t3t">GIZ GmbH — Perú und Eschborn</b><em data-i18n="abt.t3d">Wasser und Sanitärversorgung — drei Jahre technische Beratung in Lima, zuvor SuSanA-Sekretariat</em></li>
         </ol>
 
         <h3 class="subhead" data-i18n="abt.edu">Ausbildung</h3>
         <ol class="track">
-          <li><span class="track__yr">2016 – 2018</span><b data-i18n="abt.e1t">Chalmers University of Technology, Göteborg</b><em data-i18n="abt.e1d">M.Sc. Infrastructure and Environmental Engineering</em></li>
-          <li><span class="track__yr">2014 – 2015</span><b data-i18n="abt.e2t">Göteborgs universitet</b><em data-i18n="abt.e2d">Austauschstudium — Umweltwissenschaften und Englisch</em></li>
-          <li><span class="track__yr">2012 – 2016</span><b data-i18n="abt.e3t">Technische Universität Braunschweig</b><em data-i18n="abt.e3d">B.Sc. Umweltingenieurwesen</em></li>
+          <li><span class="track__yr">2012 – 2018</span><b data-i18n="abt.e1t">Chalmers University of Technology, Göteborg</b><em data-i18n="abt.e1d">M.Sc. Infrastructure and Environmental Engineering — zuvor B.Sc. Umweltingenieurwesen, TU Braunschweig</em></li>
         </ol>
 
-        <h3 class="subhead" data-i18n="abt.lang">Sprachen</h3>
+        <h3 class="subhead" data-i18n="abt.lang">Arbeitssprachen</h3>
         <ul class="langs">
           <li><b>Deutsch</b><span data-i18n="abt.l1">Muttersprache</span></li>
           <li><b>English</b><span data-i18n="abt.l2">C1 — verhandlungssicher</span></li>
           <li><b>Español</b><span data-i18n="abt.l3">C1 — verhandlungssicher</span></li>
         </ul>
+
+        <p class="profile__more"><a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank" data-i18n="abt.cv">Vollständiger Werdegang auf LinkedIn</a></p>
       </div>
     </div>
   </section>

@@ -14,7 +14,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX';          // ← PLATZHALTER: Mess-ID eintragen
+  var GA_ID = 'G-0WRHW0K8TY';           // Mess-ID der Property
   var KEY   = 'hc.consent';
   var LANGS = window.I18N || {};
   var lang  = (document.documentElement.lang || 'de').slice(0, 2);
@@ -25,7 +25,9 @@
   function write(v){ try { localStorage.setItem(KEY, v); } catch (e) {} }
 
   function loadGA() {
-    if (window.__gaLoaded || GA_ID.indexOf('XXXX') > -1) return;   // Platzhalter: nichts laden
+    // Zweite Sicherung: Ohne gültige Mess-ID wird nichts geladen. So kann
+    // ein halb eingerichteter Zustand nicht versehentlich messen.
+    if (window.__gaLoaded || !/^G-[A-Z0-9]{6,}$/.test(GA_ID)) return;
     window.__gaLoaded = true;
     var s = document.createElement('script');
     s.async = true;
