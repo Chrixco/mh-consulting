@@ -6,6 +6,20 @@
 
   var DICT   = window.I18N || {};
   var LANGS  = ['de', 'en', 'es'];
+  /* Buchungsadresse bei Cal.com. HIER EINTRAGEN — und nur hier.
+
+     Leer gelassen verhält sich der Knopf wie bisher: Er öffnet das
+     Schreibfenster mit der Zeitfenster-Auswahl und heißt „Zeit
+     vorschlagen". Sobald eine Adresse eingetragen ist, wird daraus ein
+     ausgehender Link mit der Beschriftung „Termin auswählen" — dann gibt
+     es echte Verfügbarkeit und die Beschriftung stimmt wieder.
+
+     Bewusst verlinkt und nicht eingebettet: Eingebettet wäre Cal.com ein
+     Drittanbieter im Seitenkontext und bräuchte eine Einwilligung.
+
+     Beispiel: 'https://cal.com/magdalena-huber/erstgespraech' */
+  var CAL_URL = '';
+
   /* Die Sprache steht in <html lang> und wird nicht mehr im Browser
      gemerkt: Jede Sprache hat eine eigene URL (/, /en/, /es/). Das ist
      teilbar, indexierbar — und die Seite legt nichts mehr auf dem Gerät ab. */
@@ -359,11 +373,24 @@
        verspricht eine Terminwahl, also fängt sie dort an. */
     var talkBook = document.getElementById('talk-book');
     if (talkBook) {
-      talkBook.addEventListener('click', function () {
-        var back = talkReturn;
-        closeTalk();
-        openWrite({ returnTo: back, focus: 'slot' });
-      });
+      if (/^https:\/\/cal\.com\/\S+/.test(CAL_URL)) {
+        // Echte Verfügbarkeit: ausgehender Link, passende Beschriftung.
+        var echterLink = document.createElement('a');
+        echterLink.className = talkBook.className;
+        echterLink.id = 'talk-book';
+        echterLink.href = CAL_URL;
+        echterLink.target = '_blank';
+        echterLink.rel = 'noopener';
+        echterLink.setAttribute('data-i18n', 'talk.bookLive');
+        echterLink.textContent = t('talk.bookLive');
+        talkBook.parentNode.replaceChild(echterLink, talkBook);
+      } else {
+        talkBook.addEventListener('click', function () {
+          var back = talkReturn;
+          closeTalk();
+          openWrite({ returnTo: back, focus: 'slot' });
+        });
+      }
     }
 
     talkCta.addEventListener('click', function () {
@@ -550,6 +577,7 @@
      from the sender's own mail client. See README.md to swap in a
      real endpoint. */
   var MAILTO = 'huber@mh-consulting-wasser.de';
+
 
   function fieldsOf(formEl) {
     return {

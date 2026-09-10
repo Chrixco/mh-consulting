@@ -908,6 +908,36 @@ dem EU-US Data Privacy Framework.
 „zu bestätigen" steht, ist die Verarbeitung angreifbar. Sie ist bewusst
 sichtbar markiert, damit sie nicht vergessen wird.
 
+### Den Cal.com-Link eintragen
+
+**Eine Zeile, eine Stelle:** `CAL_URL` ganz oben in `assets/js/main.js`.
+
+```js
+var CAL_URL = 'https://cal.com/BENUTZERNAME/erstgespraech';
+```
+
+Der Knopf im Erstgesprächs-Fenster richtet sich danach:
+
+| `CAL_URL` | Knopf | Verhalten |
+|---|---|---|
+| leer | „Zeit vorschlagen" | öffnet das Schreibfenster bei der Zeitfenster-Auswahl |
+| gesetzt | „Termin auswählen" | ausgehender Link auf Cal.com, neues Fenster |
+
+Die Beschriftung wechselt mit (`talk.book` bzw. `talk.bookLive`, in allen
+drei Sprachen). Danach `node tools/build-langs.js` laufen lassen.
+
+**Warum die Konstante ganz oben steht:** Sie lag zunächst bei den
+Formular-Konstanten in Zeile 579 — der Knopf wird aber schon in Zeile 374
+verdrahtet. `var` wird zwar hochgezogen, die Zuweisung passiert aber erst
+später, also war der Wert dort noch `undefined` und der Link-Zweig lief nie
+an. Das schlug still fehl: Die Adresse stand korrekt in der Datei, der Knopf
+verhielt sich trotzdem wie ohne. Deshalb gehört sie über ihre erste
+Verwendung.
+
+Danach nicht vergessen: Auftragsverarbeitungsvertrag mit Cal.com, deren
+Anschrift in die Tabelle in Abschnitt 5 der Datenschutzerklärung, und eine
+Probebuchung im privaten Fenster — landet der Termin wirklich im Kalender?
+
 ### Wenn es echte Verfügbarkeit sein soll
 
 Dann braucht es einen Buchungsdienst — statisches Hosting steht dem nicht
