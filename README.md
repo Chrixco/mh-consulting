@@ -816,11 +816,24 @@ bei jeder Änderung zu prüfen.**
 
 ## Datenschutz
 
-Die Seite lädt **nichts** von fremden Servern: keine Web-Schriften, keine
-Analytics, keine Cookies, keine Consent-Banner. Es werden ausschließlich
-Systemschriften verwendet. (Die Einbindung von Google Fonts über deren CDN
-gilt in Deutschland seit dem Urteil des LG München I von 2022 als
-abmahnfähig — deshalb wird sie hier bewusst vermieden.)
+Beim ersten Laden holt die Seite **nichts** von fremden Servern. Die
+Schriften liegen als woff2 im Projekt; Google Fonts über deren CDN gilt in
+Deutschland seit dem Urteil des LG München I von 2022 als abmahnfähig und
+wird deshalb bewusst vermieden.
+
+Erst auf ausdrückliche Zustimmung kommen Dritte ins Spiel:
+
+| Dienst | wann | was |
+|---|---|---|
+| GitHub Pages | immer | Auslieferung, Server-Protokolle beim Hoster |
+| E-Mail-Postfach | wenn das Formular abgeschickt wird | Inhalt der Nachricht |
+| Google Analytics | nur nach Klick auf „Einverstanden" | `_ga`-Cookies, Nutzungsstatistik |
+| Cal.com | nur beim Öffnen der Terminbuchung | Name, E-Mail, Wunschtermin |
+
+Maßgeblich ist immer `datenschutz.html`, Abschnitt 5 — dort steht die
+gepflegte Fassung samt Stand der Auftragsverarbeitungsverträge. Diese
+Tabelle hier ist eine Kurzfassung für Entwicklerinnen und kann veralten;
+im Zweifel gilt die Datenschutzerklärung.
 
 Wird später etwas Externes eingebunden — Karten, Videos, Schriftdienste,
 Analytics — muss die Datenschutzerklärung angepasst werden, und je nach Dienst

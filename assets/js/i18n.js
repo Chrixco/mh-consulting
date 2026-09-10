@@ -200,7 +200,7 @@ de: {
   "cns.deny":"Nicht messen","cns.allow":"Einverstanden",
   "cns.reset":"Messung-Einstellung",
   "foot.legal":"Rechtliches","foot.imprint":"Impressum","foot.privacy":"Datenschutz",
-  "foot.note":"© 2026 MH Consulting. Was wann verarbeitet wird, steht in der Datenschutzerklärung."
+  "foot.note":"© 2026 MH Consulting."
 },
 
 /* ══════════════════════════════ ENGLISH ══════════════════════════════ */
@@ -400,7 +400,7 @@ en: {
   "cns.deny":"No analytics","cns.allow":"I agree",
   "cns.reset":"Analytics setting",
   "foot.legal":"Legal","foot.imprint":"Imprint","foot.privacy":"Privacy",
-  "foot.note":"© 2026 MH Consulting. What is processed, and when, is set out in the privacy policy."
+  "foot.note":"© 2026 MH Consulting."
 },
 
 /* ══════════════════════════════ ESPAÑOL ══════════════════════════════ */
@@ -600,7 +600,7 @@ es: {
   "cns.deny":"Sin medición","cns.allow":"De acuerdo",
   "cns.reset":"Ajuste de medición",
   "foot.legal":"Legal","foot.imprint":"Aviso legal","foot.privacy":"Privacidad",
-  "foot.note":"© 2026 MH Consulting. Qué se trata y cuándo, en la política de privacidad."
+  "foot.note":"© 2026 MH Consulting."
 }
 
 };
