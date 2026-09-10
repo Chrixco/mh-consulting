@@ -193,7 +193,7 @@ de: {
   "cns.deny":"Nicht messen","cns.allow":"Einverstanden",
   "cns.reset":"Messung-Einstellung",
   "foot.legal":"Rechtliches","foot.imprint":"Impressum","foot.privacy":"Datenschutz",
-  "foot.note":"© 2026 MH Consulting. Keine Werbung, keine Weitergabe von Daten."
+  "foot.note":"© 2026 MH Consulting. Keine Werbung. Messung nur mit Ihrer Zustimmung."
 },
 
 /* ══════════════════════════════ ENGLISH ══════════════════════════════ */
@@ -386,7 +386,7 @@ en: {
   "cns.deny":"No analytics","cns.allow":"I agree",
   "cns.reset":"Analytics setting",
   "foot.legal":"Legal","foot.imprint":"Imprint","foot.privacy":"Privacy",
-  "foot.note":"© 2026 MH Consulting. No advertising, no sharing of your data."
+  "foot.note":"© 2026 MH Consulting. No advertising. Analytics only with your consent."
 },
 
 /* ══════════════════════════════ ESPAÑOL ══════════════════════════════ */
@@ -579,7 +579,7 @@ es: {
   "cns.deny":"Sin medición","cns.allow":"De acuerdo",
   "cns.reset":"Ajuste de medición",
   "foot.legal":"Legal","foot.imprint":"Aviso legal","foot.privacy":"Privacidad",
-  "foot.note":"© 2026 MH Consulting. Sin publicidad, sin cesión de sus datos."
+  "foot.note":"© 2026 MH Consulting. Sin publicidad. Medición solo con su consentimiento."
 }
 
 };
