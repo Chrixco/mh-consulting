@@ -18,7 +18,7 @@
      Drittanbieter im Seitenkontext und bräuchte eine Einwilligung.
 
      Beispiel: 'https://cal.com/magdalena-huber/erstgespraech' */
-  var CAL_URL = '';
+  var CAL_URL = 'https://cal.com/mh-consulting-wasser/erstgespraech';
 
   /* Die Sprache steht in <html lang> und wird nicht mehr im Browser
      gemerkt: Jede Sprache hat eine eigene URL (/, /en/, /es/). Das ist
