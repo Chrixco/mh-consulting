@@ -820,30 +820,63 @@ Buchungsseite trägt dann Cal.com-Branding und liegt unter `cal.com/…`.
 
 ## Domain und Sprach-URLs
 
-### Die Platzhalter-Domain
+### Domain
 
-Überall steht **`https://www.mh-consulting.de`** als Platzhalter. Sobald die
-echte Domain feststeht, an genau diesen Stellen ersetzen:
+Registriert bei IONOS: **`mh-consulting-wasser.de`** und
+**`mh-consulting-wasser.com`**.
+
+**Die `.de` ist die kanonische Adresse.** Sie steht in `canonical`,
+`hreflang`, `og:url`, JSON-LD, `sitemap.xml` und `robots.txt`. Grund: Die
+Auftraggeber sind deutsche Kommunen und Wasserversorger, die Rechtstexte
+sind deutsches Recht, das Büro sitzt in Deutschland. Die `.com` leitet per
+301 dorthin — die Seite wäre sonst unter zwei Adressen erreichbar, was
+Google als doppelten Inhalt liest und die Bewertung auf zwei Adressen
+aufteilt.
+
+Wer das umdrehen will: In allen Dateien ersetzen und Sprachseiten neu bauen.
 
 ```bash
-grep -rln "www.mh-consulting.de" --include="*.html" --include="*.xml" \
+grep -rln "mh-consulting-wasser\.de" --include="*.html" --include="*.xml" \
   --include="*.txt" --include="*.js" . \
-  | xargs sed -i '' 's|www\.mh-consulting\.de|ECHTE-DOMAIN\.de|g'
-node tools/build-langs.js      # Sprachseiten neu erzeugen
+  | xargs sed -i '' 's|mh-consulting-wasser\.de|NEUE-DOMAIN|g'
+node tools/build-langs.js
 ```
 
-Betroffen sind `index.html` (canonical, hreflang, og:url, JSON-LD),
-`sitemap.xml`, `robots.txt` und `tools/build-langs.js`.
+Danach in GitHub unter *Settings → Pages* die Domain ändern und die
+Weiterleitung bei IONOS umdrehen.
 
-**Die Datei `CNAME` ist bewusst noch nicht angelegt.** GitHub Pages liefert
-die Seite nur noch unter der dort eingetragenen Domain aus — steht die DNS
-nicht, ist die Seite gar nicht erreichbar. Also erst DNS setzen, dann
-`CNAME` mit der Domain anlegen.
+### DNS bei IONOS
 
-`.nojekyll` liegt bereits im Wurzelverzeichnis: Ohne die Datei ignoriert
-GitHub Pages Ordner, deren Name mit einem Unterstrich beginnt.
+Für GitHub Pages sind vier A-Records auf die Wurzel (`@`) nötig und ein
+CNAME für `www`:
 
-### Warum es /en/ und /es/ als eigene Seiten gibt
+| Typ | Name | Wert |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `chrixco.github.io` |
+
+*(Die vier Adressen stehen in GitHubs Dokumentation; vor dem Eintragen
+kurz gegenprüfen, sie haben sich in der Vergangenheit geändert.)*
+
+**Die MX-Einträge nicht anfassen.** Wer bei IONOS ein Postfach nutzt,
+zerschießt mit dem Löschen der MX-Records den E-Mail-Empfang. A-Records
+und MX-Records sind voneinander unabhängig.
+
+**Reihenfolge ist wichtig:** erst DNS setzen, dann in GitHub unter
+*Settings → Pages* die Domain eintragen. GitHub legt dabei die Datei
+`CNAME` im Repository an und liefert die Seite ab dann **nur noch** unter
+der eigenen Domain aus — `chrixco.github.io/mh-consulting/` leitet dorthin
+um. Steht die DNS noch nicht, ist die Seite in der Zwischenzeit gar nicht
+erreichbar. Deshalb liegt hier auch keine `CNAME`-Datei im Repo: Die soll
+GitHub selbst anlegen, wenn es so weit ist.
+
+Zum Schluss *Enforce HTTPS* aktivieren — das Zertifikat stellt GitHub
+kostenlos aus, es dauert nach der DNS-Umstellung einige Minuten.
+
+### Warum es /en/ und /es/ als eigene Seiten gibt### Warum es /en/ und /es/ als eigene Seiten gibt
 
 Vorher wurden die Übersetzungen erst im Browser eingesetzt. Eine
 Suchmaschine sieht kein JavaScript-Ergebnis, sondern das ausgelieferte

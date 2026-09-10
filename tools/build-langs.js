@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const BASE = 'https://www.mh-consulting.de';   // PLATZHALTER-DOMAIN
+const BASE = 'https://mh-consulting-wasser.de';
 const LANGS = { en: 'en_GB', es: 'es_ES' };
 
 global.window = {};
