@@ -39,6 +39,17 @@
   --venn6-4:    #00666D;   /* 184° — Projekte, die Markenfarbe */
   --venn6-5:    #035880;   /* 199° — Bildung */
   --venn6-6:    #0B4898;   /* 214° — International, dunkelster */
+
+  /* Konturen: derselbe Farbton, nur dunkler (Helligkeit x0,66 mit
+     Untergrenze). Die Untergrenze ist nötig, weil die letzten beiden
+     Töne sonst wie Schwarz wirken — der Sinn ist ja, dass jeder Kreis
+     seine eigene Farbe behält. */
+  --venn6-1-li: #05591F;
+  --venn6-2-li: #1C5139;
+  --venn6-3-li: #154A40;
+  --venn6-4-li: #00454A;
+  --venn6-5-li: #023A54;
+  --venn6-6-li: #073064;
   --ink:        #17211D;   /* headings and body */
   --muted:      #5A6A64;   /* secondary text — 5.4:1 on --paper */
   --paper:      #F7F9F8;
@@ -392,19 +403,16 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .venn__c--1{ fill:var(--venn-1); stroke:var(--venn-1); }
 .venn__c--2{ fill:var(--venn-2); stroke:var(--venn-2); }
 .venn__c--3{ fill:var(--venn-3); stroke:var(--venn-3); }
-.venn__c--r1{ fill:var(--venn6-1); stroke:var(--venn6-1); }
-.venn__c--r2{ fill:var(--venn6-2); stroke:var(--venn6-2); }
-.venn__c--r3{ fill:var(--venn6-3); stroke:var(--venn6-3); }
-.venn__c--r4{ fill:var(--venn6-4); stroke:var(--venn6-4); }
-.venn__c--r5{ fill:var(--venn6-5); stroke:var(--venn6-5); }
-.venn__c--r6{ fill:var(--venn6-6); stroke:var(--venn6-6); }
+.venn__c--r1{ fill:var(--venn6-1); stroke:var(--venn6-1-li); }
+.venn__c--r2{ fill:var(--venn6-2); stroke:var(--venn6-2-li); }
+.venn__c--r3{ fill:var(--venn6-3); stroke:var(--venn6-3-li); }
+.venn__c--r4{ fill:var(--venn6-4); stroke:var(--venn6-4-li); }
+.venn__c--r5{ fill:var(--venn6-5); stroke:var(--venn6-5-li); }
+.venn__c--r6{ fill:var(--venn6-6); stroke:var(--venn6-6-li); }
 
-/* Alle sechs Kreise bekommen dieselbe Kontur statt je einer in der eigenen
-   Farbe: Die Füllung trennt die Felder, die Kontur hält sie als Gruppe
-   zusammen — und greift die Linienführung der Bildmarke auf.
-   Höhere Spezifität als die Einzelregeln darüber, deshalb gewinnt sie. */
+/* Jeder Kreis trägt seine eigene Kontur in einer dunkleren Fassung seiner
+   Füllfarbe (Token `--venn6-N-li`). Hier bleibt nur, was für alle gilt. */
 .venn--ring .venn__c{
-  stroke:var(--ink);
   stroke-width:2;
   stroke-opacity:1;
 }

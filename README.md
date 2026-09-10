@@ -492,11 +492,20 @@ weil jeder Kreis seine eigene Beschriftung trägt und über seine
 **Position** erkennbar bleibt — anders als beim Drei-Mengen-Venn, wo man
 Regionen zurückverfolgen muss.
 
-Alle sechs Kreise tragen **dieselbe Kontur** (`--ink`, 2 px) statt je einer
-in der eigenen Farbe. Die Füllung trennt die Felder, die Linie hält sie als
-Gruppe zusammen und greift die Linienführung der Bildmarke auf. Die Regel
-steht als `.venn--ring .venn__c` — höhere Spezifität als die
-`--rN`-Einzelregeln darüber, sonst würde deren `stroke` gewinnen.
+Jeder Kreis trägt seine **eigene Kontur in einer dunkleren Fassung seiner
+Füllfarbe** (Token `--venn6-N-li`, 2 px). Gerechnet als Helligkeit × 0,66
+mit einer Untergrenze — ohne die kippen die letzten beiden Töne optisch
+nach Schwarz, und der Sinn wäre dahin. Kontrast Kontur gegen den eigenen
+Lappen: 5,6–7,7:1.
+
+| Feld | Füllung | Kontur |
+|---|---|---|
+| Grundwasser | `#07872F` | `#05591F` |
+| Klima | `#2B7A57` | `#1C5139` |
+| Analysen | `#207061` | `#154A40` |
+| Projekte | `#00666D` | `#00454A` |
+| Bildung | `#035880` | `#023A54` |
+| International | `#0B4898` | `#073064` |
 
 Kontraste mit `--ink`: 9,2–10,4:1 auf den einzelnen Lappen, 6,4–7,8:1 in
 den Überlappungen der Nachbarn.
@@ -524,6 +533,20 @@ was sich geändert hat.
   Tabstopps auf dieselben Ziele würden die Bedienung verschlechtern. Das
   SVG bleibt `role="img"`, der Ring ist eine Abkürzung für die Maus. Der
   Fokus einer Karte spiegelt sich aber im Ring — das ist echte Orientierung.
+
+**Fokus nach dem Schließen.** Zwei Fallstricke stecken in `restoreFocus()`
+in `main.js`:
+
+1. `focus()` scrollt sein Ziel standardmäßig ins Bild. Wer den Dialog über
+   das Ringdiagramm geöffnet hatte, wurde beim Schließen zu den Karten
+   weiter unten geworfen — deshalb `preventScroll:true`.
+2. `<dialog>` stellt den Fokus beim Schließen **selbst** wieder her, und
+   zwar nach dem `close`-Ereignis. Ein Aufruf direkt im Handler wird
+   überschrieben; er muss einen Frame später kommen (`requestAnimationFrame`).
+
+Über den Ring geöffnet kehrt der Fokus auf die `<figure>` zurück
+(`tabindex="-1"`, also nicht in der Tab-Reihenfolge), über eine Karte auf
+deren Schaltfläche. In beiden Fällen bleibt die Seite stehen, wo sie war.
 
 `prefers-reduced-motion` schaltet die Übergänge ab; die Hervorhebung
 bleibt, weil sie Zustand ist und nicht Dekoration.

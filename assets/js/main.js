@@ -310,7 +310,7 @@
     writeClose.addEventListener('click', closeWrite);
     write.addEventListener('click', function (e) { if (e.target === write) closeWrite(); });
     write.addEventListener('close', function () {
-      if (writeReturn) { writeReturn.focus(); writeReturn = null; }
+      restoreFocus(writeReturn); writeReturn = null;
     });
   }
 
@@ -339,7 +339,7 @@
     talkClose.addEventListener('click', closeTalk);
     talk.addEventListener('click', function (e) { if (e.target === talk) closeTalk(); });
     talk.addEventListener('close', function () {
-      if (talkReturn) { talkReturn.focus(); talkReturn = null; }
+      restoreFocus(talkReturn); talkReturn = null;
     });
 
     document.querySelectorAll('[data-opens-talk]').forEach(function (el) {
@@ -384,9 +384,28 @@
     }
   }
 
-  function openModal(btn) {
+  /* `returnTo` überschreibt, wohin der Fokus nach dem Schließen geht.
+     Wer über das Ringdiagramm öffnet, soll dort bleiben und nicht zu den
+     Karten weiter unten geworfen werden. */
+  /* Fokus nach dem Schließen zurückgeben.
+
+     Zwei Fallstricke, beide hier abgefangen:
+     1. `focus()` scrollt sein Ziel standardmäßig ins Bild. Wer den Dialog
+        über das Ringdiagramm geöffnet hat, wurde dadurch zu den Karten
+        weiter unten geworfen — deshalb `preventScroll`.
+     2. `<dialog>` stellt den Fokus beim Schließen selbst wieder her, und
+        zwar NACH dem `close`-Ereignis. Ein Aufruf direkt im Handler wird
+        also überschrieben; er muss einen Frame später kommen. */
+  function restoreFocus(el) {
+    if (!el) return;
+    requestAnimationFrame(function () {
+      try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
+    });
+  }
+
+  function openModal(btn, returnTo) {
     openService = btn.dataset.service;
-    lastReturn = btn;
+    lastReturn = returnTo || btn;
     fillModal(openService);
     mCta.dataset.topic = btn.dataset.topic;
     if (typeof modal.showModal === 'function') modal.showModal();
@@ -409,7 +428,7 @@
     modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
     modal.addEventListener('close', function () {
       openService = null;
-      if (lastReturn) { lastReturn.focus(); lastReturn = null; }
+      restoreFocus(lastReturn); lastReturn = null;
     });
   }
 
@@ -483,7 +502,7 @@
       c.addEventListener('mouseenter', function () { mark(c.dataset.service); });
       c.addEventListener('click', function () {
         var btn = document.querySelector('.card__more[data-service="' + c.dataset.service + '"]');
-        if (btn) btn.click();
+        if (btn) openModal(btn, ring);
       });
     });
     ring.addEventListener('mouseleave', function () { mark(null); });
