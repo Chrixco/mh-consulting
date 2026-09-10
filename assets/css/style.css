@@ -399,6 +399,16 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .venn__c--r5{ fill:var(--venn6-5); stroke:var(--venn6-5); }
 .venn__c--r6{ fill:var(--venn6-6); stroke:var(--venn6-6); }
 
+/* Alle sechs Kreise bekommen dieselbe Kontur statt je einer in der eigenen
+   Farbe: Die Füllung trennt die Felder, die Kontur hält sie als Gruppe
+   zusammen — und greift die Linienführung der Bildmarke auf.
+   Höhere Spezifität als die Einzelregeln darüber, deshalb gewinnt sie. */
+.venn--ring .venn__c{
+  stroke:var(--ink);
+  stroke-width:2;
+  stroke-opacity:1;
+}
+
 .venn__labels text{
   font-family:var(--sans); font-size:19px; font-weight:500;
   fill:var(--ink); text-anchor:middle; letter-spacing:-.01em;

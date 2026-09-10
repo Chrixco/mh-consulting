@@ -490,6 +490,12 @@ weil jeder Kreis seine eigene Beschriftung trägt und über seine
 **Position** erkennbar bleibt — anders als beim Drei-Mengen-Venn, wo man
 Regionen zurückverfolgen muss.
 
+Alle sechs Kreise tragen **dieselbe Kontur** (`--ink`, 2 px) statt je einer
+in der eigenen Farbe. Die Füllung trennt die Felder, die Linie hält sie als
+Gruppe zusammen und greift die Linienführung der Bildmarke auf. Die Regel
+steht als `.venn--ring .venn__c` — höhere Spezifität als die
+`--rN`-Einzelregeln darüber, sonst würde deren `stroke` gewinnen.
+
 Kontraste mit `--ink`: 9,2–10,4:1 auf den einzelnen Lappen, 6,4–7,8:1 in
 den Überlappungen der Nachbarn.
 
