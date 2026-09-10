@@ -77,14 +77,17 @@ function build(lang) {
   h = h.replace(/<meta property="og:locale" content="[^"]*">/,
                 '<meta property="og:locale" content="' + LANGS[lang] + '">');
 
-  // 7. Aktive Sprache in der Sprachwahl. Der ganze Block wird neu
-  //    geschrieben — Attributreihenfolge ist sonst zu leicht zu verfehlen.
-  h = h.replace(/(<div class="lang"[^>]*>)([\s\S]*?)(<\/div>)/, (m, open, inner, close) => {
-    const links = inner.replace(/\s*aria-current="true"/g, '')
-      .replace(/(<a\s+href="[^"]*"\s+hreflang="([^"]+)")/g,
-               (mm, a, hl) => a + (hl === lang ? ' aria-current="true"' : ''));
-    return open + links + close;
-  });
+  // 7. Sprachwahl komplett neu schreiben. Relative Pfade, damit die Seite
+  //    sowohl unter einer eigenen Domain als auch unter
+  //    benutzer.github.io/repo/ funktioniert.
+  const HREF = { de: '../', en: '../en/', es: '../es/' };
+  HREF[lang] = './';
+  const links = ['de', 'en', 'es'].map(l =>
+    '      <a href="' + HREF[l] + '" hreflang="' + l + '"' +
+    (l === lang ? ' aria-current="true"' : '') + '>' + l.toUpperCase() + '</a>'
+  ).join('\n');
+  h = h.replace(/(<div class="lang"[^>]*>)([\s\S]*?)(<\/div>)/,
+                (m, open, _inner, close) => open + '\n' + links + '\n    ' + close);
 
   // 8. JSON-LD: url und @id auf die Sprachfassung
   h = h.replace(/"@id": "[^"]*#organisation"/, '"@id": "' + BASE + '/#organisation"');

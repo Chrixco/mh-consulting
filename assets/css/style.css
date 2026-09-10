@@ -824,6 +824,32 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
 .foot__note{ margin:0 0 0 auto; font-size:var(--t-xs); color:var(--muted); }
 
 /* ============================================================
+   Einwilligungs-Leiste
+   Unten angedockt statt bildschirmfüllend: Sie soll fragen, nicht
+   erpressen. Beide Schaltflächen sind gleich groß und gleich gut
+   erreichbar — ein Banner, das das Ablehnen versteckt, ist unwirksam.
+   ============================================================ */
+.consent{
+  position:fixed; left:0; right:0; bottom:0; z-index:80;
+  display:flex; flex-wrap:wrap; align-items:center; gap:1rem 1.5rem;
+  padding:1.1rem clamp(1rem,4vw,2.5rem);
+  background:var(--white);
+  border-top:1px solid var(--line-firm);
+  box-shadow:0 -12px 32px -18px rgba(var(--sh),.45);
+}
+.consent__text{
+  margin:0; flex:1 1 28ch; min-width:0;
+  font-size:var(--t-sm); line-height:1.6; color:var(--muted);
+}
+.consent__text a{ color:var(--brand-deep); }
+.consent__actions{ display:flex; gap:.6rem; flex:none; }
+.consent .btn{ padding:.65rem 1.2rem; }
+@media (max-width:520px){
+  .consent__actions{ width:100%; }
+  .consent .btn{ flex:1; text-align:center; }
+}
+
+/* ============================================================
    REVEAL
    ============================================================ */
 .js [data-reveal]{ opacity:0; transform:translateY(16px); }

@@ -6,22 +6,41 @@
 <title>Seite nicht gefunden — MH Consulting</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#00666D">
-<link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2300666D'/%3E%3Cpath d='M4 22h24M4 16h6M4 10h6M16 10h12M16 16h12' stroke='%230E1512' stroke-width='2'/%3E%3C/svg%3E">
+<!-- Bewusst ohne externe Stile: Eine 404 wird für beliebige Pfade
+     ausgeliefert, relative Verweise auf assets/ zeigen dann ins Leere.
+     Die paar Regeln hier stehen deshalb direkt in der Seite. -->
+<style>
+  :root{ --brand-deep:#00666D; --ink:#17211D; --muted:#5A6A64; --paper:#F7F9F8; }
+  body{ margin:0; background:var(--paper); color:var(--ink);
+        font-family:"Source Serif 4",Georgia,serif; line-height:1.72;
+        display:grid; place-items:center; min-height:100vh; padding:2rem; }
+  main{ max-width:44ch; }
+  p.label{ font-style:italic; color:var(--muted); margin:0 0 1rem; }
+  h1{ font-family:Archivo,"Helvetica Neue",Arial,sans-serif; font-weight:700;
+      font-size:clamp(2rem,1.4rem + 2.4vw,3rem); letter-spacing:-.035em;
+      line-height:1.04; margin:0 0 1.2rem; }
+  a.btn{ display:inline-block; margin-top:.6rem; padding:.8rem 1.6rem;
+         background:var(--brand-deep); color:#fff; text-decoration:none;
+         border-radius:4px; font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+         font-size:.9rem; font-weight:500; }
+  a.btn:hover{ background:var(--ink); }
+  nav{ margin-top:2.5rem; font-size:.9rem; }
+  nav a{ color:var(--brand-deep); }
+</style>
 </head>
 <body>
-<main class="legal">
-  <p class="eyebrow">Fehler 404</p>
+<main>
+  <p class="label">Fehler 404</p>
   <h1>Diese Seite gibt es nicht.</h1>
-  <p>Der Link ist entweder veraltet oder enthält einen Tippfehler. Von der
-     Startseite aus finden Sie alles Weitere.</p>
-  <p><a class="btn btn--solid" href="/">Zur Startseite</a></p>
-  <p style="margin-top:2.5rem">
+  <p>Der Link ist entweder veraltet oder enthält einen Tippfehler.
+     Von der Startseite aus finden Sie alles Weitere.</p>
+  <p><a class="btn" href="/">Zur Startseite</a></p>
+  <nav>
     <a href="/#leistungen">Leistungen</a> ·
     <a href="/#kontakt">Kontakt</a> ·
     <a href="/impressum.html">Impressum</a>
-  </p>
+  </nav>
 </main>
 </body>
 </html>

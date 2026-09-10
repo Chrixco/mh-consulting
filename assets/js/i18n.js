@@ -165,7 +165,7 @@ de: {
   "talk.w3":"Wenn es passt, skizzieren wir die nächsten Schritte und den Kostenrahmen.",
   "talk.langLabel":"Sprache",
   "talk.langNote":"Schreiben oder sprechen Sie auf Deutsch, Englisch oder Spanisch — wie es Ihnen am leichtesten fällt.",
-  "talk.cta":"Nachricht schreiben",
+  "talk.book":"Termin auswählen","talk.cta":"Lieber schreiben",
   "talk.alt":"Oder direkt:",
   "talk.soft":"Kein Angebot, keine Verpflichtung, keine Nachfass-E-Mails. Wenn wir nicht die Richtigen sind, sagen wir das — und nennen, wen wir kennen.",
   "ctc.h2":"Erzählen Sie uns von Ihrem Vorhaben.",
@@ -191,8 +191,13 @@ de: {
   "ui.errPrivacy":"Bitte stimmen Sie der Datenschutzerklärung zu.",
   "ui.ok":"Ihr E-Mail-Programm öffnet sich mit der fertigen Anfrage. Bitte noch abschicken.",
 
+  "cns.title":"Reichweitenmessung",
+  "cns.text":"Wir würden gern mit Google Analytics zählen, wie die Seite genutzt wird. Das setzt Cookies und überträgt Daten in die USA — nur mit Ihrer Zustimmung. Die Seite funktioniert ohne genauso.",
+  "cns.more":"Mehr in der Datenschutzerklärung.",
+  "cns.deny":"Nicht messen","cns.allow":"Einverstanden",
+  "cns.reset":"Messung-Einstellung",
   "foot.legal":"Rechtliches","foot.imprint":"Impressum","foot.privacy":"Datenschutz",
-  "foot.note":"© 2026 MH Consulting. Keine Tracker, keine Cookies, keine externen Dienste."
+  "foot.note":"© 2026 MH Consulting. Keine Werbung, keine Weitergabe von Daten."
 },
 
 /* ══════════════════════════════ ENGLISH ══════════════════════════════ */
@@ -357,7 +362,7 @@ en: {
   "talk.w3":"If it fits, we sketch the next steps and a cost range.",
   "talk.langLabel":"Language",
   "talk.langNote":"Write or talk in German, English or Spanish — whichever comes easiest to you.",
-  "talk.cta":"Write a message",
+  "talk.book":"Pick a time","talk.cta":"Write instead",
   "talk.alt":"Or directly:",
   "talk.soft":"No quote, no obligation, no follow-up emails. If we are not the right people for it, we will say so — and point you to someone we know.",
   "ctc.h2":"Tell us about your project.",
@@ -383,8 +388,13 @@ en: {
   "ui.errPrivacy":"Please agree to the privacy notice.",
   "ui.ok":"Your email client is opening with the enquiry ready. Send it to finish.",
 
+  "cns.title":"Analytics",
+  "cns.text":"We would like to use Google Analytics to count how the site is used. That sets cookies and transfers data to the USA — only with your consent. The site works just as well without.",
+  "cns.more":"More in the privacy policy.",
+  "cns.deny":"No analytics","cns.allow":"I agree",
+  "cns.reset":"Analytics setting",
   "foot.legal":"Legal","foot.imprint":"Imprint","foot.privacy":"Privacy",
-  "foot.note":"© 2026 MH Consulting. No trackers, no cookies, no third-party services."
+  "foot.note":"© 2026 MH Consulting. No advertising, no sharing of your data."
 },
 
 /* ══════════════════════════════ ESPAÑOL ══════════════════════════════ */
@@ -549,7 +559,7 @@ es: {
   "talk.w3":"Si encaja, esbozamos los siguientes pasos y un rango de costos.",
   "talk.langLabel":"Idioma",
   "talk.langNote":"Escriba o hable en alemán, inglés o español — lo que le resulte más cómodo.",
-  "talk.cta":"Escribir un mensaje",
+  "talk.book":"Elegir una hora","talk.cta":"Mejor escribir",
   "talk.alt":"O directamente:",
   "talk.soft":"Sin cotización, sin compromiso, sin correos de seguimiento. Si no somos los indicados, se lo diremos — y le sugeriremos a quién conocemos.",
   "ctc.h2":"Cuéntenos su proyecto.",
@@ -575,8 +585,13 @@ es: {
   "ui.errPrivacy":"Acepte el aviso de privacidad para continuar.",
   "ui.ok":"Su programa de correo se abre con la consulta lista. Solo falta enviarla.",
 
+  "cns.title":"Medición de audiencia",
+  "cns.text":"Nos gustaría usar Google Analytics para contar cómo se usa el sitio. Eso instala cookies y transfiere datos a EE. UU. — solo con su consentimiento. El sitio funciona igual sin ello.",
+  "cns.more":"Más en la política de privacidad.",
+  "cns.deny":"Sin medición","cns.allow":"De acuerdo",
+  "cns.reset":"Ajuste de medición",
   "foot.legal":"Legal","foot.imprint":"Aviso legal","foot.privacy":"Privacidad",
-  "foot.note":"© 2026 MH Consulting. Sin rastreadores, sin cookies, sin servicios externos."
+  "foot.note":"© 2026 MH Consulting. Sin publicidad, sin cesión de sus datos."
 }
 
 };

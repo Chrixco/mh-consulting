@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="meta.title">MH Consulting — Ingenieurbüro für Wasser & Umwelt</title>
 <meta name="description" data-i18n-attr="content:meta.desc" content="MH Consulting berät Kommunen, Wasserversorger und Unternehmen rund um die Ressource Wasser: Grundwasserschutz, Klimaanpassung, Analysen, Projekte, Bildung.">
+<meta name="robots" content="noindex,nofollow"><!-- ENTFERNEN VOR DEM ECHTEN START -->
 <meta name="theme-color" content="#00666D">
 
 <!-- PLATZHALTER-DOMAIN: überall https://www.mh-consulting.de ersetzen,
@@ -112,9 +113,9 @@
   <div class="masthead__tools">
     <a class="cta-mini" href="#kontakt" data-opens-talk data-i18n="cta.mini">Erstgespräch</a>
     <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:nav.lang">
-      <a href="/" hreflang="de" aria-current="true">DE</a>
-      <a href="/en/" hreflang="en">EN</a>
-      <a href="/es/" hreflang="es">ES</a>
+      <a href="./" hreflang="de" aria-current="true">DE</a>
+      <a href="en/" hreflang="en">EN</a>
+      <a href="es/" hreflang="es">ES</a>
     </div>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menü" data-i18n-attr="aria-label:nav.menu">
       <span></span><span></span>
@@ -467,6 +468,7 @@
   <nav class="foot__nav" aria-label="Rechtliches" data-i18n-attr="aria-label:foot.legal">
     <a href="impressum.html" data-i18n="foot.imprint">Impressum</a>
     <a href="datenschutz.html" data-i18n="foot.privacy">Datenschutz</a>
+    <a href="#" data-consent-reset data-i18n="cns.reset">Messung-Einstellung</a>
     <a href="https://www.linkedin.com/in/magdalenahuber/" rel="me noopener" target="_blank">LinkedIn</a>
   </nav>
   <p class="foot__note" data-i18n="foot.note">© 2026 MH Consulting. Keine Tracker, keine Cookies, keine externen Dienste.</p>
@@ -557,7 +559,14 @@
     </div>
 
     <div class="modal__foot">
-      <button class="btn btn--solid" id="talk-cta" type="button" data-i18n="talk.cta">Nachricht schreiben</button>
+      <!-- PLATZHALTER: echten Cal.com-Link eintragen, sobald das Konto steht.
+           Bewusst ein ausgehender Link und keine Einbettung — eingebettet
+           wäre Cal.com ein Drittanbieter im Seitenkontext und bräuchte eine
+           Einwilligung. Verlinken braucht keine. -->
+      <a class="btn btn--solid" id="talk-book"
+         href="https://cal.com/xxxx/erstgespraech"
+         rel="noopener" target="_blank" data-i18n="talk.book">Termin auswählen</a>
+      <button class="btn" id="talk-cta" type="button" data-i18n="talk.cta">Lieber schreiben</button>
       <p class="modal__hint">
         <span data-i18n="talk.alt">Oder direkt:</span>
         <a href="mailto:consulting_mhuber@gmx.net" data-i18n="ph.mail">consulting_mhuber@gmx.net</a>
@@ -588,6 +597,7 @@
 </dialog>
 
 <script src="assets/js/i18n.js"></script>
+<script src="assets/js/consent.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
