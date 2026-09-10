@@ -501,15 +501,11 @@ h1{ color:var(--ink); margin:0 0 1.5rem; }
    4,5:1 aus WCAG AA. Wer hier später Lesbarkeit nachrüsten will, hat drei
    Hebel: dunklere Farbtoken, höhere Deckkraft, oder Schrift in --ink. */
 .venn--work .venn__c{ fill-opacity:.5; stroke:none; }
-/* Beschriftungen der Lappen in --ink, NICHT in Weiß. Gemessen auf den
-   Flächen bei 50 % Deckkraft:
-     Behörde       Weiß 1,76:1  gegen --ink 9,36:1
-     Betrieb       Weiß 2,42:1  gegen --ink 6,82:1
-     International Weiß 3,23:1  gegen --ink 5,11:1
-   Bei 60 px gilt die Schwelle für große Schrift (3:1) — zwei der drei
-   fielen mit Weiß durch. Die Mitte ist der umgekehrte Fall: Der dunkle
-   Chip trägt Weiß mit 11,75:1, --ink käme dort auf 1,41:1. */
-.venn--work .venn__labels text{ font-size:60px; fill:var(--ink); }
+/* Beschriftungen in Weiß — ausdrückliche Vorgabe der Auftraggeberin.
+   NICHT ohne Rücksprache auf --ink zurückstellen: Das ist zwar die
+   kontraststärkere Variante, aber eine Gestaltungsentscheidung, die
+   bereits getroffen wurde. Die gemessenen Werte stehen im Block oben. */
+.venn--work .venn__labels text{ font-size:60px; fill:var(--white); }
 .venn--work .venn__core text{ font-size:100px; fill:var(--white); letter-spacing:-.02em; }
 
 .venn__chip{

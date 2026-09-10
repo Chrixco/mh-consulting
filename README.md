@@ -791,6 +791,29 @@ aufräumt, darf keine der beiden Gruppen löschen.
 
 ---
 
+### Die Fußzeile macht keine Zusagen mehr
+
+`foot.note` enthält nur noch Copyright und einen Verweis auf die
+Datenschutzerklärung. **Das ist Absicht.** Die Zeile hat zweimal
+stillschweigend die Unwahrheit gesagt:
+
+1. „Keine Tracker, keine Cookies, keine externen Dienste" — falsch, sobald
+   Google Analytics dazukam.
+2. „Keine Weitergabe von Daten" — falsch, sobald Daten an Google und
+   später an Cal.com gingen.
+
+Beide Male fiel es erst bei einer späteren Durchsicht auf. Eine
+zusammenfassende Aussage im Fuß ist eine Wartungslast: Sie steht weit weg
+von dem, was sie beschreibt, und niemand denkt an sie, wenn ein Dienst
+hinzukommt. Der Verweis auf die Datenschutzerklärung kann dagegen nicht
+veralten — dort steht die Wahrheit gepflegt, inklusive der Tabelle in
+Abschnitt 5.
+
+**Wer dort wieder eine Zusage hineinschreibt, übernimmt die Pflicht, sie
+bei jeder Änderung zu prüfen.**
+
+---
+
 ## Datenschutz
 
 Die Seite lädt **nichts** von fremden Servern: keine Web-Schriften, keine

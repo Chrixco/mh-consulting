@@ -645,14 +645,13 @@
   wireForm(document.getElementById('form'), note);
   wireForm(document.getElementById('write-form'), document.getElementById('write-note'));
 
-  /* ── Year in footer stays accurate ────────────────────── */
+  /* ── Jahreszahl im Fuß bleibt aktuell ──────────────────
+     Der frühere Zuhörer auf `.lang button` ist entfallen: Seit jede
+     Sprache eine eigene Adresse hat, wird nicht mehr im Dokument
+     umgeschaltet, sondern neu geladen — der Aufruf lief also ins Leere. */
   var footNote = document.querySelector('.foot__note');
   if (footNote) {
-    var y = new Date().getFullYear();
-    var sync = function () { footNote.textContent = t('foot.note').replace(/©\s*\d{4}/, '© ' + y); };
-    sync();
-    document.querySelectorAll('.lang button').forEach(function (b) {
-      b.addEventListener('click', function () { requestAnimationFrame(sync); });
-    });
+    footNote.textContent = t('foot.note')
+      .replace(/©\s*\d{4}/, '© ' + new Date().getFullYear());
   }
 })();
