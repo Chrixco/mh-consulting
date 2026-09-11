@@ -96,6 +96,36 @@ function build(lang) {
   return { html: h, replaced, missing: [...new Set(missing)] };
 }
 
+/* ── Wächter: nur eine Empfängeradresse im ganzen Haus ────────────────
+   Die Adresse steht an sechzehn Stellen: im Formularversand, in den
+   Kontaktangaben, im Impressum, in der Datenschutzerklärung und in den
+   Formulartexten. Wird sie einmal geändert und irgendwo vergessen,
+   schickt jemand seine Anfrage ins Leere, ohne dass es auffällt.
+   Deshalb bricht der Bau ab, sobald zwei verschiedene auftauchen. */
+const MAILTO = (fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8')
+  .match(/var MAILTO = '([^']+)'/) || [])[1];
+if (!MAILTO) {
+  console.error('MAILTO in assets/js/main.js nicht gefunden — Wächter kann nicht prüfen.');
+  process.exit(1);
+}
+
+const RE_MAIL = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+const fremde = new Map();
+for (const datei of ['index.html', 'impressum.html', 'datenschutz.html', 'assets/js/i18n.js']) {
+  const text = fs.readFileSync(path.join(ROOT, datei), 'utf8');
+  for (const treffer of text.match(RE_MAIL) || []) {
+    if (treffer !== MAILTO) {
+      if (!fremde.has(treffer)) fremde.set(treffer, new Set());
+      fremde.get(treffer).add(datei);
+    }
+  }
+}
+if (fremde.size) {
+  console.error(`\nFremde E-Mail-Adressen gefunden (erwartet wird ${MAILTO}):`);
+  for (const [adresse, dateien] of fremde) console.error(`  ${adresse} — in ${[...dateien].join(', ')}`);
+  process.exit(1);
+}
+
 let fail = false;
 for (const lang of Object.keys(LANGS)) {
   const { html, replaced, missing } = build(lang);
@@ -107,4 +137,5 @@ for (const lang of Object.keys(LANGS)) {
   if (missing.length) fail = true;
 }
 if (fail) { console.error('\nFehlende Übersetzungen — bitte in i18n.js ergänzen.'); process.exit(1); }
+
 console.log('Fertig.');

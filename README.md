@@ -737,6 +737,25 @@ Vorteil: keine Serverkosten, kein Formular-Dienstleister, keine Cookies.
 Nachteil: es verschickt sich nicht von allein — die Besucherin muss die
 fertige E-Mail in ihrem Programm noch abschicken.
 
+### Warum kein echtes Absenden
+
+Geprüft und verworfen: Der Browser kann keine E-Mail verschicken. SMTP ist
+ihm gesperrt, `<form action="mailto:…">` übergibt ebenfalls nur an das
+lokale Programm (und tut das in Chrome unzuverlässig), und ein Mail-API-
+Schlüssel im Seitencode wäre öffentlich — jeder könnte damit Mails im Namen
+dieser Domain verschicken.
+
+Echtes Absenden bräuchte also einen Rechner, der Code ausführt. GitHub Pages
+liefert nur Dateien aus. Das ist eine bewusste Entscheidung: Der Verzicht
+kostet einen Auftragsverarbeiter weniger.
+
+**Der Preis:** Wer kein E-Mail-Programm eingerichtet hat — etwa mit Gmail im
+Browser —, klickt auf „Anfrage senden" und sieht nichts passieren. Diese
+Anfragen gehen still verloren. Wird das zum Problem, hilft entweder ein
+Formulardienst (neuer Verarbeiter, AVV, Abschnitt 4 der
+Datenschutzerklärung muss umgeschrieben werden) oder ein Auffangnetz: die
+fertige Nachricht nach dem Klick auf der Seite anzeigen, zum Kopieren.
+
 ### Rückweg: E-Mail oder Telefon
 
 Über dem E-Mail-Feld steht die Wahl **„Wie sollen wir uns melden?"**. Sie
@@ -771,7 +790,11 @@ Formulare — Seite und Dialog), `i18n.js` (drei Sprachen) und
 `fieldsOf()` in `main.js`. Und in **Abschnitt 4 der
 Datenschutzerklärung**, die die verarbeiteten Angaben einzeln aufzählt.
 
-Empfängeradresse setzen in `assets/js/main.js`:
+Empfängeradresse setzen in `assets/js/main.js` — **an dieser einen Stelle**.
+`tools/build-langs.js` durchsucht danach `index.html`, `impressum.html`,
+`datenschutz.html` und `i18n.js` und bricht ab, sobald dort eine andere
+Adresse auftaucht. Der Abbruch erfolgt, bevor die Sprachseiten geschrieben
+werden, damit im Fehlerfall nichts Falsches ausgeliefert wird.
 
 ```js
 var MAILTO = 'huber@mh-consulting-wasser.de';
