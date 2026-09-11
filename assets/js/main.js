@@ -688,8 +688,6 @@
 
       var topicLabel = f.topic.options[f.topic.selectedIndex].textContent;
       var subject = '[' + topicLabel + '] ' + f.name.value.trim();
-      // Das Zeitfenster steht nur in der Mail, wenn eines gewählt wurde —
-      // „keine Präferenz" ist keine Information und verlängert sie nur.
       var zeilen = [
         t('frm.name')  + ': ' + f.name.value.trim(),
         t('frm.org')   + ': ' + (f.org.value.trim() || '—'),
@@ -700,7 +698,12 @@
       if (mail) zeilen.push(t('frm.mail')  + ': ' + mail);
       if (tel)  zeilen.push(t('frm.phone') + ': ' + tel);
       zeilen.push(t('frm.topic') + ': ' + topicLabel);
-      if (f.slot && f.slot.value) {
+      /* Das Zeitfenster steht immer in der Mail, auch als „Keine Präferenz".
+         Früher blieb die Zeile dann weg — das war ein Fehlschluss: Beim
+         Lesen ist eine fehlende Zeile nicht von einem übersehenen Feld zu
+         unterscheiden. „Keine Präferenz" heißt dagegen eindeutig, dass ein
+         Terminvorschlag willkommen ist. */
+      if (f.slot) {
         zeilen.push(t('frm.slot') + ' ' +
                     f.slot.options[f.slot.selectedIndex].textContent);
       }

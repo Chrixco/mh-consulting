@@ -783,7 +783,13 @@ zurückweisen und nichts gewinnen.
 
 In der fertigen Mail steht eine Zeile **„Rückmeldung: Per Telefon"** bzw.
 **„Per E-Mail"**, damit beim Lesen sofort klar ist, wie geantwortet werden
-soll. Aufgeführt werden nur ausgefüllte Felder.
+soll. E-Mail-Adresse und Telefonnummer stehen nur da, wenn sie ausgefüllt
+wurden — eine Zeile mit „—" hinter einem freiwilligen Feld sagt nichts.
+
+Das Zeitfenster ist die Ausnahme: Es steht **immer** in der Mail, auch als
+„Keine Präferenz". Eine fehlende Zeile wäre beim Lesen nicht von einem
+übersehenen Feld zu unterscheiden; „Keine Präferenz" heißt dagegen
+eindeutig, dass ein Terminvorschlag willkommen ist.
 
 Wird ein Feld ergänzt, muss es in drei Dateien landen: `index.html` (beide
 Formulare — Seite und Dialog), `i18n.js` (drei Sprachen) und
