@@ -584,11 +584,54 @@
       name:    formEl.querySelector('[name="name"]'),
       org:     formEl.querySelector('[name="org"]'),
       email:   formEl.querySelector('[name="email"]'),
+      phone:   formEl.querySelector('[name="phone"]'),
       topic:   formEl.querySelector('[name="topic"]'),
       slot:    formEl.querySelector('[name="slot"]'),
       message: formEl.querySelector('[name="message"]'),
       privacy: formEl.querySelector('[name="privacy"]')
     };
+  }
+
+  var MAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* Großzügig: Ziffern, Leerzeichen, +, /, -, Klammern und Punkte sind alle
+     übliche Schreibweisen. Entscheidend ist nicht das Format, sondern ob
+     genug Ziffern dastehen, um zurückrufen zu können. */
+  function istTelefon(v) {
+    return /^[+()\/\s.\-\d]+$/.test(v) && v.replace(/\D/g, '').length >= 6;
+  }
+
+  /* Welcher Rückweg ist gewählt? Fehlen die Schalter, gilt E-Mail — das
+     war das Verhalten, bevor es die Wahl gab. */
+  function channelOf(formEl) {
+    var r = formEl.querySelector('[name="contact"]:checked');
+    return r && r.value === 'phone' ? 'phone' : 'mail';
+  }
+
+  function setRequired(el, pflicht) {
+    if (!el) return;
+    if (pflicht) el.setAttribute('required', '');
+    else         el.removeAttribute('required');
+    el.setAttribute('aria-required', pflicht ? 'true' : 'false');
+    /* Eine rote Markierung an einem Feld, das gerade freiwillig geworden
+       ist, verlangt eine Korrektur, die niemand mehr vornehmen muss. */
+    if (!pflicht) el.removeAttribute('aria-invalid');
+  }
+
+  /* Die Pflicht wandert mit der Wahl: Wer einen Rückruf möchte, muss eine
+     Nummer hinterlassen; wer eine Antwort per Mail erwartet, eine Adresse.
+     Das jeweils andere Feld bleibt erlaubt — viele geben beides an, und
+     das ist für die Rückmeldung nur nützlich. Der Hinweis „optional" steht
+     immer am freiwilligen Feld. */
+  function applyChannel(formEl) {
+    var f = fieldsOf(formEl);
+    if (!f.phone) return;                 // Formular ohne Telefonfeld
+    var perTelefon = channelOf(formEl) === 'phone';
+    setRequired(f.email, !perTelefon);
+    setRequired(f.phone,  perTelefon);
+    formEl.querySelectorAll('.field__tag[data-tag]').forEach(function (tag) {
+      tag.hidden = tag.getAttribute('data-tag') === (perTelefon ? 'phone' : 'email');
+    });
   }
 
   function setNote(noteEl, msg, state) {
@@ -599,6 +642,15 @@
 
   function wireForm(formEl, noteEl) {
     if (!formEl) return;
+
+    formEl.querySelectorAll('[name="contact"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        applyChannel(formEl);
+        setNote(noteEl, '', '');   // alte Rüge zum alten Rückweg verwerfen
+      });
+    });
+    applyChannel(formEl);
+
     formEl.addEventListener('submit', function (e) {
       e.preventDefault();
       formEl.querySelectorAll('[aria-invalid]').forEach(function (el) {
@@ -612,10 +664,26 @@
         if (el) { el.setAttribute('aria-invalid', 'true'); el.focus(); }
       }
 
+      var perTelefon = channelOf(formEl) === 'phone';
+      var mail = f.email ? f.email.value.trim() : '';
+      var tel  = f.phone ? f.phone.value.trim() : '';
+
       if (!f.name.value.trim())    return fail(t('ui.errRequired'), f.name);
       if (!f.message.value.trim()) return fail(t('ui.errRequired'), f.message);
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim()))
-        return fail(t('ui.errMail'), f.email);
+
+      /* Das gewählte Feld ist Pflicht, das andere wird nur geprüft, wenn
+         etwas darin steht — sonst würde ein Tippfehler in einer freiwilligen
+         Angabe das Absenden blockieren. */
+      if (perTelefon) {
+        if (!tel)                        return fail(t('ui.errPhoneReq'), f.phone);
+        if (!istTelefon(tel))            return fail(t('ui.errPhone'), f.phone);
+        if (mail && !MAIL_RE.test(mail)) return fail(t('ui.errMail'), f.email);
+      } else {
+        if (!mail)                       return fail(t('ui.errMailReq'), f.email);
+        if (!MAIL_RE.test(mail))         return fail(t('ui.errMail'), f.email);
+        if (tel && !istTelefon(tel))     return fail(t('ui.errPhone'), f.phone);
+      }
+
       if (!f.privacy.checked)      return fail(t('ui.errPrivacy'), f.privacy);
 
       var topicLabel = f.topic.options[f.topic.selectedIndex].textContent;
@@ -625,9 +693,13 @@
       var zeilen = [
         t('frm.name')  + ': ' + f.name.value.trim(),
         t('frm.org')   + ': ' + (f.org.value.trim() || '—'),
-        t('frm.mail')  + ': ' + f.email.value.trim(),
-        t('frm.topic') + ': ' + topicLabel
+        t('frm.reply') + ': ' + t(perTelefon ? 'frm.howPhone' : 'frm.howMail')
       ];
+      // Nur angeben, was auch angegeben wurde — eine Zeile mit „—" hinter
+      // einem freiwilligen Feld sagt nichts und verlängert die Mail nur.
+      if (mail) zeilen.push(t('frm.mail')  + ': ' + mail);
+      if (tel)  zeilen.push(t('frm.phone') + ': ' + tel);
+      zeilen.push(t('frm.topic') + ': ' + topicLabel);
       if (f.slot && f.slot.value) {
         zeilen.push(t('frm.slot') + ' ' +
                     f.slot.options[f.slot.selectedIndex].textContent);

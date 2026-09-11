@@ -664,9 +664,32 @@
           <label for="f-org" data-i18n="frm.org">Organisation</label>
           <input id="f-org" name="org" type="text" autocomplete="organization">
         </div>
+        <div class="field field--wide choice" role="group" aria-labelledby="f-how-label">
+          <span class="choice__legend" id="f-how-label" data-i18n="frm.how">How should we get back to you?</span>
+          <div class="choice__row">
+            <span class="choice__opt">
+              <input id="f-how-mail" name="contact" type="radio" value="mail" checked>
+              <label for="f-how-mail" data-i18n="frm.howMail">By email</label>
+            </span>
+            <span class="choice__opt">
+              <input id="f-how-phone" name="contact" type="radio" value="phone">
+              <label for="f-how-phone" data-i18n="frm.howPhone">By phone</label>
+            </span>
+          </div>
+        </div>
         <div class="field">
-          <label for="f-mail" data-i18n="frm.mail">Email</label>
-          <input id="f-mail" name="email" type="email" autocomplete="email" required>
+          <span class="field__head">
+            <label for="f-mail" data-i18n="frm.mail">Email</label>
+            <em class="field__tag" data-tag="email" data-i18n="frm.optional" hidden>optional</em>
+          </span>
+          <input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true">
+        </div>
+        <div class="field">
+          <span class="field__head">
+            <label for="f-phone" data-i18n="frm.phone">Phone</label>
+            <em class="field__tag" data-tag="phone" data-i18n="frm.optional">optional</em>
+          </span>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-required="false">
         </div>
         <div class="field">
           <label for="f-topic" data-i18n="frm.topic">Topic</label>
@@ -681,10 +704,10 @@
             <option value="sonstiges" data-i18n="frm.o7">Something else</option>
           </select>
         </div>
-        <div class="field field--wide">
+        <div class="field">
           <label for="f-slot" data-i18n="frm.slot">When suits you?</label>
           <select id="f-slot" name="slot">
-            <option value="" data-i18n="frm.s0" selected>No preference — suggest something</option>
+            <option value="" data-i18n="frm.s0" selected>No preference</option>
             <option value="vormittags" data-i18n="frm.s1">Morning (9–12)</option>
             <option value="mittags" data-i18n="frm.s2">Midday (12–14)</option>
             <option value="nachmittags" data-i18n="frm.s3">Afternoon (14–17)</option>
@@ -752,9 +775,32 @@
         <label for="w-org" data-i18n="frm.org">Organisation</label>
         <input id="w-org" name="org" type="text" autocomplete="organization">
       </div>
+      <div class="field field--wide choice" role="group" aria-labelledby="w-how-label">
+        <span class="choice__legend" id="w-how-label" data-i18n="frm.how">How should we get back to you?</span>
+        <div class="choice__row">
+          <span class="choice__opt">
+            <input id="w-how-mail" name="contact" type="radio" value="mail" checked>
+            <label for="w-how-mail" data-i18n="frm.howMail">By email</label>
+          </span>
+          <span class="choice__opt">
+            <input id="w-how-phone" name="contact" type="radio" value="phone">
+            <label for="w-how-phone" data-i18n="frm.howPhone">By phone</label>
+          </span>
+        </div>
+      </div>
       <div class="field">
-        <label for="w-mail" data-i18n="frm.mail">Email</label>
-        <input id="w-mail" name="email" type="email" autocomplete="email" required>
+        <span class="field__head">
+          <label for="w-mail" data-i18n="frm.mail">Email</label>
+          <em class="field__tag" data-tag="email" data-i18n="frm.optional" hidden>optional</em>
+        </span>
+        <input id="w-mail" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true">
+      </div>
+      <div class="field">
+        <span class="field__head">
+          <label for="w-phone" data-i18n="frm.phone">Phone</label>
+          <em class="field__tag" data-tag="phone" data-i18n="frm.optional">optional</em>
+        </span>
+        <input id="w-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-required="false">
       </div>
       <div class="field">
         <label for="w-topic" data-i18n="frm.topic">Topic</label>
@@ -769,10 +815,10 @@
           <option value="sonstiges" data-i18n="frm.o7">Something else</option>
         </select>
       </div>
-        <div class="field field--wide">
+        <div class="field">
           <label for="w-slot" data-i18n="frm.slot">When suits you?</label>
           <select id="w-slot" name="slot">
-            <option value="" data-i18n="frm.s0" selected>No preference — suggest something</option>
+            <option value="" data-i18n="frm.s0" selected>No preference</option>
             <option value="vormittags" data-i18n="frm.s1">Morning (9–12)</option>
             <option value="mittags" data-i18n="frm.s2">Midday (12–14)</option>
             <option value="nachmittags" data-i18n="frm.s3">Afternoon (14–17)</option>

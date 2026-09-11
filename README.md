@@ -737,6 +737,40 @@ Vorteil: keine Serverkosten, kein Formular-Dienstleister, keine Cookies.
 Nachteil: es verschickt sich nicht von allein — die Besucherin muss die
 fertige E-Mail in ihrem Programm noch abschicken.
 
+### Rückweg: E-Mail oder Telefon
+
+Über dem E-Mail-Feld steht die Wahl **„Wie sollen wir uns melden?"**. Sie
+verschiebt, welches Feld Pflicht ist:
+
+| gewählt | Pflicht | freiwillig |
+|---|---|---|
+| Per E-Mail *(Vorauswahl)* | E-Mail-Adresse | Telefonnummer |
+| Per Telefon | Telefonnummer | E-Mail-Adresse |
+
+Das freiwillige Feld trägt sichtbar den Hinweis „optional" — gekennzeichnet
+wird die Ausnahme, nicht die Regel. Umgesetzt in `applyChannel()`: sie setzt
+`required` und `aria-required` um, blendet den Hinweis um und nimmt die rote
+Markierung von dem Feld, das gerade freiwillig geworden ist.
+
+Das freiwillige Feld wird **nur geprüft, wenn etwas darin steht**. Sonst
+würde ein Tippfehler in einer Angabe, die niemand verlangt hat, das
+Absenden blockieren.
+
+Die Telefonprüfung ist absichtlich großzügig (`istTelefon()`): Ziffern,
+Leerzeichen, `+`, `/`, `-`, Klammern und Punkte sind alle übliche
+Schreibweisen. Entscheidend ist nur, ob mindestens sechs Ziffern dastehen —
+genug, um zurückzurufen. Ein strengeres Muster würde korrekte Nummern
+zurückweisen und nichts gewinnen.
+
+In der fertigen Mail steht eine Zeile **„Rückmeldung: Per Telefon"** bzw.
+**„Per E-Mail"**, damit beim Lesen sofort klar ist, wie geantwortet werden
+soll. Aufgeführt werden nur ausgefüllte Felder.
+
+Wird ein Feld ergänzt, muss es in drei Dateien landen: `index.html` (beide
+Formulare — Seite und Dialog), `i18n.js` (drei Sprachen) und
+`fieldsOf()` in `main.js`. Und in **Abschnitt 4 der
+Datenschutzerklärung**, die die verarbeiteten Angaben einzeln aufzählt.
+
 Empfängeradresse setzen in `assets/js/main.js`:
 
 ```js
